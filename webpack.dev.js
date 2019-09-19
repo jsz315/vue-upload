@@ -1,6 +1,7 @@
 const merge = require("webpack-merge");
 const webpack = require('webpack');
 const http = require('./config/http');
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
 
 function getConfig(){
     const baseConfig = require("./webpack.base");
@@ -8,7 +9,8 @@ function getConfig(){
         // Provides process.env.NODE_ENV with value development. Enables NamedChunksPlugin and NamedModulesPlugin.
         mode: 'development',
         // 开启调试模式
-        devtool: "cheap-module-eval-source-map",
+        // devtool: "cheap-module-eval-source-map",
+        devtool: "eval-source-map",
         plugins: [
             new webpack.DefinePlugin({
                 PATH: http.dev.PATH,
@@ -20,16 +22,9 @@ function getConfig(){
             new webpack.NoEmitOnErrorsPlugin()
         ]
     });
-    // config.entry.index.push('webpack-hot-middleware/client');
-    for(let i in config.entry){
-        config.entry[i].push('webpack-hot-middleware/client');
-    }
-    if(config.entry.vendor){
-        config.entry.vendor.push('webpack-hot-middleware/client');
-    }
-    else{
-        config.entry.vendor = ['webpack-hot-middleware/client'];
-    }
+    // for(let i in config.entry){
+    //     config.entry[i].unshift(hotMiddlewareScript);
+    // }
     return config;
 }
 module.exports = getConfig;

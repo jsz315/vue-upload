@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
 
 const walk = function(dir) {
     var results = []
@@ -48,9 +48,6 @@ const getEntry = function(apps){
     apps.forEach(item => {
         var key = item.split("/").pop()
         obj[key] = [item + "/index.js"];
-        if(isDev){
-            obj[key].unshift(hotMiddlewareScript);
-        }
     })
     return obj
 }
@@ -75,7 +72,6 @@ const getCopy = function(apps){
     })
 }
 
-const isDev = process.argv[process.argv.length - 2] == 'serve'
 const apps = getApps(process.argv[process.argv.length - 1])
 
 const global = {

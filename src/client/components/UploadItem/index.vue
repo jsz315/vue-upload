@@ -75,7 +75,7 @@ export default {
 
                 var item = this.addFile(file);
 
-                var observable = qiniu.upload(dt.files[i], key, this.token, putExtra, config);
+                var observable = qiniu.upload(file, key, this.token, putExtra, config);
                 var observer = {
                     next(res){
                         var n = Math.floor(res.total.percent);
@@ -144,13 +144,10 @@ export default {
         box.addEventListener("dragover", this.onDrag, false);
         box.addEventListener("dragleave", this.onDragLeave, false);
         box.addEventListener("drop", this.onDrop, false);
-
-
-
-        axios.get("/token").then(res=>{
-            console.log(res);
-            this.token = res;
-        })
+        // axios.get("/token").then(res=>{
+        //     console.log(res);
+        //     this.token = res;
+        // })
     }
 };
 </script>
