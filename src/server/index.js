@@ -10,6 +10,7 @@ const hotMiddleware = require('./hotMiddleware');
 const opn = require('opn');
 const app = new Koa()
 const router = new Router()
+const tokenTooler = require('./tokenTooler');
 
 init(getIPAddress(), 8899);
 
@@ -26,15 +27,21 @@ function init(host, port) {
 		publicPath: config.output.publicPath
 	}));
 
-	app.use(hotMiddleware(compiler, {
-		reload: true
-	}));
+	// app.use(hotMiddleware(compiler, {
+	// 	reload: true
+	// }));
 
 	app.use(static(
 		path.join(__dirname, '../../static')
 	))
 
-	app.use(cors())
+	app.use(cors({
+		origin: function (ctx) {
+			return "*";
+		},
+		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+		maxAge: 5
+	}))
 
 	app.use(router.routes(), router.allowedMethods())
 
@@ -43,8 +50,7 @@ function init(host, port) {
 			cb(null, path.join(__dirname, '../../static/upload'))
 		},
 		filename: function (req, file, cb) {
-			const ext = (file.originalname).split(".").pop();
-			cb(null, Date.now() + "." + ext);
+			cb(null, file.originalname);
 		}
 	})
 
@@ -53,7 +59,6 @@ function init(host, port) {
 	});
 
 	router.post('/upload', upload.single('file'), async (ctx, next) => {
-		console.log('abc')
 		ctx.set('Access-Control-Allow-Origin', '*');
 		ctx.body = {
 			filename: ctx.req.file.filename
@@ -62,6 +67,12 @@ function init(host, port) {
 
 	router.get("/abc", async (ctx, next) => {
 		ctx.body = "abc";
+	})
+
+	router.get("/token", async (ctx, next) => {
+		var token = tokenTooler.getToken();
+		console.log(token);
+		ctx.body = token;
 	})
 
 	app.listen(port, host)
