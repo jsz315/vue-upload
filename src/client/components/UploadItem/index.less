@@ -1,0 +1,47 @@
+.upload-item {
+    padding: 20px;
+}
+
+.box {
+    height: 64px;
+    line-height: 64px;
+    background: #efefef;
+    border-radius: 8px;
+    border: dotted #0f5792 2px;
+    font-size: 20px;
+    color: rgb(116, 7, 218);
+    transition: all 300ms;
+    text-align: center;
+    &.enter{
+        background: #92e0ff;
+    }
+}
+
+.list{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    .item{
+        width: 180px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        .img{
+            display: block;
+            width: 100%;
+            height: 150px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: #ebebeb;
+        }
+        .name{
+            text-align: center;
+            margin: 8px 0;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    
+}
