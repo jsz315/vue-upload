@@ -5,8 +5,8 @@
         <div class="btn">浏览</div>
     </div>
     <div class="right">
-            <UploadItem />
-            <FileView />
+        <UploadItem />
+        <FileView />
     </div>
   </div>
 </template>
@@ -22,6 +22,6 @@ export default {
 }
 </script>
 
-<style lang="less">
-
+<style lang="less" scoped>
+@import url("./index.less");
 </style>

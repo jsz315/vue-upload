@@ -22,5 +22,5 @@ http://py325bkfy.bkt.clouddn.com/c/a2/timg5.jpeg
 //     console.log(item);
 //     sqlTooler.insert(item);
 // })
-
+// sqlTooler.selectAll();
 sqlTooler.selectPath("http://py325bkfy.bkt.clouddn.com/");

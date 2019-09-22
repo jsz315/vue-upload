@@ -1,5 +1,9 @@
 <template>
     <div class="upload-item">
+        <div class="path">
+            <div class="label">上传目录：</div>
+            <input class="txt" />
+        </div>
         <div class="box" :class="{enter}" ref="box">拖拽文件上传</div>
         <div class="list">
             <div class="item" v-for="(item, index) in files" :key="index">
@@ -106,10 +110,10 @@ export default {
             // console.log(res);
             this.token = res.data;
 
-            var file = new Blob( [ 'jjj' ], { type: 'text/plain' } );
-            file.name = "test.txt";
-            var item = this.addFile(file);
-            this.startUpload(file, item);
+            // var file = new Blob( [ 'jjj' ], { type: 'text/plain' } );
+            // file.name = "test.txt";
+            // var item = this.addFile(file);
+            // this.startUpload(file, item);
         })
     }
 };

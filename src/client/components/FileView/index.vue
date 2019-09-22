@@ -2,8 +2,8 @@
     <div class="upload-item">
         <div class="list">
             <div class="item" v-for="(item, index) in files" :key="index">
-                <div class="img" :style="{'background-image': 'url(' + item.src + ')'}"></div>
-                <div class="name">{{item.name}}</div>
+                <div class="img" :style="{'background-image': 'url(' + getImg(item) + ')'}"></div>
+                <div class="name">{{item}}</div>
             </div>
         </div>
     </div>
@@ -19,20 +19,33 @@ import qiniuTooler from '@/client/js/qiniuTooler'
 export default {
     data() {
         return {
-            enter: false,
-            files: [],
-            token: null
+            files: []
         };
     },
     components: {
         ProgressView
     },
     methods: {
-        
+        getImg(url){
+            if(url.match(/\.(jpe?g|png|gif)$/i)){
+                return 'http://py325bkfy.bkt.clouddn.com/' + url;
+            }
+            else if(url.match(/\.(gltf|glb|fbx)$/i)){
+                return '/asset/img/3d.png'
+            }
+            else{
+                return '/asset/img/folder.png'
+            }
+        }
     },
 
     mounted() {
-        
+        axios.get("/dir", {
+            params: {path: 'http://py325bkfy.bkt.clouddn.com/'}
+        }).then(res => {
+            console.log(res.data);
+            this.files = res.data;
+        });
     }
 };
 </script>

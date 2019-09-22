@@ -11,6 +11,7 @@ const opn = require('opn');
 const app = new Koa()
 const router = new Router()
 const tokenTooler = require('./tokenTooler');
+const sqlTooler = require('./sqlTooler');
 
 init(getIPAddress(), 8899);
 
@@ -74,7 +75,13 @@ function init(host, port) {
         console.log("获取token：");
 		console.log(token);
 		ctx.body = token;
-	})
+    })
+    
+    router.get("/dir", async (ctx, next) => {
+        console.log(ctx.request.query.path);
+        let res = await sqlTooler.selectPath(ctx.request.query.path)
+        ctx.body = JSON.stringify(res);
+    })
 
 	app.listen(port, host)
 

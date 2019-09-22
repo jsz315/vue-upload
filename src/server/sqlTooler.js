@@ -68,23 +68,36 @@ const selectPath = function(path){
     var  sql = `
         SELECT DISTINCT
         IFNULL(SUBSTRING_INDEX(SUBSTR(path,
-                        LENGTH('${path}') + 1),
-                        '/',
-                        1),
-                SUBSTR(path,
-                    LENGTH('${path}') + 1))
+                LENGTH('${path}') + 1),
+                '/',
+                1),
+            SUBSTR(path,
+                LENGTH('${path}') + 1)) as cpath
         FROM
             qiniu.asset
         WHERE
             path LIKE '${path}%';
     `;
-    connection.query(sql, (err, result) => {
-        if(err){
-            console.log(err.message);
-            return;
-        }
-        console.log('INSERT ID: ', result);     
-    });
+    return new Promise(resolve => {
+        connection.query(sql, (err, result, fields) => {
+            if(err){
+                console.log(err.message);
+                return;
+            }
+            // var t1 = JSON.stringify(result);
+            // var t2 = JSON.parse(t1);
+            console.log(Object.values(result));
+            var list = [];
+            for(var i = 0; i < result.length; i++){
+                for(var j in result[i]){
+                    console.log('INSERT ID: ', result[i][j]);
+                    list.push(result[i][j]);
+                }
+            }
+            resolve(list);
+        });
+    })
+    
 }
 
 module.exports = {
