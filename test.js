@@ -1,75 +1,26 @@
-const path = require('path')
-const fs = require('fs')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const glob = require('glob')
+var sqlTooler = require('./src/server/sqlTooler');
 
-const walk = function(dir) {
-    var results = []
-    var list = fs.readdirSync(dir)
-    list.forEach(function(file) {
-        file = path.join(dir, file)
-        var stat = fs.statSync(file)
-        if (stat && stat.isDirectory()){
-            results = results.concat(walk(file))
-        }
-        else{
-            results.push(file)
-        }
-    })
-    return results
-}
+var str = `
+http://py325bkfy.bkt.clouddn.com/all.jpeg
+http://py325bkfy.bkt.clouddn.com/a/pic.jpeg
+http://py325bkfy.bkt.clouddn.com/a/a1/timg1.jpeg
+http://py325bkfy.bkt.clouddn.com/a/a2/timg2.jpeg
+http://py325bkfy.bkt.clouddn.com/a/a3/timg3.jpeg
 
-const getApps = function(app){
-    const list = walk(path.join(__dirname, 'src'))
-    const r = new RegExp("src\\\\.*" + app)
-    let aim = []
-    list.forEach(item => {
-        var match = r.exec(item);
-        if(match){
-            if(aim.indexOf(match[0]) == -1){
-                aim.push(match[0])
-            }
-        }
-    })
+http://py325bkfy.bkt.clouddn.com/b/a1/timg1.jpeg
+http://py325bkfy.bkt.clouddn.com/b/a2/timg2.jpeg
+http://py325bkfy.bkt.clouddn.com/b/a3/timg3.jpeg
 
-    if(aim.length == 0){
-        throw new Error("没有找到项目")
-    }
-    aim = aim.map(item => {
-        return "./" + item.replace(/\\/g,"/")
-    })
-    return aim
-}
+http://py325bkfy.bkt.clouddn.com/c/a1/timg1.jpeg
+http://py325bkfy.bkt.clouddn.com/c/a1/timg2.jpeg
+http://py325bkfy.bkt.clouddn.com/c/a1/timg4.jpeg
+http://py325bkfy.bkt.clouddn.com/c/a2/timg5.jpeg
+`
 
-const getEntry = function(apps){
-    var obj = {};
-    apps.forEach(item => {
-        var key = item.split("/").pop()
-        obj[key] = item + "/index.js"
-    })
-    return obj
-}
+// var list = str.match(/http.*\S/g);
+// list.forEach(item => {
+//     console.log(item);
+//     sqlTooler.insert(item);
+// })
 
-const getHtml = function(apps){
-    return apps.map(item => {
-        var key = item.split("/").pop()
-        return new HtmlWebpackPlugin({
-            filename: `${key}.html`,
-            template: item + `/index.html`
-        })
-    })
-}
-
-const apps = getApps(process.argv[process.argv.length - 1])
-const global = {
-    entry: getEntry(apps),
-    html: getHtml(apps)
-}
-
-// let as = process.argv[process.argv.length - 1]
-// const entryFiles = glob.sync(path.join(__dirname, "src") + '/*/' + as);
-// console.log(entryFiles);
-
-console.log(global)
-
-// export default global
+sqlTooler.selectPath("http://py325bkfy.bkt.clouddn.com/");

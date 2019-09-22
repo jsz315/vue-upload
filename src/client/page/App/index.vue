@@ -1,15 +1,23 @@
 <template>
   <div class="container">
-    <UploadItem />
+    <div class="left">
+        <div class="btn">上传</div>
+        <div class="btn">浏览</div>
+    </div>
+    <div class="right">
+            <UploadItem />
+            <FileView />
+    </div>
   </div>
 </template>
 
 <script>
 import UploadItem from '@/client/components/UploadItem/index.vue'
+import FileView from '@/client/components/FileView/index.vue'
 
 export default {
   components: {
-    UploadItem
+    UploadItem, FileView
   }
 }
 </script>
