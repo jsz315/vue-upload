@@ -1,24 +1,28 @@
 <template>
   <div class="container">
     <div class="left">
-        <div class="btn">上传</div>
+        <div class="btn" @click="toggle">上传</div>
         <div class="btn">浏览</div>
     </div>
     <div class="right">
-        <UploadItem />
-        <FileView />
+        <UploadItem ref="UploadItem" />
     </div>
   </div>
 </template>
 
 <script>
 import UploadItem from '@/client/components/UploadItem/index.vue'
-import FileView from '@/client/components/FileView/index.vue'
 
 export default {
   components: {
-    UploadItem, FileView
-  }
+    UploadItem
+  },
+  methods: {
+    toggle(){
+        this.$refs.UploadItem.toggle();
+    }
+  },
+
 }
 </script>
 

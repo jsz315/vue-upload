@@ -39,19 +39,23 @@ const test = function(){
 }
 
 const insert = function(url){
-    var list = url.split("/");
-    var name = list.pop();
+    // var list = url.split("/");
+    // var name = list.pop();
     var  sql = 'INSERT INTO `qiniu`.`asset`(`path`, `type`) VALUES(?, ?)';
     var  param = [url, 0];
     // INSERT INTO `qiniu`.`asset`(`path`, `name`, `type`) VALUES ('http://py325bkfy.bkt.clouddn.com/', 't1.jpg', 0);
-    
-    connection.query(sql, param, (err, result) => {
-        if(err){
-            console.log(err.message);
-            return;
-        }
-        console.log('INSERT ID: ', result);     
-    });
+    return new Promise(resolve => {
+        connection.query(sql, param, (err, result) => {
+            if(err){
+                console.log(err.message);
+                resolve(false);
+                return;
+            }
+            console.log('INSERT ID: ', result); 
+            resolve(true);    
+        });
+    })
+   
 }
 
 const selectAll = function(url){
@@ -69,11 +73,11 @@ const selectPath = function(path){
     var  sql = `
         SELECT DISTINCT
         IFNULL(SUBSTRING_INDEX(SUBSTR(path,
-                LENGTH('${path}') + 1),
+                CHAR_LENGTH('${path}') + 1),
                 '/',
                 1),
             SUBSTR(path,
-                LENGTH('${path}') + 1)) as cpath
+                CHAR_LENGTH('${path}') + 1)) as cpath
         FROM
             qiniu.asset
         WHERE

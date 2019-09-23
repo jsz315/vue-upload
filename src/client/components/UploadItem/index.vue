@@ -3,11 +3,20 @@
         <div class="path">
             <div class="label">上传目录：</div>
             <input class="txt" v-model="path" />
+            <div class="jump" @click="showDir">进入</div>
         </div>
-        <div class="box" :class="{enter}" ref="box">拖拽文件上传</div>
+        <div class="path">
+            <div class="label">路径：</div>
+            <div class="links">
+                <div class="link" @click="changePath(item.link)" v-for="item in links" :data-link="item.link">{{item.label}}</div>
+            </div>
+        </div>
+        <div class="box" :class="{enter}" ref="box" v-if="canUpload">拖拽文件上传</div>
         <div class="list">
             <div class="item" v-for="(item, index) in files" :key="index">
-                <div class="img" :style="{'background-image': 'url(' + item.src + ')'}" @click="preview(item.name)"></div>
+                <div class="img-box" @click="preview(item.name)">
+                    <img class="img" :src="item.src"/>
+                </div>
                 <div class="name">{{item.name}}</div>
                 <div class="fresh" :style="{'background-image': 'url(' + freshImg + ')'}" v-if="item.exist" @click="rewrite(item)"></div>
                 <progress-view class="loading" :num="item.percentage" v-if="item.loading"></progress-view>
@@ -25,6 +34,7 @@ import ProgressView from '@/client/components/ProgressView/index.vue'
 import qiniuTooler from '@/client/js/qiniuTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
+import pathTooler from '@/client/js/pathTooler'
 
 export default {
     data() {
@@ -32,8 +42,10 @@ export default {
             enter: false,
             files: [],
             token: null,
-            path: "model/",
-            freshImg: config.LINK.FRESH
+            path: "/model/",
+            freshImg: config.LINK.FRESH,
+            canUpload: true,
+            links: []
         };
     },
     components: {
@@ -61,43 +73,30 @@ export default {
             var dt = e.dataTransfer;
             for (let i = 0; i < dt.files.length; i++) {
                 var file = dt.files[i];
-                // var item = this.addFile(file);
                 var item = this.addItem(file);
                 this.startUpload(item);
                 
             }
         },
-        addFile(file){
-            var item = {
-                            name: file.name,
-                            percentage: 0,
-                            loading: true,
-                            exist: false,
-                            file: file
-                        };
-            console.log(file);
-            var fileType = typeTooler.checkType(file.name);
-            if(fileType == config.FILE_TYPE.IMAGE){
-                item.src = config.LINK.IMAGE;
-                var fr = new FileReader();
-                fr.readAsDataURL(file);
-                fr.onload = () => {
-                    item.src = fr.result;
-                };
-            }
-            else if(fileType == config.FILE_TYPE.MODEL){
-                item.src = config.LINK.MODEL;
-                item.isModel = true;
-            }
-            else{
-                item.src = config.LINK.UNKNOW;
-            }
-            this.files.push(item);
-            return item;
+        
+        toggle(){
+            this.canUpload = !this.canUpload;
         },
 
-        startUpload(item){
-            qiniuTooler.start(item.file, item, this.path, this.token);
+        changePath(url){
+            this.path = url;
+            this.showDir();
+        },
+
+        async startUpload(item){
+            var suc = await qiniuTooler.start(item.file, item, this.path, this.token);
+            if(suc){
+                axios.get("/insert", {
+                    params: {url: `${config.HOST}${this.path}${item.name}`}
+                }).then(res => {
+                    console.log(res.data);
+                });
+            }
         },
 
         async rewrite(item){
@@ -125,17 +124,24 @@ export default {
                 window.open(url);
             }
             else if(fileType == config.FILE_TYPE.FOLDER){
-                
+                this.path = `${this.path}${name}/`;
+                this.showDir();
             }
         },
         showDir(){
+            if(this.path.substr(-1) != "/"){
+                this.path = this.path + "/";
+            }
+            this.files = [];
+            this.links = pathTooler.getPath(`${this.path}`);
+
             axios.get("/dir", {
-                params: {path: `${config.HOST}${this.path}${name}/`}
+                params: {path: `${config.HOST}${this.path}`}
             }).then(res => {
                 console.log(res.data);
                 var list = res.data;
                 list.forEach(item => {
-                    addItem(item);
+                    console.log(this.addItem(item));
                 })
             });
         },
@@ -153,7 +159,7 @@ export default {
             var item = {
                             name: fname,
                             percentage: 0,
-                            loading: true,
+                            loading: isFile,
                             exist: false,
                             file: isFile ? obj : null
                         };
@@ -168,7 +174,7 @@ export default {
                     };
                 }
                 else{
-                    item.src = `${config.HOST}${this.path}${name}`;
+                    item.src = `${config.HOST}${this.path}${fname}`;
                 }
             }
             else if(fileType == config.FILE_TYPE.MODEL){
@@ -202,6 +208,8 @@ export default {
             // var item = this.addFile(file);
             // this.startUpload(file, item);
         })
+
+        this.showDir();
     }
 };
 </script>

@@ -46,12 +46,7 @@ export default {
     },
 
     mounted() {
-        axios.get("/dir", {
-            params: {path: 'http://py325bkfy.bkt.clouddn.com/'}
-        }).then(res => {
-            console.log(res.data);
-            this.files = res.data;
-        });
+        
     }
 };
 </script>

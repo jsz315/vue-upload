@@ -5,7 +5,7 @@ const FILE_TYPE = {
     FOLDER: 3
 }
 
-const HOST = "http://py325bkfy.bkt.clouddn.com/";
+const HOST = "http://py325bkfy.bkt.clouddn.com";
 
 const LINK = {
     UNKNOW: "/asset/img/file.png",

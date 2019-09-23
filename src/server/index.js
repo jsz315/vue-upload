@@ -84,6 +84,12 @@ function init(host, port) {
         ctx.body = JSON.stringify(res);
     })
 
+    router.get("/insert", async (ctx, next) => {
+        console.log(ctx.request.query.url);
+        let res = await sqlTooler.insert(ctx.request.query.url);
+        ctx.body = res ? "insert success" : "insert fail";
+    })
+
 	app.listen(port, host)
 
 	let url = `http://${getIPAddress()}:${port}`;
