@@ -1,5 +1,6 @@
 var qiniu = require('qiniu')
 
+var bucket = "three-js-model";
 
 // const getToken = function(){
 
@@ -19,12 +20,12 @@ var qiniu = require('qiniu')
 
 // module.exports = {getToken};
 
-const getToken = function(){
+const getToken = function(key){
     let accessKey = 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w';
     let secretKey = 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK';
     let mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
     let options = {
-        scope: 'three-js-model', //七牛资源目录
+        scope: key ? (bucket + ':' + key) : bucket, //七牛资源目录
         deadline: Date.now() + 3600 * 1000
     };
     let putPolicy = new qiniu.rs.PutPolicy(options);

@@ -21,7 +21,8 @@ function resetConnect() {
       }
    
       if (err.code !== 'PROTOCOL_CONNECTION_LOST') {
-        throw err;
+        console.log(err);
+        return "无法连接数据库";
       }
    
       console.log('重新链接数据库');

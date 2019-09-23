@@ -71,7 +71,8 @@ function init(host, port) {
 	})
 
 	router.get("/token", async (ctx, next) => {
-        var token = tokenTooler.getToken();
+		console.log(ctx.request.query);
+        var token = tokenTooler.getToken(ctx.request.query.key);
         console.log("获取token：");
 		console.log(token);
 		ctx.body = token;

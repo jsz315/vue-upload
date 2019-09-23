@@ -15,6 +15,8 @@ import axios from 'axios';
 import * as qiniu from 'qiniu-js';
 import ProgressView from '@/client/components/ProgressView/index.vue'
 import qiniuTooler from '@/client/js/qiniuTooler'
+import config from '@/client/js/config'
+import typeTooler from '@/client/js/typeTooler'
 
 export default {
     data() {
@@ -27,14 +29,18 @@ export default {
     },
     methods: {
         getImg(url){
-            if(url.match(/\.(jpe?g|png|gif)$/i)){
-                return 'http://py325bkfy.bkt.clouddn.com/' + url;
+            var fileType = typeTooler.checkType(url);
+            if(fileType == config.FILE_TYPE.IMAGE){
+                return config.HOST + url;
             }
-            else if(url.match(/\.(gltf|glb|fbx)$/i)){
-                return '/asset/img/3d.png'
+            else if(fileType == config.FILE_TYPE.MODEL){
+                return config.LINK.MODEL;
+            }
+            else if(fileType == config.FILE_TYPE.FOLDER){
+                return config.LINK.FOLDER;
             }
             else{
-                return '/asset/img/folder.png'
+                return config.LINK.UNKNOW;
             }
         }
     },
