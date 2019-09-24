@@ -53,7 +53,13 @@ export default {
             this.$store.commit('changeCopyFiles', list, this.$store.state.path);
         },
         pasteItem(){
-
+            var copyDir = this.$store.state.copyDir;
+            var copyFiles = this.$store.state.copyFiles;
+            var keys = copyFiles.map(item => {
+                var key = item.name;
+                return key;
+            })
+            qiniuTooler.copyFile(keys, copyDir, this.$store.state.path);
         }
     },
 

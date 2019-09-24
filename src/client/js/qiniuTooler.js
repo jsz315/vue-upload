@@ -74,8 +74,12 @@ function copyFolder(){
 
 }
 
-function copyFile(){
-
+function copyFile(names, srcPath, destPath){
+    axios.post("/copyFile", {
+        params: {names, srcPath, destPath}
+    }).then(res => {
+        console.log(res.data);
+    });
 }
 
 function getKey(url){
@@ -90,5 +94,5 @@ export default {
     deleteFolder, 
     deleteFile,
     copyFolder,
-    copyFiles,
+    copyFile,
 }

@@ -127,25 +127,25 @@ const deleteFile = function(key){
 }
 
 const copyFolder = function(key){
-    let link = config.HOST + "/" + key;
-    return new Promise(resolve => {
-        var sql = `delete from qiniu.asset where path like "${link}%"`;
-        connection.query(sql, function(error, results, fields){
-            if (error) throw error;
-            resolve(true);
-        })
-    })
+    // let link = config.HOST + "/" + key;
+    // return new Promise(resolve => {
+    //     var sql = `delete from qiniu.asset where path like "${link}%"`;
+    //     connection.query(sql, function(error, results, fields){
+    //         if (error) throw error;
+    //         resolve(true);
+    //     })
+    // })
 }
 
 const copyFile = function(key){
-    let link = config.HOST + "/" + key;
-    return new Promise(resolve => {
-        var sql = `delete from qiniu.asset where path="${link}"`;
-        connection.query(sql, function(error, results, fields){
-            if (error) throw error;
-            resolve(true);
-        })
-    })
+    // let link = config.HOST + "/" + key;
+    // return new Promise(resolve => {
+    //     var sql = `delete from qiniu.asset where path="${link}"`;
+    //     connection.query(sql, function(error, results, fields){
+    //         if (error) throw error;
+    //         resolve(true);
+    //     })
+    // })
 
 }
 

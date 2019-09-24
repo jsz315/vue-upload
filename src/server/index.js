@@ -3,6 +3,7 @@ const multer = require('koa-multer')
 const Router = require('koa-router')
 const cors = require('koa-cors')
 const static = require('koa-static')
+const bodyparser = require('koa-bodyparser')
 const path = require('path')
 const webpack = require('webpack');
 const devMiddleware = require('./devMiddleware');
@@ -42,7 +43,9 @@ function init(host, port) {
 		},
 		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
 		maxAge: 5
-	}))
+    }))
+    
+    app.use(bodyparser());
 
 	app.use(router.routes(), router.allowedMethods())
 
@@ -111,10 +114,11 @@ function init(host, port) {
         ctx.body = res ? "copyFolder success" : "copyFolder fail";
     })
 
-    router.get("/copyFile", async (ctx, next) => {
-        let key = ctx.request.query.url;
-        let res = await sqlTooler.copyFile(key);
-        qiniuTooler.copyFile(key);
+    router.post("/copyFile", async (ctx, next) => {
+        console.log(ctx.request.body.params);
+        let params = ctx.request.body.params;
+        let res = await sqlTooler.copyFile();
+        qiniuTooler.copyFile(params.names, params.srcPath, params.destPath);
         ctx.body = res ? "copyFile success" : "copyFile fail";
     })
 

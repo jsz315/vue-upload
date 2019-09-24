@@ -44,9 +44,9 @@ const mutations = {
         })
     },
 
-    changeCopyFiles(state, copyFiles, copyDir){
-        state.copyDir = copyDir;
+    changeCopyFiles(state, copyFiles){
         state.copyFiles = copyFiles;
+        state.copyDir = state.path;
     }
 }
 

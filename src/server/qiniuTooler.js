@@ -55,16 +55,43 @@ const deleteFolder = async function(key){
     }
 }
 
-const copyFile = function(key){
+const copyFile = function(names, srcPath, destPath){
     return new Promise(resolve => {
-        bucketManager.delete(config.bucket, key, function(err, ret) {
-            if (!err) {
-                // ok
-                console.log("删除成功：" + key);
-                resolve(true);
-            } else {
+        var srcBucket = config.bucket;
+        var destBucket = config.bucket;
+        //每个operations的数量不可以超过1000个，如果总数量超过1000，需要分批发送
+        var copyOperations = [
+            // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu1.mp4'),
+            // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu2.mp4'),
+            // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu3.mp4'),
+            // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu4.mp4'),
+        ];
+        console.log(names);
+        names.forEach(item => {
+            var srcKey = getKey(srcPath + item);
+            var destKey = getKey(destPath + item);
+            var item = qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
+            copyOperations.push(item);
+        })
+        bucketManager.batch(copyOperations, function(err, respBody, respInfo) {
+            if (err) {
                 console.log(err);
-                resolve(false);
+                //throw err;
+            } else {
+                // 200 is success, 298 is part success
+                if (parseInt(respInfo.statusCode / 100) == 2) {
+                    respBody.forEach(function(item) {
+                        if (item.code == 200) {
+                            console.log(item.code + "\tsuccess");
+                            resolve();
+                        } else {
+                            console.log(item.code + "\t" + item.data.error);
+                        }
+                    });
+                } else {
+                    console.log(respInfo.deleteusCode);
+                    console.log(respBody);
+                }
             }
         });
     })
@@ -120,6 +147,13 @@ const getFiles = function(prefix){
             resolve({items, nextMarker});
         });
     })
+}
+
+function getKey(url){
+    if(url[0] == "/"){
+        return url.substr(1);
+    }
+    return url;
 }
 
 module.exports = {
