@@ -3,7 +3,7 @@
         <div class="path">
             <div class="label">上传目录：</div>
             <input class="txt" v-model="path" />
-            <div class="jump" @click="showDir">进入</div>
+            <div class="jump" @click="jump">进入</div>
         </div>
         <div class="path">
             <div class="label">路径：</div>
@@ -43,6 +43,9 @@ export default {
             }
             this.$store.commit('changePath', this.path);
             this.showDir();
+        },
+        jump(){
+            this.changePath(this.path);
         },
         showDir(){
             var path = this.$store.state.path;

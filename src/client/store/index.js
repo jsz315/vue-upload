@@ -8,7 +8,9 @@ const state = {
     isUpload: true,
     files: [],
     path: "/",
-    token: ""
+    token: "",
+    copyDir: "",
+    copyFiles: []
 }
 
 const mutations = {
@@ -40,6 +42,11 @@ const mutations = {
         state.files.forEach(item => {
             item.selected = selected;
         })
+    },
+
+    changeCopyFiles(state, copyFiles, copyDir){
+        state.copyDir = copyDir;
+        state.copyFiles = copyFiles;
     }
 }
 

@@ -55,6 +55,35 @@ const deleteFolder = async function(key){
     }
 }
 
+const copyFile = function(key){
+    return new Promise(resolve => {
+        bucketManager.delete(config.bucket, key, function(err, ret) {
+            if (!err) {
+                // ok
+                console.log("删除成功：" + key);
+                resolve(true);
+            } else {
+                console.log(err);
+                resolve(false);
+            }
+        });
+    })
+}
+
+const copyFolder = async function(key){
+    var res = await getFiles(key);
+    res.items.forEach(item => {
+        deleteFile(item.key);
+    })
+    if(res.nextMarker){
+        console.log("----------------继续删除----------------");
+        deleteFolder(key);
+    }
+    else{
+        console.log("----------------删除完毕----------------");
+    }
+}
+
 const getFiles = function(prefix){
     // @param options   列举操作的可选参数
     // prefix           列举的文件前缀，为空则删除根目录下的所有文件
@@ -95,7 +124,9 @@ const getFiles = function(prefix){
 
 module.exports = {
     getToken,
-    deleteFile,
     getFiles,
-    deleteFolder
+    deleteFile,
+    deleteFolder,
+    copyFile,
+    copyFolder
 };

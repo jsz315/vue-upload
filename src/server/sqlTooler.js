@@ -1,13 +1,13 @@
 const mysql = require("mysql");
 
-const config = require('./config').databaseConfig;
+const config = require('./config');
 
 let connection;
 resetConnect();
 
 function resetConnect() {
     if(!connection){
-        connection = mysql.createConnection(config);
+        connection = mysql.createConnection(config.databaseConfig);
     }
     connection.connect();
     connection.on('error', function(err) {
@@ -103,23 +103,50 @@ const selectPath = function(path){
     
 }
 
-const deleteFolder = function(item, path, token){
+const deleteFolder = function(key){
+    let link = config.HOST + "/" + key;
+    return new Promise(resolve => {
+        var sql = `delete from qiniu.asset where path like "${link}%"`;
+        connection.query(sql, function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
+}
+
+const deleteFile = function(key){
+    let link = config.HOST + "/" + key;
+    return new Promise(resolve => {
+        var sql = `delete from qiniu.asset where path="${link}"`;
+        connection.query(sql, function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
 
 }
 
-const deleteFile = function(item, path, token){
-    // var bucket = "if-pbl";
-    // var key = "qiniu_new_copy.mp4";
-    
-    // bucketManager.delete(bucket, key, function(err, respBody, respInfo) {
-    //   if (err) {
-    //     console.log(err);
-    //     //throw err;
-    //   } else {
-    //     console.log(respInfo.statusCode);
-    //     console.log(respBody);
-    //   }
-    // });
+const copyFolder = function(key){
+    let link = config.HOST + "/" + key;
+    return new Promise(resolve => {
+        var sql = `delete from qiniu.asset where path like "${link}%"`;
+        connection.query(sql, function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
+}
+
+const copyFile = function(key){
+    let link = config.HOST + "/" + key;
+    return new Promise(resolve => {
+        var sql = `delete from qiniu.asset where path="${link}"`;
+        connection.query(sql, function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
+
 }
 
 module.exports = {
@@ -128,5 +155,7 @@ module.exports = {
     selectAll,
     selectPath,
     deleteFolder,
-    deleteFile
+    deleteFile,
+    copyFolder,
+    copyFile
 }

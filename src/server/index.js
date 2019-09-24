@@ -90,6 +90,34 @@ function init(host, port) {
         ctx.body = res ? "insert success" : "insert fail";
     })
 
+    router.get("/deleteFolder", async (ctx, next) => {
+        let key = ctx.request.query.url;
+        let res = await sqlTooler.deleteFolder(key);
+        qiniuTooler.deleteFolder(key);
+        ctx.body = res ? "deleteFolder success" : "deleteFolder fail";
+    })
+
+    router.get("/deleteFile", async (ctx, next) => {
+        let key = ctx.request.query.url;
+        let res = await sqlTooler.deleteFile(key);
+        qiniuTooler.deleteFile(key);
+        ctx.body = res ? "deleteFile success" : "deleteFile fail";
+    })
+
+    router.get("/copyFolder", async (ctx, next) => {
+        let key = ctx.request.query.url;
+        let res = await sqlTooler.copyFolder(key);
+        qiniuTooler.copyFolder(key);
+        ctx.body = res ? "copyFolder success" : "copyFolder fail";
+    })
+
+    router.get("/copyFile", async (ctx, next) => {
+        let key = ctx.request.query.url;
+        let res = await sqlTooler.copyFile(key);
+        qiniuTooler.copyFile(key);
+        ctx.body = res ? "copyFile success" : "copyFile fail";
+    })
+
 	app.listen(port, host)
 
 	let url = `http://${getIPAddress()}:${port}`;

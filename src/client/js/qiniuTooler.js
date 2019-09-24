@@ -4,7 +4,7 @@ import config from '@/client/js/config';
 
 function upload(file, item, path, token){
     //去掉前面的“/”
-    var key = (path + file.name).substr(1);
+    var key = getKey(path + file.name);
     var putExtra = {
         fname: file.name,
         params: {},
@@ -53,24 +53,42 @@ async function startUpload(item, path, token){
 }
 
 function deleteFolder(item, path){
-
-}
-
-function deleteFile(item, path){
-    var key = (path + item.name).substr(1);
-
-    var client = new qiniu.rs.Client();
-    //你要测试的空间， 并且这个key在你空间中存在
-    bucket = config.bucket;
-    //删除资源
-    client.remove(bucket, key, function(err, ret) {
-        if (!err) {
-            console.log("删除成功");
-            console.log(ret);
-        } else {
-            console.log(err);
-        }
+    var key = getKey(path + item.name + "/");
+    axios.get("/deleteFolder", {
+        params: {url: key}
+    }).then(res => {
+        console.log(res.data);
     });
 }
 
-export default {startUpload, deleteFolder, deleteFile}
+function deleteFile(item, path){
+    var key = getKey(path + item.name);
+    axios.get("/deleteFile", {
+        params: {url: key}
+    }).then(res => {
+        console.log(res.data);
+    });
+}
+
+function copyFolder(){
+
+}
+
+function copyFile(){
+
+}
+
+function getKey(url){
+    if(url[0] == "/"){
+        return url.substr(1);
+    }
+    return url;
+}
+
+export default {
+    startUpload, 
+    deleteFolder, 
+    deleteFile,
+    copyFolder,
+    copyFiles,
+}

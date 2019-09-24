@@ -1,9 +1,9 @@
 <template>
     <div class="edit-view">
         <div class="all" @click="toggleSelect"><div class="choose" :class="{selected}"></div>全选</div>
-        <div class="btn">复制</div>
+        <div class="btn" @click="copyItem">复制</div>
         <div class="btn">剪切</div>
-        <div class="btn">粘贴</div>
+        <div class="btn" @click="pasteItem">粘贴</div>
         <div class="btn" @click="deleteItem">删除</div>
     </div>
 </template>
@@ -33,7 +33,7 @@ export default {
         },
         deleteItem(){
             var path = this.$store.state.path
-            this.$store.state.files.forEach(item => {
+            var list = this.$store.state.files.filter(item => {
                 if(item.selected){
                     if(item.isFolder){
                         qiniuTooler.deleteFolder(item, path);
@@ -42,7 +42,18 @@ export default {
                         qiniuTooler.deleteFile(item, path);
                     }
                 }
+                return !item.selected;
             })
+            this.$store.commit('changeFiles', list);
+        },
+        copyItem(){
+            var list = this.$store.state.files.filter(item => {
+                return item.selected;
+            })
+            this.$store.commit('changeCopyFiles', list, this.$store.state.path);
+        },
+        pasteItem(){
+
         }
     },
 
