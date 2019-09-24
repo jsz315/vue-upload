@@ -1,26 +1,17 @@
 <template>
     <div class="upload-item">
-        <div class="path">
-            <div class="label">上传目录：</div>
-            <input class="txt" v-model="path" />
-            <div class="jump" @click="showDir">进入</div>
-        </div>
-        <div class="path">
-            <div class="label">路径：</div>
-            <div class="links">
-                <div class="link" @click="changePath(item.link)" v-for="item in links" :data-link="item.link">{{item.label}}</div>
-            </div>
-        </div>
-        <div class="box" :class="{enter}" ref="box" v-if="canUpload">拖拽文件上传</div>
+        <path-view ref="pathView" />
+        <file-view v-if="$store.state.isUpload"/>
+        <edit-view v-if="$store.state.isEdit"/>
         <div class="list">
-            <div class="item" v-for="(item, index) in files" :key="index">
-                <div class="img-box" @click="preview(item.name)">
+            <div class="item" :class="{'selected':item.selected}" v-for="(item, index) in files" :key="index">
+                <div class="img-box" @click="preview(item)">
                     <img class="img" :src="item.src"/>
                 </div>
                 <div class="name">{{item.name}}</div>
                 <div class="fresh" :style="{'background-image': 'url(' + freshImg + ')'}" v-if="item.exist" @click="rewrite(item)"></div>
                 <progress-view class="loading" :num="item.percentage" v-if="item.loading"></progress-view>
-                <div class="btn" @click="preview(item.name)" v-if="item.isModel">预览模型</div>
+                <div class="btn" @click="preview(item)" v-if="item.isModel">预览模型</div>
             </div>
         </div>
     </div>
@@ -31,79 +22,42 @@
 import axios from 'axios';
 import * as qiniu from 'qiniu-js';
 import ProgressView from '@/client/components/ProgressView/index.vue'
+import PathView from '@/client/components/PathView/index.vue'
+import FileView from '@/client/components/FileView/index.vue'
+import EditView from '@/client/components/EditView/index.vue'
 import qiniuTooler from '@/client/js/qiniuTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
 import pathTooler from '@/client/js/pathTooler'
 
+import {mapState, mapMutations, mapActions, mapGetters} from 'vuex'
+
 export default {
     data() {
         return {
-            enter: false,
-            files: [],
-            token: null,
-            path: "/model/",
             freshImg: config.LINK.FRESH,
-            canUpload: true,
-            links: []
         };
     },
     components: {
-        ProgressView
+        ProgressView, PathView, FileView, EditView
+    },
+    computed: {
+        files(){
+            return this.$store.state.files;
+        },
+        path(){
+            return this.$store.state.path;
+        },
+        token(){
+            return this.$store.state.token;
+        }
     },
     methods: {
-        onDrag: function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            console.log("进入");
-            this.enter = true;
-        },
-        onDragLeave: function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            console.log("离开");
-            this.enter = false;
-        },
-        onDrop: function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            console.log("松手");
-            this.enter = false;
-        
-            var dt = e.dataTransfer;
-            for (let i = 0; i < dt.files.length; i++) {
-                var file = dt.files[i];
-                var item = this.addItem(file);
-                this.startUpload(item);
-                
-            }
-        },
-        
-        toggle(){
-            this.canUpload = !this.canUpload;
-        },
-
-        changePath(url){
-            this.path = url;
-            this.showDir();
-        },
-
-        async startUpload(item){
-            var suc = await qiniuTooler.start(item.file, item, this.path, this.token);
-            if(suc){
-                axios.get("/insert", {
-                    params: {url: `${config.HOST}${this.path}${item.name}`}
-                }).then(res => {
-                    console.log(res.data);
-                });
-            }
-        },
-
         async rewrite(item){
             var res = await axios.get("/token", {
                 params: {key: this.path + item.name}
             });
-            this.token = res.data;
+            this.$store.commit('changeToken', res.data);
 
             item.loading = true;
             var suc = await qiniuTooler.start(item.file, item, this.path, this.token);
@@ -111,7 +65,12 @@ export default {
                 item.exist = false;
             }
         },
-        preview(name){
+        preview(item){
+            if(this.$store.state.isEdit){
+                item.selected = !item.selected;
+                return;
+            }
+            var name = item.name;
             var fileType = typeTooler.checkType(name);
             var url;
             if(fileType == config.FILE_TYPE.IMAGE){
@@ -124,92 +83,21 @@ export default {
                 window.open(url);
             }
             else if(fileType == config.FILE_TYPE.FOLDER){
-                this.path = `${this.path}${name}/`;
-                this.showDir();
+                this.$store.commit('changePath', `${this.path}${name}/`);
+                this.$refs.pathView.showDir();
             }
-        },
-        showDir(){
-            if(this.path.substr(-1) != "/"){
-                this.path = this.path + "/";
-            }
-            this.files = [];
-            this.links = pathTooler.getPath(`${this.path}`);
-
-            axios.get("/dir", {
-                params: {path: `${config.HOST}${this.path}`}
-            }).then(res => {
-                console.log(res.data);
-                var list = res.data;
-                list.forEach(item => {
-                    console.log(this.addItem(item));
-                })
-            });
-        },
-        addItem(obj){
-            var fname;
-            var isFile;
-            if(typeof(obj) == "string"){
-                fname = obj;
-                isFile = false;
-            }
-            else{
-                fname = obj.name;
-                isFile = true;
-            }
-            var item = {
-                            name: fname,
-                            percentage: 0,
-                            loading: isFile,
-                            exist: false,
-                            file: isFile ? obj : null
-                        };
-            var fileType = typeTooler.checkType(fname);
-            if(fileType == config.FILE_TYPE.IMAGE){
-                if(isFile){
-                    item.src = config.LINK.IMAGE;
-                    var fr = new FileReader();
-                    fr.readAsDataURL(obj);
-                    fr.onload = () => {
-                        item.src = fr.result;
-                    };
-                }
-                else{
-                    item.src = `${config.HOST}${this.path}${fname}`;
-                }
-            }
-            else if(fileType == config.FILE_TYPE.MODEL){
-                item.src = config.LINK.MODEL;
-                item.isModel = true;
-            }
-            else if(fileType == config.FILE_TYPE.FOLDER){
-                item.src = config.LINK.FOLDER;
-            }
-            else{
-                item.src = config.LINK.UNKNOW;
-            }
-            this.files.push(item);
-            return item;
         }
     },
 
     mounted() {
-        var box = this.$refs.box;
-        box.addEventListener("dragenter", this.onDrag, false);
-        box.addEventListener("dragover", this.onDrag, false);
-        box.addEventListener("dragleave", this.onDragLeave, false);
-        box.addEventListener("drop", this.onDrop, false);
-
         axios.get("/token").then(res => {
-            // console.log(res);
-            this.token = res.data;
-
-            // var file = new Blob( [ 'jjj' ], { type: 'text/plain' } );
-            // file.name = "test.txt";
-            // var item = this.addFile(file);
-            // this.startUpload(file, item);
+            this.$store.commit('changeToken', res.data);
         })
 
-        this.showDir();
+        // var file = new Blob( [ 'jjj' ], { type: 'text/plain' } );
+        // file.name = "test.txt";
+        // var item = this.addFile(file);
+        // this.startUpload(file, item);
     }
 };
 </script>

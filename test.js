@@ -1,5 +1,7 @@
 var sqlTooler = require('./src/server/sqlTooler');
 
+var qiniuTooler = require('./src/server/qiniuTooler');
+
 var str = `
 http://py325bkfy.bkt.clouddn.com/all.jpeg
 http://py325bkfy.bkt.clouddn.com/a/pic.jpeg
@@ -23,4 +25,10 @@ http://py325bkfy.bkt.clouddn.com/c/a2/timg5.jpeg
 //     sqlTooler.insert(item);
 // })
 // sqlTooler.selectAll();
-sqlTooler.selectPath("http://py325bkfy.bkt.clouddn.com/");
+// sqlTooler.selectPath("http://py325bkfy.bkt.clouddn.com/");
+
+
+// qiniuTooler.deleteFile("model/0000.png");
+// qiniuTooler.getFiles("model/");
+
+qiniuTooler.deleteFolder("");

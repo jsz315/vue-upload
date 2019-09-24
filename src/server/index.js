@@ -10,7 +10,7 @@ const hotMiddleware = require('./hotMiddleware');
 const opn = require('opn');
 const app = new Koa()
 const router = new Router()
-const tokenTooler = require('./tokenTooler');
+const qiniuTooler = require('./qiniuTooler');
 const sqlTooler = require('./sqlTooler');
 
 init(getIPAddress(), 8899);
@@ -72,7 +72,7 @@ function init(host, port) {
 
 	router.get("/token", async (ctx, next) => {
 		console.log(ctx.request.query);
-        var token = tokenTooler.getToken(ctx.request.query.key);
+        var token = qiniuTooler.getToken(ctx.request.query.key);
         console.log("获取token：");
 		console.log(token);
 		ctx.body = token;

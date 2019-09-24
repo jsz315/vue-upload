@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="left">
-        <div class="btn" @click="toggle">上传</div>
-        <div class="btn">浏览</div>
+        <div class="btn" @click="toggleUpload">上传</div>
+        <div class="btn" @click="toggleEdit">编辑</div>
     </div>
     <div class="right">
         <UploadItem ref="UploadItem" />
@@ -18,8 +18,12 @@ export default {
     UploadItem
   },
   methods: {
-    toggle(){
-        this.$refs.UploadItem.toggle();
+    toggleUpload(){
+        // this.$refs.UploadItem.toggle();
+        this.$store.commit('changeIsUpload', !this.$store.state.isUpload);
+    },
+    toggleEdit(){
+      this.$store.commit('changeIsEdit', !this.$store.state.isEdit);
     }
   },
 

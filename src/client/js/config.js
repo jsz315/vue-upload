@@ -15,4 +15,6 @@ const LINK = {
     FRESH: "/asset/img/fresh.png"
 }
 
-export default {FILE_TYPE, HOST, LINK};
+const bucket = 'three-js-model';
+
+export default {FILE_TYPE, HOST, LINK, bucket};

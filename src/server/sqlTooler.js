@@ -1,11 +1,6 @@
 const mysql = require("mysql");
 
-const config = {
-    host: "localhost",
-    user: "root",
-    password: "Jsz04005301",
-    database: "qiniu"
-}
+const config = require('./config').databaseConfig;
 
 let connection;
 resetConnect();
@@ -39,13 +34,16 @@ const test = function(){
 }
 
 const insert = function(url){
-    // var list = url.split("/");
-    // var name = list.pop();
-    var  sql = 'INSERT INTO `qiniu`.`asset`(`path`, `type`) VALUES(?, ?)';
-    var  param = [url, 0];
-    // INSERT INTO `qiniu`.`asset`(`path`, `name`, `type`) VALUES ('http://py325bkfy.bkt.clouddn.com/', 't1.jpg', 0);
+    // var  sql = 'INSERT INTO `qiniu`.`asset`(`path`, `type`) VALUES(?, ?)';
+    var sql = `
+            INSERT INTO qiniu.asset(path, type)
+            SELECT "${url}", 0
+            FROM dual
+                WHERE NOT EXISTS(SELECT * FROM qiniu.asset WHERE path='${url}')
+        `;
+    // var  param = [url, 0];
     return new Promise(resolve => {
-        connection.query(sql, param, (err, result) => {
+        connection.query(sql, (err, result) => {
             if(err){
                 console.log(err.message);
                 resolve(false);
@@ -105,9 +103,30 @@ const selectPath = function(path){
     
 }
 
+const deleteFolder = function(item, path, token){
+
+}
+
+const deleteFile = function(item, path, token){
+    // var bucket = "if-pbl";
+    // var key = "qiniu_new_copy.mp4";
+    
+    // bucketManager.delete(bucket, key, function(err, respBody, respInfo) {
+    //   if (err) {
+    //     console.log(err);
+    //     //throw err;
+    //   } else {
+    //     console.log(respInfo.statusCode);
+    //     console.log(respBody);
+    //   }
+    // });
+}
+
 module.exports = {
     test,
     insert,
     selectAll,
-    selectPath
+    selectPath,
+    deleteFolder,
+    deleteFile
 }

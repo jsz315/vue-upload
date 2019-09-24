@@ -1,12 +1,5 @@
 <template>
-    <div class="upload-item">
-        <div class="list">
-            <div class="item" v-for="(item, index) in files" :key="index">
-                <div class="img" :style="{'background-image': 'url(' + getImg(item) + ')'}"></div>
-                <div class="name">{{item}}</div>
-            </div>
-        </div>
-    </div>
+    <div class="box" :class="{enter}" ref="box" v-if="$store.state.isUpload">拖拽文件上传</div>
 </template>
 
 <script>
@@ -14,39 +7,55 @@
 import axios from 'axios';
 import * as qiniu from 'qiniu-js';
 import ProgressView from '@/client/components/ProgressView/index.vue'
-import qiniuTooler from '@/client/js/qiniuTooler'
+import fileTooler from '@/client/js/fileTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
+import qiniuTooler from '@/client/js/qiniuTooler'
 
 export default {
     data() {
         return {
-            files: []
+            enter: false
         };
     },
     components: {
         ProgressView
     },
     methods: {
-        getImg(url){
-            var fileType = typeTooler.checkType(url);
-            if(fileType == config.FILE_TYPE.IMAGE){
-                return config.HOST + url;
+        onDrag: function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log("进入");
+            this.enter = true;
+        },
+        onDragLeave: function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log("离开");
+            this.enter = false;
+        },
+        onDrop: function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log("松手");
+            this.enter = false;
+        
+            var dt = e.dataTransfer;
+            for (let i = 0; i < dt.files.length; i++) {
+                var file = dt.files[i];
+                var item = fileTooler.addItem(file);
+                this.$store.commit('addFile', item);
+                qiniuTooler.startUpload(item, this.$store.state.path, this.$store.state.token);
             }
-            else if(fileType == config.FILE_TYPE.MODEL){
-                return config.LINK.MODEL;
-            }
-            else if(fileType == config.FILE_TYPE.FOLDER){
-                return config.LINK.FOLDER;
-            }
-            else{
-                return config.LINK.UNKNOW;
-            }
-        }
+        },
     },
 
     mounted() {
-        
+        var box = this.$refs.box;
+        box.addEventListener("dragenter", this.onDrag, false);
+        box.addEventListener("dragover", this.onDrag, false);
+        box.addEventListener("dragleave", this.onDragLeave, false);
+        box.addEventListener("drop", this.onDrop, false);
     }
 };
 </script>
