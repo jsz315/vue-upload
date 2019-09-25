@@ -59,7 +59,7 @@ const deleteFolder = async function(key){
 }
 
 //上传参数为文件名和/路径/
-const copyFile = function(names, srcPath, destPath){
+const copyFile = function(names, srcPath, destPath, isCut){
     return new Promise(async resolve => {
         var srcBucket = config.bucket;
         var destBucket = config.bucket;
@@ -75,7 +75,12 @@ const copyFile = function(names, srcPath, destPath){
         var copyOperations = names.map(name => {
             var srcKey = getKey(srcPath + name);
             var destKey = getKey(destPath + name);
-            return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
+            if(isCut){
+                return qiniu.rs.moveOp(srcBucket, srcKey, destBucket, destKey);
+            }
+            else{
+                return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
+            }
         })
         await moveFiles(copyOperations);
         resolve();
@@ -110,15 +115,15 @@ const moveFiles = function(copyOperations){
 }
 
 //上传参数为文件名和/路径/
-const copyFolder = async function(names, srcPath, destPath){
+const copyFolder = async function(names, srcPath, destPath, isCut){
     names.forEach((name) => {
         var key = getKey(srcPath + name);
-        moveFolder(key, srcPath, destPath);
+        moveFolder(key, srcPath, destPath, isCut);
     })
 }
 
 //移动文件夹下的文件
-const moveFolder = async function(key, srcPath, destPath){
+const moveFolder = async function(key, srcPath, destPath, isCut){
     var res = await getFiles(key);
     var srcBucket = config.bucket;
     var destBucket = config.bucket;
@@ -133,14 +138,19 @@ const moveFolder = async function(key, srcPath, destPath){
         console.log("copy------- " + f);
         console.log(srcKey);
         console.log(destKey);
-
-        return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
+        if(isCut){
+            return qiniu.rs.moveOp(srcBucket, srcKey, destBucket, destKey);
+        }
+        else{
+            return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
+        }
+        
     })
 
     await moveFiles(copyOperations);
     if(res.nextMarker){
         console.log("----------------继续复制----------------");
-        moveFolder(key, srcPath, destPath);
+        moveFolder(key, srcPath, destPath, isCut);
     }
     else{
         console.log("----------------复制完毕----------------");

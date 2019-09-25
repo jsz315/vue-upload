@@ -115,8 +115,8 @@ function init(host, port) {
     router.post("/copyFolder", async (ctx, next) => {
         let params = ctx.request.body.params;
 		console.log(params);
-        let res = await sqlTooler.copyFolder(params.names, params.srcPath, params.destPath);
-        qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath);
+        let res = await sqlTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
+        qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFolder success" : "copyFolder fail";
     })
 
@@ -124,8 +124,8 @@ function init(host, port) {
     router.post("/copyFile", async (ctx, next) => {
 		let params = ctx.request.body.params;
 		console.log(params);
-        let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath);
-        qiniuTooler.copyFile(params.names, params.srcPath, params.destPath);
+        let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
+        qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFile success" : "copyFile fail";
     })
 

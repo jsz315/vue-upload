@@ -129,16 +129,31 @@ const deleteFile = function(key){
 }
 
 //上传参数为文件名和/路径/
-const copyFolder = function(names, srcPath, destPath){
-    var list = names.map(name => {
-        var sql = `
-            INSERT INTO qiniu.asset (path, type)
-            SELECT replace(path, '${config.HOST}${srcPath}${name}/', '${config.HOST}${destPath}${name}/'), type
-            FROM qiniu.asset
-            WHERE path like '${config.HOST}${srcPath}${name}/%';
-        `;
-        return sql;
-    })
+const copyFolder = function(names, srcPath, destPath, isCut){
+    var list;
+    if(isCut){
+        list = names.map(name => {
+            var sql = `
+                UPDATE qiniu.asset 
+                SET 
+                    path = REPLACE(path, '${config.HOST}${srcPath}${name}', '${config.HOST}${destPath}${name}')
+                WHERE
+                    path like '${config.HOST}${srcPath}${name}'/%;
+            `;
+            return sql;
+        })
+    }
+    else{
+        list = names.map(name => {
+            var sql = `
+                INSERT INTO qiniu.asset (path, type)
+                SELECT replace(path, '${config.HOST}${srcPath}${name}/', '${config.HOST}${destPath}${name}/'), type
+                FROM qiniu.asset
+                WHERE path like '${config.HOST}${srcPath}${name}/%';
+            `;
+            return sql;
+        })
+    }
     return new Promise(resolve => {
         connection.query(list.join(""), function(error, results, fields){
             if (error) throw error;
@@ -148,16 +163,31 @@ const copyFolder = function(names, srcPath, destPath){
 }
 
 //上传参数为文件名和/路径/
-const copyFile = function(names, srcPath, destPath){
-    var list = names.map(name => {
-        var sql = `
-            INSERT INTO qiniu.asset (path, type)
-            SELECT replace(path, '${config.HOST}${srcPath}${name}', '${config.HOST}${destPath}${name}'), type
-            FROM qiniu.asset
-            WHERE path = '${config.HOST}${srcPath}${name}';
-        `;
-        return sql;
-    })
+const copyFile = function(names, srcPath, destPath, isCut){
+    var list;
+    if(isCut){
+        list = names.map(name => {
+            var sql = `
+                UPDATE qiniu.asset 
+                SET 
+                    path = REPLACE(path, '${config.HOST}${srcPath}${name}', '${config.HOST}${destPath}${name}')
+                WHERE
+                    path = '${config.HOST}${srcPath}${name}';
+            `;
+            return sql;
+        })
+    }
+    else{
+        list = names.map(name => {
+            var sql = `
+                INSERT INTO qiniu.asset (path, type)
+                SELECT replace(path, '${config.HOST}${srcPath}${name}', '${config.HOST}${destPath}${name}'), type
+                FROM qiniu.asset
+                WHERE path = '${config.HOST}${srcPath}${name}';
+            `;
+            return sql;
+        })
+    }
 
     return new Promise(resolve => {
         connection.query(list.join(""), function(error, results, fields){

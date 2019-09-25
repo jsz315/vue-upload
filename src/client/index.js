@@ -6,8 +6,10 @@ import App from "./page/App/index.vue";
 // Vue.use(Element)
 
 import store from './store/index'
+import { Message} from 'element-ui';
 
-
+Vue.prototype.$message = Message;
+// Vue.use(Message);
 
 new Vue({
     el: "#app",

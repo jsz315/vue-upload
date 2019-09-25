@@ -10,7 +10,8 @@ const state = {
     path: "/",
     token: "",
     copyDir: "",
-    copyFiles: []
+    copyFiles: [],
+    isCut: false
 }
 
 const mutations = {
@@ -47,6 +48,10 @@ const mutations = {
     changeCopyFiles(state, copyFiles){
         state.copyFiles = copyFiles;
         state.copyDir = state.path;
+    },
+
+    changeIsCut(state, isCut){
+        state.isCut = isCut;
     }
 }
 

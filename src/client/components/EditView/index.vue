@@ -1,10 +1,10 @@
 <template>
     <div class="edit-view">
-        <div class="all" @click="toggleSelect"><div class="choose" :class="{selected}"></div>全选</div>
-        <div class="btn" @click="copyItem">复制</div>
-        <div class="btn">剪切</div>
-        <div class="btn" @click="pasteItem">粘贴</div>
-        <div class="btn" @click="deleteItem">删除</div>
+        <div class="all" @click="toggleSelect"><div class="choose" :class="{selected}"></div>全选(ctrl+a)</div>
+        <div class="btn" @click="copyItem(false)">复制(ctrl+c)</div>
+        <div class="btn" @click="copyItem(true)">剪切(ctrl+x)</div>
+        <div class="btn" @click="pasteItem">粘贴(ctrl+v)</div>
+        <div class="btn" @click="deleteItem">删除(del)</div>
     </div>
 </template>
 
@@ -46,15 +46,31 @@ export default {
             })
             list.length && this.$store.commit('changeFiles', list);
         },
-        copyItem(){
+        copyItem(isCut){
             var list = this.$store.state.files.filter(item => {
                 return item.selected;
             })
             this.$store.commit('changeCopyFiles', list, this.$store.state.path);
+            this.$store.commit('changeIsCut', isCut);
+            this.$message({
+                message: isCut ? '已剪切' : '已复制',
+                type: 'success'
+            });
         },
         pasteItem(){
+            var isCut = this.$store.state.isCut;
+            var toDir = this.$store.state.path;
             var copyDir = this.$store.state.copyDir;
             var copyFiles = this.$store.state.copyFiles;
+            if(copyDir == toDir){
+                console.log("相同目录");
+                this.$message({
+                    message: '与源目录相同',
+                    type: 'warning'
+                });
+                this.$store.commit('changeCopyFiles', [], toDir);
+                return;
+            }
             var files = [];
             var folders = [];
             copyFiles.forEach(item => {
@@ -69,8 +85,9 @@ export default {
                 }
                 this.$store.commit('addFile', obj);
             })
-            files.length && qiniuTooler.copyFile(files, copyDir, this.$store.state.path);
-            folders.length && qiniuTooler.copyFolder(folders, copyDir, this.$store.state.path);
+            files.length && qiniuTooler.copyFile(files, copyDir, toDir, isCut);
+            folders.length && qiniuTooler.copyFolder(folders, copyDir, toDir, isCut);
+            this.$store.commit('changeCopyFiles', [], toDir);
         }
     },
 

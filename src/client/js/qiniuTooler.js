@@ -74,18 +74,18 @@ function deleteFile(item, path){
 }
 
 //上传参数为文件名和/路径/
-function copyFolder(names, srcPath, destPath){
+function copyFolder(names, srcPath, destPath, isCut){
     axios.post("/copyFolder", {
-        params: {names, srcPath, destPath}
+        params: {names, srcPath, destPath, isCut}
     }).then(res => {
         console.log(res.data);
     });
 }
 
 //上传参数为文件名和/路径/
-function copyFile(names, srcPath, destPath){
+function copyFile(names, srcPath, destPath, isCut){
     axios.post("/copyFile", {
-        params: {names, srcPath, destPath}
+        params: {names, srcPath, destPath, isCut}
     }).then(res => {
         console.log(res.data);
     });

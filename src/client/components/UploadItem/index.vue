@@ -91,7 +91,7 @@ export default {
                 console.log(event.keyCode);
                 if(event.ctrlKey && event.keyCode == 67){ 
                     console.log('你按下了CTRL+C');
-                    this.$refs.editView.copyItem();
+                    this.$refs.editView.copyItem(false);
                 }
                 else if(event.ctrlKey && event.keyCode == 86){ 
                     console.log('你按下了CTRL+V');
@@ -99,6 +99,7 @@ export default {
                 }
                 else if(event.ctrlKey && event.keyCode == 88){ 
                     console.log('你按下了CTRL+X');
+                    this.$refs.editView.copyItem(true);
                 }
                 else if(event.ctrlKey && event.keyCode == 65){ 
                     console.log('你按下了CTRL+A');

@@ -22,6 +22,7 @@ function getConfig(){
             new webpack.NoEmitOnErrorsPlugin()
         ]
     });
+    console.log(config);
     // for(let i in config.entry){
     //     config.entry[i].unshift(hotMiddlewareScript);
     // }
