@@ -44,7 +44,7 @@ export default {
                 }
                 return !item.selected;
             })
-            this.$store.commit('changeFiles', list);
+            list.length && this.$store.commit('changeFiles', list);
         },
         copyItem(){
             var list = this.$store.state.files.filter(item => {
@@ -55,11 +55,22 @@ export default {
         pasteItem(){
             var copyDir = this.$store.state.copyDir;
             var copyFiles = this.$store.state.copyFiles;
-            var keys = copyFiles.map(item => {
-                var key = item.name;
-                return key;
+            var files = [];
+            var folders = [];
+            copyFiles.forEach(item => {
+                var obj;
+                if(item.isFolder){
+                    folders.push(item.name);
+                    obj = fileTooler.addItem(item.name, this.path);
+                }
+                else{
+                    files.push(item.name);
+                    obj = fileTooler.addItem(item.src, this.path);
+                }
+                this.$store.commit('addFile', obj);
             })
-            qiniuTooler.copyFile(keys, copyDir, this.$store.state.path);
+            files.length && qiniuTooler.copyFile(files, copyDir, this.$store.state.path);
+            folders.length && qiniuTooler.copyFolder(folders, copyDir, this.$store.state.path);
         }
     },
 

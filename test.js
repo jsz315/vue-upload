@@ -31,4 +31,11 @@ http://py325bkfy.bkt.clouddn.com/c/a2/timg5.jpeg
 // qiniuTooler.deleteFile("model/0000.png");
 // qiniuTooler.getFiles("model/");
 
-qiniuTooler.deleteFolder("");
+// qiniuTooler.deleteFolder("");
+
+// qiniuTooler.getFiles("http://py325bkfy.bkt.clouddn.com/i");
+
+//{"names":["son"],"srcPath":"/","destPath":"/parent/"}
+var params = { names: [ 'son' ], srcPath: '/', destPath: '/parent/' };
+
+qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath);

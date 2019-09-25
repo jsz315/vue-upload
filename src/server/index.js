@@ -79,20 +79,23 @@ function init(host, port) {
         console.log("获取token：");
 		console.log(token);
 		ctx.body = token;
-    })
-    
+	})
+	
+    //上传参数为全路径
     router.get("/dir", async (ctx, next) => {
         console.log(ctx.request.query.path);
         let res = await sqlTooler.selectPath(ctx.request.query.path)
         ctx.body = JSON.stringify(res);
     })
 
+	//上传参数为全路径
     router.get("/insert", async (ctx, next) => {
         console.log(ctx.request.query.url);
         let res = await sqlTooler.insert(ctx.request.query.url);
         ctx.body = res ? "insert success" : "insert fail";
-    })
-
+	})
+	
+	//上传参数为/key
     router.get("/deleteFolder", async (ctx, next) => {
         let key = ctx.request.query.url;
         let res = await sqlTooler.deleteFolder(key);
@@ -100,6 +103,7 @@ function init(host, port) {
         ctx.body = res ? "deleteFolder success" : "deleteFolder fail";
     })
 
+	//上传参数为/key
     router.get("/deleteFile", async (ctx, next) => {
         let key = ctx.request.query.url;
         let res = await sqlTooler.deleteFile(key);
@@ -107,17 +111,20 @@ function init(host, port) {
         ctx.body = res ? "deleteFile success" : "deleteFile fail";
     })
 
-    router.get("/copyFolder", async (ctx, next) => {
-        let key = ctx.request.query.url;
-        let res = await sqlTooler.copyFolder(key);
-        qiniuTooler.copyFolder(key);
+	//上传参数为文件名和/路径/
+    router.post("/copyFolder", async (ctx, next) => {
+        let params = ctx.request.body.params;
+		console.log(params);
+        let res = await sqlTooler.copyFolder(params.names, params.srcPath, params.destPath);
+        qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath);
         ctx.body = res ? "copyFolder success" : "copyFolder fail";
     })
 
+	//上传参数为文件名和/路径/
     router.post("/copyFile", async (ctx, next) => {
-        console.log(ctx.request.body.params);
-        let params = ctx.request.body.params;
-        let res = await sqlTooler.copyFile();
+		let params = ctx.request.body.params;
+		console.log(params);
+        let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath);
         qiniuTooler.copyFile(params.names, params.srcPath, params.destPath);
         ctx.body = res ? "copyFile success" : "copyFile fail";
     })

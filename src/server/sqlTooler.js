@@ -39,7 +39,7 @@ const insert = function(url){
             INSERT INTO qiniu.asset(path, type)
             SELECT "${url}", 0
             FROM dual
-                WHERE NOT EXISTS(SELECT * FROM qiniu.asset WHERE path='${url}')
+            WHERE NOT EXISTS(SELECT * FROM qiniu.asset WHERE path='${url}')
         `;
     // var  param = [url, 0];
     return new Promise(resolve => {
@@ -103,8 +103,9 @@ const selectPath = function(path){
     
 }
 
+//上传参数为/key
 const deleteFolder = function(key){
-    let link = config.HOST + "/" + key;
+    let link = config.HOST + key + "/";
     return new Promise(resolve => {
         var sql = `delete from qiniu.asset where path like "${link}%"`;
         connection.query(sql, function(error, results, fields){
@@ -114,8 +115,9 @@ const deleteFolder = function(key){
     })
 }
 
+//上传参数为/key
 const deleteFile = function(key){
-    let link = config.HOST + "/" + key;
+    let link = config.HOST + key;
     return new Promise(resolve => {
         var sql = `delete from qiniu.asset where path="${link}"`;
         connection.query(sql, function(error, results, fields){
@@ -126,27 +128,44 @@ const deleteFile = function(key){
 
 }
 
-const copyFolder = function(key){
-    // let link = config.HOST + "/" + key;
-    // return new Promise(resolve => {
-    //     var sql = `delete from qiniu.asset where path like "${link}%"`;
-    //     connection.query(sql, function(error, results, fields){
-    //         if (error) throw error;
-    //         resolve(true);
-    //     })
-    // })
+//上传参数为文件名和/路径/
+const copyFolder = function(names, srcPath, destPath){
+    var list = names.map(name => {
+        var sql = `
+            INSERT INTO qiniu.asset (path, type)
+            SELECT replace(path, '${config.HOST}${srcPath}${name}/', '${config.HOST}${destPath}${name}/'), type
+            FROM qiniu.asset
+            WHERE path like '${config.HOST}${srcPath}${name}/%';
+        `;
+        return sql;
+    })
+    return new Promise(resolve => {
+        connection.query(list.join(""), function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
 }
 
-const copyFile = function(key){
-    // let link = config.HOST + "/" + key;
-    // return new Promise(resolve => {
-    //     var sql = `delete from qiniu.asset where path="${link}"`;
-    //     connection.query(sql, function(error, results, fields){
-    //         if (error) throw error;
-    //         resolve(true);
-    //     })
-    // })
+//上传参数为文件名和/路径/
+const copyFile = function(names, srcPath, destPath){
+    var list = names.map(name => {
+        var sql = `
+            INSERT INTO qiniu.asset (path, type)
+            SELECT replace(path, '${config.HOST}${srcPath}${name}', '${config.HOST}${destPath}${name}'), type
+            FROM qiniu.asset
+            WHERE path = '${config.HOST}${srcPath}${name}';
+        `;
+        return sql;
+    })
 
+    return new Promise(resolve => {
+        connection.query(list.join(""), function(error, results, fields){
+            if (error) throw error;
+            resolve(true);
+        })
+    })
+    
 }
 
 module.exports = {

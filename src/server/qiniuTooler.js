@@ -26,7 +26,9 @@ const getToken = function(key){
     return uploadToken;
 }
 
+//上传参数为/key
 const deleteFile = function(key){
+    key = getKey(key);
     return new Promise(resolve => {
         bucketManager.delete(config.bucket, key, function(err, ret) {
             if (!err) {
@@ -41,8 +43,9 @@ const deleteFile = function(key){
     })
 }
 
+//上传参数为/key
 const deleteFolder = async function(key){
-    var res = await getFiles(key);
+    var res = await getFiles(getKey(key));
     res.items.forEach(item => {
         deleteFile(item.key);
     })
@@ -55,24 +58,33 @@ const deleteFolder = async function(key){
     }
 }
 
+//上传参数为文件名和/路径/
 const copyFile = function(names, srcPath, destPath){
-    return new Promise(resolve => {
+    return new Promise(async resolve => {
         var srcBucket = config.bucket;
         var destBucket = config.bucket;
+
         //每个operations的数量不可以超过1000个，如果总数量超过1000，需要分批发送
-        var copyOperations = [
+        // var copyOperations = [
             // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu1.mp4'),
             // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu2.mp4'),
             // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu3.mp4'),
             // qiniu.rs.copyOp(srcBucket, srcKey, destBucket, 'qiniu4.mp4'),
-        ];
-        console.log(names);
-        names.forEach(item => {
-            var srcKey = getKey(srcPath + item);
-            var destKey = getKey(destPath + item);
-            var item = qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
-            copyOperations.push(item);
+        // ];
+
+        var copyOperations = names.map(name => {
+            var srcKey = getKey(srcPath + name);
+            var destKey = getKey(destPath + name);
+            return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
         })
+        await moveFiles(copyOperations);
+        resolve();
+    })
+}
+
+//文件批量转移
+const moveFiles = function(copyOperations){
+    return new Promise(resolve => {
         bucketManager.batch(copyOperations, function(err, respBody, respInfo) {
             if (err) {
                 console.log(err);
@@ -94,23 +106,48 @@ const copyFile = function(names, srcPath, destPath){
                 }
             }
         });
+    });
+}
+
+//上传参数为文件名和/路径/
+const copyFolder = async function(names, srcPath, destPath){
+    names.forEach((name) => {
+        var key = getKey(srcPath + name);
+        moveFolder(key, srcPath, destPath);
     })
 }
 
-const copyFolder = async function(key){
+//移动文件夹下的文件
+const moveFolder = async function(key, srcPath, destPath){
     var res = await getFiles(key);
-    res.items.forEach(item => {
-        deleteFile(item.key);
+    var srcBucket = config.bucket;
+    var destBucket = config.bucket;
+
+    console.log(key, srcPath, destPath);
+
+    var copyOperations = res.items.map(item => {
+        var srcKey = item.key;
+        var f = getFolderPath(srcKey);
+        var destKey = getKey(item.key.replace(f + "/", destPath + f + "/"));
+
+        console.log("copy------- " + f);
+        console.log(srcKey);
+        console.log(destKey);
+
+        return qiniu.rs.copyOp(srcBucket, srcKey, destBucket, destKey);
     })
+
+    await moveFiles(copyOperations);
     if(res.nextMarker){
-        console.log("----------------继续删除----------------");
-        deleteFolder(key);
+        console.log("----------------继续复制----------------");
+        moveFolder(key, srcPath, destPath);
     }
     else{
-        console.log("----------------删除完毕----------------");
+        console.log("----------------复制完毕----------------");
     }
 }
 
+//参数为不带/的文件夹名称
 const getFiles = function(prefix){
     // @param options   列举操作的可选参数
     // prefix           列举的文件前缀，为空则删除根目录下的所有文件
@@ -119,7 +156,7 @@ const getFiles = function(prefix){
     // delimiter        指定目录分隔符
     var options = {
         limit: 10,
-        prefix: prefix,
+        prefix: prefix + "/",
     };
     return new Promise(resolve => {
         bucketManager.listPrefix(config.bucket, options, function(err, respBody, respInfo) {
@@ -154,6 +191,12 @@ function getKey(url){
         return url.substr(1);
     }
     return url;
+}
+
+function getFolderPath(url){
+    var list = url.split("/");
+    list.pop();
+    return list.join("/");
 }
 
 module.exports = {

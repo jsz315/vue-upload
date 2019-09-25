@@ -41,6 +41,7 @@ function upload(file, item, path, token){
     })
 }
 
+//上传参数为全路径
 async function startUpload(item, path, token){
     var suc = await upload(item.file, item, path, token);
     if(suc){
@@ -52,8 +53,9 @@ async function startUpload(item, path, token){
     }
 }
 
+//上传参数为/key
 function deleteFolder(item, path){
-    var key = getKey(path + item.name + "/");
+    var key = path + item.name;
     axios.get("/deleteFolder", {
         params: {url: key}
     }).then(res => {
@@ -61,8 +63,9 @@ function deleteFolder(item, path){
     });
 }
 
+//上传参数为/key
 function deleteFile(item, path){
-    var key = getKey(path + item.name);
+    var key = path + item.name;
     axios.get("/deleteFile", {
         params: {url: key}
     }).then(res => {
@@ -70,10 +73,16 @@ function deleteFile(item, path){
     });
 }
 
-function copyFolder(){
-
+//上传参数为文件名和/路径/
+function copyFolder(names, srcPath, destPath){
+    axios.post("/copyFolder", {
+        params: {names, srcPath, destPath}
+    }).then(res => {
+        console.log(res.data);
+    });
 }
 
+//上传参数为文件名和/路径/
 function copyFile(names, srcPath, destPath){
     axios.post("/copyFile", {
         params: {names, srcPath, destPath}

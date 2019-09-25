@@ -2,10 +2,10 @@
     <div class="upload-item">
         <path-view ref="pathView" />
         <file-view v-if="$store.state.isUpload"/>
-        <edit-view v-if="$store.state.isEdit"/>
+        <edit-view ref="editView" v-show="$store.state.isEdit"/>
         <div class="list">
             <div class="item" :class="{'selected':item.selected}" v-for="(item, index) in files" :key="index">
-                <div class="img-box" @click="preview(item)">
+                <div class="img-box" @click="toggleSelect(item)" @dblclick="preview(item)">
                     <img class="img" :src="item.src"/>
                 </div>
                 <div class="name">{{item.name}}</div>
@@ -65,11 +65,10 @@ export default {
                 item.exist = false;
             }
         },
+        toggleSelect(item){
+            item.selected = !item.selected;
+        },
         preview(item){
-            if(this.$store.state.isEdit){
-                item.selected = !item.selected;
-                return;
-            }
             var name = item.name;
             var fileType = typeTooler.checkType(name);
             var url;
@@ -86,6 +85,31 @@ export default {
                 this.$store.commit('changePath', `${this.path}${name}/`);
                 this.$refs.pathView.showDir();
             }
+        },
+        initEvent(){
+            document.addEventListener("keydown", (event)=>{
+                console.log(event.keyCode);
+                if(event.ctrlKey && event.keyCode == 67){ 
+                    console.log('你按下了CTRL+C');
+                    this.$refs.editView.copyItem();
+                }
+                else if(event.ctrlKey && event.keyCode == 86){ 
+                    console.log('你按下了CTRL+V');
+                    this.$refs.editView.pasteItem();
+                }
+                else if(event.ctrlKey && event.keyCode == 88){ 
+                    console.log('你按下了CTRL+X');
+                }
+                else if(event.ctrlKey && event.keyCode == 65){ 
+                    console.log('你按下了CTRL+A');
+                    event.preventDefault();
+                    this.$refs.editView.toggleSelect();
+                }
+                else if(event.keyCode == 46){ 
+                    console.log('你按下了Del');
+                    this.$refs.editView.deleteItem();
+                }
+            })
         }
     },
 
@@ -98,6 +122,8 @@ export default {
         // file.name = "test.txt";
         // var item = this.addFile(file);
         // this.startUpload(file, item);
+
+        this.initEvent();
     }
 };
 </script>
