@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="left">
-        <div class="btn" @click="toggleUpload">上传</div>
-        <div class="btn" @click="toggleEdit">编辑</div>
+        <div class="btn" :class="{'isUpload': isUpload}" @click="toggleUpload"><i class="el-icon-s-promotion"></i> 上传</div>
+        <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="el-icon-s-operation"></i> 操作</div>
     </div>
     <div class="right">
         <UploadItem ref="UploadItem" />
@@ -11,15 +11,28 @@
 </template>
 
 <script>
-import UploadItem from '@/client/components/UploadItem/index.vue'
+import UploadItem from '@/client/components/UploadItem/index.vue';
+
 
 export default {
+  data() {
+        return {
+            open: false
+        };
+  },
   components: {
     UploadItem
   },
+  computed:{
+    isUpload(){
+      return this.$store.state.isUpload;
+    },
+    isEdit(){
+      return this.$store.state.isEdit;
+    }
+  },
   methods: {
     toggleUpload(){
-        // this.$refs.UploadItem.toggle();
         this.$store.commit('changeIsUpload', !this.$store.state.isUpload);
     },
     toggleEdit(){

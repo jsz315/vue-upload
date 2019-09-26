@@ -1,41 +1,61 @@
-var sqlTooler = require('./src/server/sqlTooler');
+const Koa = require('koa')
+const Router = require('koa-router')
+const cors = require('koa-cors')
+const static = require('koa-static')
+const bodyparser = require('koa-bodyparser')
+const path = require('path')
+const app = new Koa()
+const router = new Router()
 
-var qiniuTooler = require('./src/server/qiniuTooler');
+init(getIPAddress(), 8899);
 
-var str = `
-http://py325bkfy.bkt.clouddn.com/all.jpeg
-http://py325bkfy.bkt.clouddn.com/a/pic.jpeg
-http://py325bkfy.bkt.clouddn.com/a/a1/timg1.jpeg
-http://py325bkfy.bkt.clouddn.com/a/a2/timg2.jpeg
-http://py325bkfy.bkt.clouddn.com/a/a3/timg3.jpeg
+function init(host, port) {
 
-http://py325bkfy.bkt.clouddn.com/b/a1/timg1.jpeg
-http://py325bkfy.bkt.clouddn.com/b/a2/timg2.jpeg
-http://py325bkfy.bkt.clouddn.com/b/a3/timg3.jpeg
+	app.use(static(
+		path.join(__dirname, '../static')
+	))
 
-http://py325bkfy.bkt.clouddn.com/c/a1/timg1.jpeg
-http://py325bkfy.bkt.clouddn.com/c/a1/timg2.jpeg
-http://py325bkfy.bkt.clouddn.com/c/a1/timg4.jpeg
-http://py325bkfy.bkt.clouddn.com/c/a2/timg5.jpeg
-`
+	app.use(cors({
+		origin: function (ctx) {
+			return "*";
+		},
+		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+		maxAge: 5
+    }))
+    
+    app.use(bodyparser());
 
-// var list = str.match(/http.*\S/g);
-// list.forEach(item => {
-//     console.log(item);
-//     sqlTooler.insert(item);
-// })
-// sqlTooler.selectAll();
-// sqlTooler.selectPath("http://py325bkfy.bkt.clouddn.com/");
+	app.use(router.routes(), router.allowedMethods())
+	
+	router.get("/abc", async (ctx, next) => {
+		ctx.body = "abc";
+	})
+
+	app.listen(port, host)
+
+	let url = `http://${getIPAddress()}:${port}`;
+	console.log(url);
+}
 
 
-// qiniuTooler.deleteFile("model/0000.png");
-// qiniuTooler.getFiles("model/");
+// app.use(express.static('../../static'));
+// app.use(express.static('../../dist'));
 
-// qiniuTooler.deleteFolder("");
+//使用mock数据
+// app.use('/mock', express.static('./mock'));
+// mock(app);
 
-// qiniuTooler.getFiles("http://py325bkfy.bkt.clouddn.com/i");
-
-//{"names":["son"],"srcPath":"/","destPath":"/parent/"}
-var params = { names: [ 'son' ], srcPath: '/', destPath: '/parent/' };
-
-qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath);
+function getIPAddress() {
+	const interfaces = require('os').networkInterfaces(); // 在开发环境中获取局域网中的本机iP地址
+	let IPAddress = '127.0.0.1';
+	for (var devName in interfaces) {
+		var iface = interfaces[devName];
+		for (var i = 0; i < iface.length; i++) {
+			var alias = iface[i];
+			if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+				IPAddress = alias.address;
+			}
+		}
+	}
+	return IPAddress;
+}

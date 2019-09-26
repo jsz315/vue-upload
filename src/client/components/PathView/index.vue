@@ -3,7 +3,8 @@
         <div class="path">
             <div class="label">上传目录：</div>
             <input class="txt" v-model="path" />
-            <div class="jump" @click="jump">进入</div>
+            <!-- <el-button class="jump" type="primary" @click="jump">进入</el-button> -->
+            <div class="jump" @click="jump"><i class="el-icon-location-information"></i> 进入</div>
         </div>
         <div class="path">
             <div class="label">路径：</div>

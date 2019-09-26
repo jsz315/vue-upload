@@ -1,17 +1,26 @@
 .upload-item {
-    padding: 20px;
+    padding: 12px 40px;
+    .info{
+        font-size: 24px;
+        color: brown;
+        margin-bottom: 20px;
+        .help-btn{
+            margin-left: 20px;
+            font-size: 16px;
+            color: #858585;
+            cursor: pointer;
+        }
+    }
 }
 
 .list{
     display: flex;
-    padding: 20px;
+    padding: 24px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     .item{
         width: 180px;
-        margin: 0 0 20px;
-        margin-bottom: 20px;
+        margin: 0 24px 40px 0;
         position: relative;
         &.selected{
             .img-box{
@@ -39,7 +48,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #13bcff;
+            color: #858585;
         }
         .loading{
             position: absolute;
@@ -58,7 +67,7 @@
             background: rgba(0, 0, 0, 0.8);
             text-align: center;
             color: #ffffff;
-            cursor: pointer;
+            pointer-events: none;
         }
         .fresh{
             width: 24px;

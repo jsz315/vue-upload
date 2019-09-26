@@ -50,7 +50,7 @@ export default {
             var list = this.$store.state.files.filter(item => {
                 return item.selected;
             })
-            this.$store.commit('changeCopyFiles', list, this.$store.state.path);
+            this.$store.commit('changeCopyFiles', list);
             this.$store.commit('changeIsCut', isCut);
             this.$message({
                 message: isCut ? '已剪切' : '已复制',
@@ -62,13 +62,21 @@ export default {
             var toDir = this.$store.state.path;
             var copyDir = this.$store.state.copyDir;
             var copyFiles = this.$store.state.copyFiles;
+            console.log(copyDir + "==>" + toDir);
             if(copyDir == toDir){
                 console.log("相同目录");
                 this.$message({
                     message: '与源目录相同',
                     type: 'warning'
                 });
-                this.$store.commit('changeCopyFiles', [], toDir);
+                return;
+            }
+            if(toDir.indexOf(copyDir) == 0){
+                console.log("复制到子目录");
+                this.$message({
+                    message: '不能把文字复制到其子目录',
+                    type: 'warning'
+                });
                 return;
             }
             var files = [];

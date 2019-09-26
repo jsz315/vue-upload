@@ -3,7 +3,7 @@ function getPath(url){
     var aim = list.map((item, index) => {
         var link = list.slice(0, index + 1).join("/") + "/";
         return {
-            label: item + "/",
+            label: item + " ",
             link: link
         }
     })

@@ -7,18 +7,26 @@
         margin-right: 20px;
     }
     .txt{
-        padding: 4px;
+        padding: 0 10px;
         flex: 1;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 4px;
+        border: solid 1px #f1f1f1;
     }
     .jump{
         width: 80px;
-        height: 25px;
-        line-height: 25px;
+        height: 28px;
+        line-height: 28px;
+        margin-left: 10px;
         text-align: center;
         background: #00a6e7;
         color: #ffffff;
         font-size: 12px;
         margin-left: 8px;
+        border-radius: 4px;
+        border: solid 1px #73d7ff;
+        cursor: pointer;
     }
     .links{
         flex: 1;
@@ -30,6 +38,9 @@
             color: #00a6e7;
             text-decoration: underline;
             cursor: pointer;
+            &::after{
+                content: "/";
+            }
         }
     }
 }

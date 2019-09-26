@@ -6,10 +6,12 @@ import App from "./page/App/index.vue";
 // Vue.use(Element)
 
 import store from './store/index'
-import { Message} from 'element-ui';
+import { Message, Breadcrumb, BreadcrumbItem } from 'element-ui';
 
 Vue.prototype.$message = Message;
 // Vue.use(Message);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
 
 new Vue({
     el: "#app",

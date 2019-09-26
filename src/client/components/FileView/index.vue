@@ -1,5 +1,8 @@
 <template>
-    <div class="box" :class="{enter}" ref="box" v-if="$store.state.isUpload">拖拽文件上传</div>
+    <div class="box" :class="{enter}" ref="box" v-if="$store.state.isUpload">
+        <i class="el-icon-sold-out"></i> 拖拽文件上传
+        <input @change="chooseFile" class="file" type="file" ref="file" multiple/>
+    </div>
 </template>
 
 <script>
@@ -39,15 +42,21 @@ export default {
             e.preventDefault();
             console.log("松手");
             this.enter = false;
-        
-            var dt = e.dataTransfer;
-            for (let i = 0; i < dt.files.length; i++) {
-                var file = dt.files[i];
+            this.addFiles(e.dataTransfer.files);
+        },
+        chooseFile(e){
+            console.log(e);
+            var files = e.target.files;
+            this.addFiles(files);
+        },
+        addFiles(files){
+            for (let i = 0; i < files.length; i++) {
+                var file = files[i];
                 var item = fileTooler.addItem(file);
                 this.$store.commit('addFile', item);
                 qiniuTooler.startUpload(item, this.$store.state.path, this.$store.state.token);
             }
-        },
+        }
     },
 
     mounted() {

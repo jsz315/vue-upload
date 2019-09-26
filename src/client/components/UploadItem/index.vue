@@ -1,5 +1,6 @@
 <template>
     <div class="upload-item">
+        <div class="info">3D模型转换工具<i @click="showHelp" class="el-icon-question help-btn">帮助</i></div>
         <path-view ref="pathView" />
         <file-view v-if="$store.state.isUpload"/>
         <edit-view ref="editView" v-show="$store.state.isEdit"/>
@@ -11,7 +12,7 @@
                 <div class="name">{{item.name}}</div>
                 <div class="fresh" :style="{'background-image': 'url(' + freshImg + ')'}" v-if="item.exist" @click="rewrite(item)"></div>
                 <progress-view class="loading" :num="item.percentage" v-if="item.loading"></progress-view>
-                <div class="btn" @click="preview(item)" v-if="item.isModel">预览模型</div>
+                <div class="btn" v-if="item.isModel">预览模型</div>
             </div>
         </div>
     </div>
@@ -111,6 +112,9 @@ export default {
                     this.$refs.editView.deleteItem();
                 }
             })
+        },
+        showHelp(){
+            alert("ok");
         }
     },
 
