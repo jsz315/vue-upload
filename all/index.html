@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEB-3D</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        (function (doc, win) {
+            var dpr = window.devicePixelRatio || 1;
+            var docEl = doc.documentElement;
+            var metaEl = document.querySelector('meta[name="viewport"]');
+            if(!metaEl){
+                metaEl = document.createElement('meta');
+                metaEl.name = "viewport";
+                doc.documentElement.firstElementChild.appendChild(metaEl);
+            }
+            var clientWidth = window.innerWidth;
+            var scale = 1 / dpr;
+            var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';  
+            var recalc = function () {    
+                var clientWidth = window.innerWidth * scale;
+                docEl.style.fontSize = 100 * (clientWidth * dpr / 750) + 'px';
+                metaEl.setAttribute('content', 'width=' + clientWidth * dpr + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no'); 
+            };    
+            if (!doc.addEventListener) return;    
+            win.addEventListener(resizeEvt, recalc, false);    
+            doc.addEventListener('DOMContentLoaded', recalc, false);    
+        })(document, window);    
+    </script>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+        uniform float time;
+        varying vec2 vUv;
+        
+        void main() {
+            vec3 posChanged = position;
+            posChanged.x = posChanged.x*(abs(sin(time*1.0)));
+            posChanged.y = posChanged.y*(abs(cos(time*1.0)));
+            posChanged.z = posChanged.z*(abs(sin(time*1.0)));
+            //gl_Position = projectionMatrix * modelViewMatrix * vec4(position*(abs(sin(time) / 2.0) + 0.5), 1.0);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(posChanged,1.0);
+        }
+    </script>
+
+    <script id="fragmentShader" type="x-shader/x-fragment">
+        precision highp float;
+
+        uniform float time;
+        varying vec2 vUv;
+
+        void main( void ) {
+            float color = sin(time);
+            gl_FragColor = vec4(1, color, 1, 1);
+        }
+    </script>
+
+    <script>
+        window.CFG = {
+            baseURL: ''
+        }
+    </script>
+</head>
+<body>
+    <div class="content page-wrapper">
+        <div id="toggle-sidebar">《</div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">Background</span>
+            <input type="color" class="form-control" aria-describedby="basic-addon3" id="Background">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">AmbientLight</span>
+            <input type="color" class="form-control" aria-describedby="basic-addon3" id="AmbientLight">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">DirectionalLight</span>
+            <input type="color" class="form-control" aria-describedby="basic-addon3" id="DirectionalLight">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">rotation</span>
+            <input type="range" class="form-control" min="-2" max="2" step="0.01" id="rotation">
+        </div>
+        <div class="box">
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="embed">嵌入图片
+                </label>
+            </div>
+            <button type="button" class="btn btn-default" id="btn">保存模型</button>
+            <button type="button" class="btn btn-default" id="load">读取模型</button>
+            <button type="button" class="btn btn-default" id="write">写入文件</button>
+        </div>
+        <div class="box">
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="control">开启镜头控制
+                </label>
+            </div>
+        </div>
+        
+        <div class="info"></div>
+    </div>
+</body>
+</html>

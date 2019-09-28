@@ -1,0 +1,638 @@
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:58 +08:00: bucketManager------------
+2019-09-28 20:58 +08:00: BucketManager {
+2019-09-28 20:58 +08:00:   mac:
+2019-09-28 20:58 +08:00:    Mac {
+2019-09-28 20:58 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:58 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:58 +08:00:   config:
+2019-09-28 20:58 +08:00:    Config {
+2019-09-28 20:58 +08:00:      useHttpsDomain: false,
+2019-09-28 20:58 +08:00:      useCdnDomain: false,
+2019-09-28 20:58 +08:00:      zone:
+2019-09-28 20:58 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:58 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:58 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:58 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:58 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:58 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:58 +08:00: http://0.0.0.0:80
+2019-09-28 20:59 +08:00: bucketManager------------
+2019-09-28 20:59 +08:00: BucketManager {
+2019-09-28 20:59 +08:00:   mac:
+2019-09-28 20:59 +08:00:    Mac {
+2019-09-28 20:59 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:59 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:59 +08:00:   config:
+2019-09-28 20:59 +08:00:    Config {
+2019-09-28 20:59 +08:00:      useHttpsDomain: false,
+2019-09-28 20:59 +08:00:      useCdnDomain: false,
+2019-09-28 20:59 +08:00:      zone:
+2019-09-28 20:59 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:59 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:59 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:59 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:59 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:59 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:59 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:59 +08:00: http://0.0.0.0:80
+2019-09-28 20:59 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-09-28 20:59 +08:00: [Object: null prototype] {}
+2019-09-28 20:59 +08:00: 获取token：
+2019-09-28 20:59 +08:00: MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w:V5zfmbe_yaITi6B6rdE1rA1sBM8=:eyJzY29wZSI6InRocmVlLWpzLW1vZGVsIiwiZGVhZGxpbmUiOjE1Njk2NzkxNTR9
+2019-09-28 20:59 +08:00: [ RowDataPacket { cpath: 'logo.png' },
+2019-09-28 20:59 +08:00:   RowDataPacket { cpath: '123' },
+2019-09-28 20:59 +08:00:   RowDataPacket { cpath: 'timg-1.jpeg' } ]
+2019-09-28 20:59 +08:00: INSERT ID:  logo.png
+2019-09-28 20:59 +08:00: INSERT ID:  123
+2019-09-28 20:59 +08:00: INSERT ID:  timg-1.jpeg
+2019-09-28 20:59 +08:00: bucketManager------------
+2019-09-28 20:59 +08:00: BucketManager {
+2019-09-28 20:59 +08:00:   mac:
+2019-09-28 20:59 +08:00:    Mac {
+2019-09-28 20:59 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 20:59 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 20:59 +08:00:   config:
+2019-09-28 20:59 +08:00:    Config {
+2019-09-28 20:59 +08:00:      useHttpsDomain: false,
+2019-09-28 20:59 +08:00:      useCdnDomain: false,
+2019-09-28 20:59 +08:00:      zone:
+2019-09-28 20:59 +08:00:       { srcUpHosts: [Array],
+2019-09-28 20:59 +08:00:         cdnUpHosts: [Array],
+2019-09-28 20:59 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 20:59 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 20:59 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 20:59 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 20:59 +08:00:      zoneExpire: -1 } }
+2019-09-28 20:59 +08:00: http://0.0.0.0:80
+2019-09-28 21:00 +08:00: bucketManager------------
+2019-09-28 21:00 +08:00: BucketManager {
+2019-09-28 21:00 +08:00:   mac:
+2019-09-28 21:00 +08:00:    Mac {
+2019-09-28 21:00 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:00 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:00 +08:00:   config:
+2019-09-28 21:00 +08:00:    Config {
+2019-09-28 21:00 +08:00:      useHttpsDomain: false,
+2019-09-28 21:00 +08:00:      useCdnDomain: false,
+2019-09-28 21:00 +08:00:      zone:
+2019-09-28 21:00 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:00 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:00 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:00 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:00 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:00 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:00 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:00 +08:00: http://0.0.0.0:80
+2019-09-28 21:00 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-09-28 21:00 +08:00: [Object: null prototype] {}
+2019-09-28 21:00 +08:00: 获取token：
+2019-09-28 21:00 +08:00: MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w:j3yGPKx0xDEspU96vCnw0zcCM50=:eyJzY29wZSI6InRocmVlLWpzLW1vZGVsIiwiZGVhZGxpbmUiOjE1Njk2NzkyMTN9
+2019-09-28 21:00 +08:00: [ RowDataPacket { cpath: 'logo.png' },
+2019-09-28 21:00 +08:00:   RowDataPacket { cpath: '123' },
+2019-09-28 21:00 +08:00:   RowDataPacket { cpath: 'timg-1.jpeg' } ]
+2019-09-28 21:00 +08:00: INSERT ID:  logo.png
+2019-09-28 21:00 +08:00: INSERT ID:  123
+2019-09-28 21:00 +08:00: INSERT ID:  timg-1.jpeg
+2019-09-28 21:00 +08:00: bucketManager------------
+2019-09-28 21:00 +08:00: BucketManager {
+2019-09-28 21:00 +08:00:   mac:
+2019-09-28 21:00 +08:00:    Mac {
+2019-09-28 21:00 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:00 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:00 +08:00:   config:
+2019-09-28 21:00 +08:00:    Config {
+2019-09-28 21:00 +08:00:      useHttpsDomain: false,
+2019-09-28 21:00 +08:00:      useCdnDomain: false,
+2019-09-28 21:00 +08:00:      zone:
+2019-09-28 21:00 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:00 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:00 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:00 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:00 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:00 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:00 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:00 +08:00: http://0.0.0.0:80
+2019-09-28 21:01 +08:00: bucketManager------------
+2019-09-28 21:01 +08:00: BucketManager {
+2019-09-28 21:01 +08:00:   mac:
+2019-09-28 21:01 +08:00:    Mac {
+2019-09-28 21:01 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:01 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:01 +08:00:   config:
+2019-09-28 21:01 +08:00:    Config {
+2019-09-28 21:01 +08:00:      useHttpsDomain: false,
+2019-09-28 21:01 +08:00:      useCdnDomain: false,
+2019-09-28 21:01 +08:00:      zone:
+2019-09-28 21:01 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:01 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:01 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:01 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:01 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:01 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:01 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:01 +08:00: http://0.0.0.0:80
+2019-09-28 21:01 +08:00: bucketManager------------
+2019-09-28 21:01 +08:00: BucketManager {
+2019-09-28 21:01 +08:00:   mac:
+2019-09-28 21:01 +08:00:    Mac {
+2019-09-28 21:01 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:01 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:01 +08:00:   config:
+2019-09-28 21:01 +08:00:    Config {
+2019-09-28 21:01 +08:00:      useHttpsDomain: false,
+2019-09-28 21:01 +08:00:      useCdnDomain: false,
+2019-09-28 21:01 +08:00:      zone:
+2019-09-28 21:01 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:01 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:01 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:01 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:01 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:01 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:01 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:01 +08:00: http://0.0.0.0:80
+2019-09-28 21:02 +08:00: bucketManager------------
+2019-09-28 21:02 +08:00: BucketManager {
+2019-09-28 21:02 +08:00:   mac:
+2019-09-28 21:02 +08:00:    Mac {
+2019-09-28 21:02 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:02 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:02 +08:00:   config:
+2019-09-28 21:02 +08:00:    Config {
+2019-09-28 21:02 +08:00:      useHttpsDomain: false,
+2019-09-28 21:02 +08:00:      useCdnDomain: false,
+2019-09-28 21:02 +08:00:      zone:
+2019-09-28 21:02 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:02 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:02 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:02 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:02 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:02 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:02 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:02 +08:00: http://0.0.0.0:80
+2019-09-28 21:02 +08:00: bucketManager------------
+2019-09-28 21:02 +08:00: BucketManager {
+2019-09-28 21:02 +08:00:   mac:
+2019-09-28 21:02 +08:00:    Mac {
+2019-09-28 21:02 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:02 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:02 +08:00:   config:
+2019-09-28 21:02 +08:00:    Config {
+2019-09-28 21:02 +08:00:      useHttpsDomain: false,
+2019-09-28 21:02 +08:00:      useCdnDomain: false,
+2019-09-28 21:02 +08:00:      zone:
+2019-09-28 21:02 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:02 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:02 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:02 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:02 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:02 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:02 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:02 +08:00: http://0.0.0.0:80
+2019-09-28 21:03 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-09-28 21:03 +08:00: [Object: null prototype] {}
+2019-09-28 21:03 +08:00: 获取token：
+2019-09-28 21:03 +08:00: MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w:JJepVc_Qd8FhrTd0eB__6OuhuJM=:eyJzY29wZSI6InRocmVlLWpzLW1vZGVsIiwiZGVhZGxpbmUiOjE1Njk2NzkzODF9
+2019-09-28 21:03 +08:00: [ RowDataPacket { cpath: 'logo.png' },
+2019-09-28 21:03 +08:00:   RowDataPacket { cpath: '123' },
+2019-09-28 21:03 +08:00:   RowDataPacket { cpath: 'timg-1.jpeg' } ]
+2019-09-28 21:03 +08:00: INSERT ID:  logo.png
+2019-09-28 21:03 +08:00: INSERT ID:  123
+2019-09-28 21:03 +08:00: INSERT ID:  timg-1.jpeg
+2019-09-28 21:03 +08:00: bucketManager------------
+2019-09-28 21:03 +08:00: BucketManager {
+2019-09-28 21:03 +08:00:   mac:
+2019-09-28 21:03 +08:00:    Mac {
+2019-09-28 21:03 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:03 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:03 +08:00:   config:
+2019-09-28 21:03 +08:00:    Config {
+2019-09-28 21:03 +08:00:      useHttpsDomain: false,
+2019-09-28 21:03 +08:00:      useCdnDomain: false,
+2019-09-28 21:03 +08:00:      zone:
+2019-09-28 21:03 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:03 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:03 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:03 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:03 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:03 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:03 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:03 +08:00: http://0.0.0.0:80
+2019-09-28 21:03 +08:00: bucketManager------------
+2019-09-28 21:03 +08:00: BucketManager {
+2019-09-28 21:03 +08:00:   mac:
+2019-09-28 21:03 +08:00:    Mac {
+2019-09-28 21:03 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:03 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:03 +08:00:   config:
+2019-09-28 21:03 +08:00:    Config {
+2019-09-28 21:03 +08:00:      useHttpsDomain: false,
+2019-09-28 21:03 +08:00:      useCdnDomain: false,
+2019-09-28 21:03 +08:00:      zone:
+2019-09-28 21:03 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:03 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:03 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:03 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:03 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:03 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:03 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:03 +08:00: http://0.0.0.0:80
+2019-09-28 21:04 +08:00: bucketManager------------
+2019-09-28 21:04 +08:00: BucketManager {
+2019-09-28 21:04 +08:00:   mac:
+2019-09-28 21:04 +08:00:    Mac {
+2019-09-28 21:04 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:04 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:04 +08:00:   config:
+2019-09-28 21:04 +08:00:    Config {
+2019-09-28 21:04 +08:00:      useHttpsDomain: false,
+2019-09-28 21:04 +08:00:      useCdnDomain: false,
+2019-09-28 21:04 +08:00:      zone:
+2019-09-28 21:04 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:04 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:04 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:04 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:04 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:04 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:04 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:04 +08:00: http://0.0.0.0:80
+2019-09-28 21:04 +08:00: bucketManager------------
+2019-09-28 21:04 +08:00: BucketManager {
+2019-09-28 21:04 +08:00:   mac:
+2019-09-28 21:04 +08:00:    Mac {
+2019-09-28 21:04 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:04 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:04 +08:00:   config:
+2019-09-28 21:04 +08:00:    Config {
+2019-09-28 21:04 +08:00:      useHttpsDomain: false,
+2019-09-28 21:04 +08:00:      useCdnDomain: false,
+2019-09-28 21:04 +08:00:      zone:
+2019-09-28 21:04 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:04 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:04 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:04 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:04 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:04 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:04 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:04 +08:00: http://0.0.0.0:80
+2019-09-28 21:05 +08:00: bucketManager------------
+2019-09-28 21:05 +08:00: BucketManager {
+2019-09-28 21:05 +08:00:   mac:
+2019-09-28 21:05 +08:00:    Mac {
+2019-09-28 21:05 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:05 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:05 +08:00:   config:
+2019-09-28 21:05 +08:00:    Config {
+2019-09-28 21:05 +08:00:      useHttpsDomain: false,
+2019-09-28 21:05 +08:00:      useCdnDomain: false,
+2019-09-28 21:05 +08:00:      zone:
+2019-09-28 21:05 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:05 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:05 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:05 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:05 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:05 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:05 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:05 +08:00: http://0.0.0.0:80
+2019-09-28 21:05 +08:00: bucketManager------------
+2019-09-28 21:05 +08:00: BucketManager {
+2019-09-28 21:05 +08:00:   mac:
+2019-09-28 21:05 +08:00:    Mac {
+2019-09-28 21:05 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:05 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:05 +08:00:   config:
+2019-09-28 21:05 +08:00:    Config {
+2019-09-28 21:05 +08:00:      useHttpsDomain: false,
+2019-09-28 21:05 +08:00:      useCdnDomain: false,
+2019-09-28 21:05 +08:00:      zone:
+2019-09-28 21:05 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:05 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:05 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:05 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:05 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:05 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:05 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:05 +08:00: http://0.0.0.0:80
+2019-09-28 21:06 +08:00: bucketManager------------
+2019-09-28 21:06 +08:00: BucketManager {
+2019-09-28 21:06 +08:00:   mac:
+2019-09-28 21:06 +08:00:    Mac {
+2019-09-28 21:06 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:06 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:06 +08:00:   config:
+2019-09-28 21:06 +08:00:    Config {
+2019-09-28 21:06 +08:00:      useHttpsDomain: false,
+2019-09-28 21:06 +08:00:      useCdnDomain: false,
+2019-09-28 21:06 +08:00:      zone:
+2019-09-28 21:06 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:06 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:06 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:06 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:06 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:06 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:06 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:06 +08:00: http://0.0.0.0:80
+2019-09-28 21:06 +08:00: bucketManager------------
+2019-09-28 21:06 +08:00: BucketManager {
+2019-09-28 21:06 +08:00:   mac:
+2019-09-28 21:06 +08:00:    Mac {
+2019-09-28 21:06 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:06 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:06 +08:00:   config:
+2019-09-28 21:06 +08:00:    Config {
+2019-09-28 21:06 +08:00:      useHttpsDomain: false,
+2019-09-28 21:06 +08:00:      useCdnDomain: false,
+2019-09-28 21:06 +08:00:      zone:
+2019-09-28 21:06 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:06 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:06 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:06 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:06 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:06 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:06 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:06 +08:00: http://0.0.0.0:80
+2019-09-28 21:07 +08:00: bucketManager------------
+2019-09-28 21:07 +08:00: BucketManager {
+2019-09-28 21:07 +08:00:   mac:
+2019-09-28 21:07 +08:00:    Mac {
+2019-09-28 21:07 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:07 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:07 +08:00:   config:
+2019-09-28 21:07 +08:00:    Config {
+2019-09-28 21:07 +08:00:      useHttpsDomain: false,
+2019-09-28 21:07 +08:00:      useCdnDomain: false,
+2019-09-28 21:07 +08:00:      zone:
+2019-09-28 21:07 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:07 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:07 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:07 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:07 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:07 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:07 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:07 +08:00: http://0.0.0.0:80
+2019-09-28 21:07 +08:00: bucketManager------------
+2019-09-28 21:07 +08:00: BucketManager {
+2019-09-28 21:07 +08:00:   mac:
+2019-09-28 21:07 +08:00:    Mac {
+2019-09-28 21:07 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:07 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:07 +08:00:   config:
+2019-09-28 21:07 +08:00:    Config {
+2019-09-28 21:07 +08:00:      useHttpsDomain: false,
+2019-09-28 21:07 +08:00:      useCdnDomain: false,
+2019-09-28 21:07 +08:00:      zone:
+2019-09-28 21:07 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:07 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:07 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:07 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:07 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:07 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:07 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:07 +08:00: http://0.0.0.0:80
+2019-09-28 21:08 +08:00: bucketManager------------
+2019-09-28 21:08 +08:00: BucketManager {
+2019-09-28 21:08 +08:00:   mac:
+2019-09-28 21:08 +08:00:    Mac {
+2019-09-28 21:08 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:08 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:08 +08:00:   config:
+2019-09-28 21:08 +08:00:    Config {
+2019-09-28 21:08 +08:00:      useHttpsDomain: false,
+2019-09-28 21:08 +08:00:      useCdnDomain: false,
+2019-09-28 21:08 +08:00:      zone:
+2019-09-28 21:08 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:08 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:08 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:08 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:08 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:08 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:08 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:08 +08:00: http://0.0.0.0:80
+2019-09-28 21:08 +08:00: bucketManager------------
+2019-09-28 21:08 +08:00: BucketManager {
+2019-09-28 21:08 +08:00:   mac:
+2019-09-28 21:08 +08:00:    Mac {
+2019-09-28 21:08 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:08 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:08 +08:00:   config:
+2019-09-28 21:08 +08:00:    Config {
+2019-09-28 21:08 +08:00:      useHttpsDomain: false,
+2019-09-28 21:08 +08:00:      useCdnDomain: false,
+2019-09-28 21:08 +08:00:      zone:
+2019-09-28 21:08 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:08 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:08 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:08 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:08 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:08 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:08 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:08 +08:00: http://0.0.0.0:80
+2019-09-28 21:09 +08:00: bucketManager------------
+2019-09-28 21:09 +08:00: BucketManager {
+2019-09-28 21:09 +08:00:   mac:
+2019-09-28 21:09 +08:00:    Mac {
+2019-09-28 21:09 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:09 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:09 +08:00:   config:
+2019-09-28 21:09 +08:00:    Config {
+2019-09-28 21:09 +08:00:      useHttpsDomain: false,
+2019-09-28 21:09 +08:00:      useCdnDomain: false,
+2019-09-28 21:09 +08:00:      zone:
+2019-09-28 21:09 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:09 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:09 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:09 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:09 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:09 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:09 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:09 +08:00: http://0.0.0.0:80
+2019-09-28 21:09 +08:00: bucketManager------------
+2019-09-28 21:09 +08:00: BucketManager {
+2019-09-28 21:09 +08:00:   mac:
+2019-09-28 21:09 +08:00:    Mac {
+2019-09-28 21:09 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:09 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:09 +08:00:   config:
+2019-09-28 21:09 +08:00:    Config {
+2019-09-28 21:09 +08:00:      useHttpsDomain: false,
+2019-09-28 21:09 +08:00:      useCdnDomain: false,
+2019-09-28 21:09 +08:00:      zone:
+2019-09-28 21:09 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:09 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:09 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:09 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:09 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:09 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:09 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:09 +08:00: http://0.0.0.0:80
+2019-09-28 21:10 +08:00: bucketManager------------
+2019-09-28 21:10 +08:00: BucketManager {
+2019-09-28 21:10 +08:00:   mac:
+2019-09-28 21:10 +08:00:    Mac {
+2019-09-28 21:10 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:10 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:10 +08:00:   config:
+2019-09-28 21:10 +08:00:    Config {
+2019-09-28 21:10 +08:00:      useHttpsDomain: false,
+2019-09-28 21:10 +08:00:      useCdnDomain: false,
+2019-09-28 21:10 +08:00:      zone:
+2019-09-28 21:10 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:10 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:10 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:10 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:10 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:10 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:10 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:10 +08:00: http://0.0.0.0:80
+2019-09-28 21:10 +08:00: bucketManager------------
+2019-09-28 21:10 +08:00: BucketManager {
+2019-09-28 21:10 +08:00:   mac:
+2019-09-28 21:10 +08:00:    Mac {
+2019-09-28 21:10 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:10 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:10 +08:00:   config:
+2019-09-28 21:10 +08:00:    Config {
+2019-09-28 21:10 +08:00:      useHttpsDomain: false,
+2019-09-28 21:10 +08:00:      useCdnDomain: false,
+2019-09-28 21:10 +08:00:      zone:
+2019-09-28 21:10 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:10 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:10 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:10 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:10 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:10 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:10 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:10 +08:00: http://0.0.0.0:80
+2019-09-28 21:11 +08:00: bucketManager------------
+2019-09-28 21:11 +08:00: BucketManager {
+2019-09-28 21:11 +08:00:   mac:
+2019-09-28 21:11 +08:00:    Mac {
+2019-09-28 21:11 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-28 21:11 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-28 21:11 +08:00:   config:
+2019-09-28 21:11 +08:00:    Config {
+2019-09-28 21:11 +08:00:      useHttpsDomain: false,
+2019-09-28 21:11 +08:00:      useCdnDomain: false,
+2019-09-28 21:11 +08:00:      zone:
+2019-09-28 21:11 +08:00:       { srcUpHosts: [Array],
+2019-09-28 21:11 +08:00:         cdnUpHosts: [Array],
+2019-09-28 21:11 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-28 21:11 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-28 21:11 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-28 21:11 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-28 21:11 +08:00:      zoneExpire: -1 } }
+2019-09-28 21:11 +08:00: http://0.0.0.0:80
