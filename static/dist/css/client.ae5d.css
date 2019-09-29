@@ -60,6 +60,16 @@
   border: solid 1px #73d7ff;
   cursor: pointer;
 }
+.path .jump .ico[data-v-30aaa28a] {
+  vertical-align: middle;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: contain;
+  background-image: url("/asset/img/jump.png");
+}
 .path .links[data-v-30aaa28a] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -93,12 +103,22 @@
   -webkit-transition: all 300ms;
   transition: all 300ms;
   text-align: center;
+  vertical-align: middle;
 }
 .box.enter[data-v-b5b4c85c] {
   background: #92e0ff;
 }
 .box .file[data-v-b5b4c85c] {
   margin-left: 20px;
+}
+.box .ico[data-v-b5b4c85c] {
+  display: inline-block;
+  background: url("/asset/img/drag.png") no-repeat;
+  background-position: center left;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
 .edit-view[data-v-272ff840] {
@@ -147,12 +167,22 @@
   font-size: 24px;
   color: brown;
   margin-bottom: 20px;
+  vertical-align: middle;
 }
 .upload-item .info .help-btn[data-v-5838e105] {
+  vertical-align: middle;
   margin-left: 20px;
-  font-size: 16px;
+  font-size: 20px;
   color: #858585;
   cursor: pointer;
+  text-align: left;
+  display: inline-block;
+  background: url("/asset/img/help.png") no-repeat;
+  background-position: center left;
+  background-size: contain;
+  padding-left: 24px;
+  height: 20px;
+  line-height: 20px;
 }
 .list[data-v-5838e105] {
   padding: 24px 0;
@@ -264,6 +294,33 @@
           flex: 1;
   overflow-y: auto;
 }
+.ico[data-v-2bb3647f] {
+  vertical-align: middle;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: contain;
+}
+.upload[data-v-2bb3647f] {
+  background-image: url("/asset/img/upload.png");
+}
+.edit[data-v-2bb3647f] {
+  background-image: url("/asset/img/edit.png");
+}
+
+.wrap[data-v-0c8b1491] {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+}
 
 
-/*# sourceMappingURL=client.a3d2.css.map*/
+/*# sourceMappingURL=client.ae5d.css.map*/

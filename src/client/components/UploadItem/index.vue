@@ -1,6 +1,6 @@
 <template>
     <div class="upload-item">
-        <div class="info">3D模型转换工具<i @click="showHelp" class="el-icon-question help-btn">帮助</i></div>
+        <div class="info">3D模型转换工具<i @click="showHelp" class="help-btn">帮助</i></div>
         <path-view ref="pathView" />
         <file-view v-if="$store.state.isUpload"/>
         <edit-view ref="editView" v-show="$store.state.isEdit"/>
