@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="left">
-        <div class="btn" :class="{'isUpload': isUpload}" @click="toggleUpload"><i class="el-icon-s-promotion"></i> 上传</div>
-        <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="el-icon-s-operation"></i> 操作</div>
-        <div class="btn" :class="{'isEdit': isEdit}" @click="editPage"><i class="el-icon-s-operation"></i> 编辑</div>
+        <div class="btn" :class="{'isUpload': isUpload}" @click="toggleUpload"><i class="el-icon-s-promotion tip-ico"></i> 上传</div>
+        <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="el-icon-s-operation tip-ico"></i> 操作</div>
+        <div class="btn" @click="editPage"><i class="el-icon-s-operation tip-ico"></i> 编辑</div>
     </div>
     <div class="right">
         <UploadItem ref="UploadItem" />

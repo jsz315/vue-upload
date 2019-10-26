@@ -1,6 +1,6 @@
 <template>
     <div class="upload-item">
-        <div class="info">3D模型转换工具<i @click="showHelp" class="el-icon-question help-btn">帮助</i></div>
+        <div class="info">3D模型转换工具 <span class="help-btn" @click="showHelp"><i class="el-icon-question tip-ico"></i>帮助</span></div>
         <path-view ref="pathView" />
         <file-view v-if="$store.state.isUpload"/>
         <edit-view ref="editView" v-show="$store.state.isEdit"/>
@@ -115,24 +115,24 @@ export default {
             document.addEventListener("keydown", (event)=>{
                 console.log(event.keyCode);
                 if(event.ctrlKey && event.keyCode == 67){ 
-                    console.log('你按下了CTRL+C');
+                    // this.$toast('你按下了CTRL+C');
                     this.$refs.editView.copyItem(false);
                 }
                 else if(event.ctrlKey && event.keyCode == 86){ 
-                    console.log('你按下了CTRL+V');
+                    // this.$toast('你按下了CTRL+V');
                     this.$refs.editView.pasteItem();
                 }
                 else if(event.ctrlKey && event.keyCode == 88){ 
-                    console.log('你按下了CTRL+X');
+                    // this.$toast('你按下了CTRL+X');
                     this.$refs.editView.copyItem(true);
                 }
                 else if(event.ctrlKey && event.keyCode == 65){ 
-                    console.log('你按下了CTRL+A');
+                    // this.$toast('你按下了CTRL+A');
                     event.preventDefault();
                     this.$refs.editView.toggleSelect();
                 }
                 else if(event.keyCode == 46){ 
-                    console.log('你按下了Del');
+                    // this.$toast('你按下了Del');
                     this.$refs.editView.deleteItem();
                 }
             })

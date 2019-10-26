@@ -1,6 +1,6 @@
 <template>
-    <div class="box" :class="{enter}" ref="box" v-if="$store.state.isUpload">
-        <i class="el-icon-sold-out"></i> 拖拽文件上传
+    <div class="file-view" :class="{enter}" ref="box" v-if="$store.state.isUpload">
+        <i class="el-icon-sold-out tip-ico"></i> 拖拽文件上传
         <input @change="chooseFile" class="file" type="file" ref="file" multiple/>
     </div>
 </template>
