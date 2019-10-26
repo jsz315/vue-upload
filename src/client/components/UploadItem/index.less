@@ -14,10 +14,10 @@
 }
 
 .list{
-    display: flex;
     padding: 24px 0;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     .item{
         width: 180px;
         margin: 0 24px 40px 0;
@@ -26,6 +26,9 @@
             .img-box{
                 border: solid 1px #13bcff;
             }
+        }
+        &.end{
+            margin-right: 0;
         }
         .img-box{
             display: flex;

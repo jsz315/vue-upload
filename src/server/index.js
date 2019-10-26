@@ -13,8 +13,10 @@ const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
 const sqlTooler = require('./sqlTooler');
+const fileTooler = require('./fileTooler');
 
-init(getIPAddress(), 8899);
+init("0.0.0.0", 8899);
+// init("127.0.0.1", 8899);
 
 function init(host, port) {
 
@@ -127,11 +129,24 @@ function init(host, port) {
         let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFile success" : "copyFile fail";
-    })
+	})
+	
+	router.get("/html", async (ctx, next) => {
+		let str = fileTooler.readHtml();
+		ctx.body = str;
+	})
+
+	router.post("/html", async (ctx, next) => {
+		let params = ctx.request.body.params;
+		console.log(params);
+		fileTooler.saveHtml(params.content);
+		ctx.body = "save success";
+	})
+
 
 	app.listen(port, host)
 
-	let url = `http://${getIPAddress()}:${port}`;
+	let url = `http://${host}:${port}`;
 	console.log(url);
 	opn(url);
 }

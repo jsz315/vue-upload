@@ -4,8 +4,8 @@
         <path-view ref="pathView" />
         <file-view v-if="$store.state.isUpload"/>
         <edit-view ref="editView" v-show="$store.state.isEdit"/>
-        <div class="list">
-            <div class="item" :class="{'selected':item.selected}" v-for="(item, index) in files" :key="index">
+        <div class="list" ref="list">
+            <div class="item" :class="{'selected':item.selected, 'end': (index + 1) % col == 0}" v-for="(item, index) in files" :key="index">
                 <div class="img-box" @click="toggleSelect(item)" @dblclick="preview(item)">
                     <img class="img" :src="item.src"/>
                 </div>
@@ -30,6 +30,7 @@ import qiniuTooler from '@/client/js/qiniuTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
 import pathTooler from '@/client/js/pathTooler'
+import fileTooler from '@/client/js/fileTooler'
 
 import {mapState, mapMutations, mapActions, mapGetters} from 'vuex'
 
@@ -37,6 +38,7 @@ export default {
     data() {
         return {
             freshImg: config.LINK.FRESH,
+            col: Infinity
         };
     },
     components: {
@@ -44,7 +46,29 @@ export default {
     },
     computed: {
         files(){
-            return this.$store.state.files;
+            var list = [];
+            this.$store.state.files.forEach(item => {
+                if(item.file && item.file.fullPath){
+                    var ary = item.file.fullPath.split("/");
+                    if(ary.length <= 2){
+                        list.push(item);
+                    }
+                    else{
+                        if(list.some(n => n.name == ary[1])){
+                            console.log("目录已经存在");
+                        }
+                        else{
+                            list.push(fileTooler.addItem(ary[1], ""));
+                        }
+                        
+                    }
+                    
+                }
+                else{
+                    list.push(item);
+                }
+            })
+            return list;
         },
         path(){
             return this.$store.state.path;
@@ -121,6 +145,15 @@ export default {
     mounted() {
         axios.get("/token").then(res => {
             this.$store.commit('changeToken', res.data);
+        })
+
+        var div = this.$refs.list;
+        this.col = Math.floor(div.clientWidth + 24 / 204);
+
+        window.addEventListener("resize", (e)=>{
+            console.log(div);
+            console.log(div.clientWidth);
+            this.col = Math.floor((div.clientWidth + 24) / 204);
         })
 
         // var file = new Blob( [ 'jjj' ], { type: 'text/plain' } );
