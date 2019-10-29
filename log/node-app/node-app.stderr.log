@@ -95,3 +95,32 @@
 2019-09-28 21:10 +08:00: Sat, 28 Sep 2019 13:10:11 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
 2019-09-28 21:10 +08:00: Sat, 28 Sep 2019 13:10:42 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
 2019-09-28 21:11 +08:00: Sat, 28 Sep 2019 13:11:12 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
+2019-09-30 05:21 +08:00: Sun, 29 Sep 2019 21:21:08 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
+2019-09-30 05:21 +08:00: Sun, 29 Sep 2019 21:21:08 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
+2019-09-30 05:21 +08:00: Sun, 29 Sep 2019 21:21:08 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at src/server/base.js:41:6
+2019-09-30 05:21 +08:00: { Error: listen EADDRINUSE: address already in use 0.0.0.0:80
+2019-09-30 05:21 +08:00:     at Server.setupListenHandle [as _listen2] (net.js:1279:14)
+2019-09-30 05:21 +08:00:     at listenInCluster (net.js:1327:12)
+2019-09-30 05:21 +08:00:     at doListen (net.js:1460:7)
+2019-09-30 05:21 +08:00:     at process._tickCallback (internal/process/next_tick.js:63:19)
+2019-09-30 05:21 +08:00:     at Function.Module.runMain (internal/modules/cjs/loader.js:832:11)
+2019-09-30 05:21 +08:00:     at startup (internal/bootstrap/node.js:283:19)
+2019-09-30 05:21 +08:00:     at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+2019-09-30 05:21 +08:00:   code: 'EADDRINUSE',
+2019-09-30 05:21 +08:00:   errno: 'EADDRINUSE',
+2019-09-30 05:21 +08:00:   syscall: 'listen',
+2019-09-30 05:21 +08:00:   address: '0.0.0.0',
+2019-09-30 05:21 +08:00:   port: 80 }
+2019-09-30 05:21 +08:00: { Error: listen EADDRINUSE: address already in use 0.0.0.0:80
+2019-09-30 05:21 +08:00:     at Server.setupListenHandle [as _listen2] (net.js:1279:14)
+2019-09-30 05:21 +08:00:     at listenInCluster (net.js:1327:12)
+2019-09-30 05:21 +08:00:     at doListen (net.js:1460:7)
+2019-09-30 05:21 +08:00:     at process._tickCallback (internal/process/next_tick.js:63:19)
+2019-09-30 05:21 +08:00:     at Function.Module.runMain (internal/modules/cjs/loader.js:832:11)
+2019-09-30 05:21 +08:00:     at startup (internal/bootstrap/node.js:283:19)
+2019-09-30 05:21 +08:00:     at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+2019-09-30 05:21 +08:00:   code: 'EADDRINUSE',
+2019-09-30 05:21 +08:00:   errno: 'EADDRINUSE',
+2019-09-30 05:21 +08:00:   syscall: 'listen',
+2019-09-30 05:21 +08:00:   address: '0.0.0.0',
+2019-09-30 05:21 +08:00:   port: 80 }

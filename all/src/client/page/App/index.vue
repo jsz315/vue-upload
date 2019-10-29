@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="left">
-        <div class="btn" :class="{'isUpload': isUpload}" @click="toggleUpload"><i class="el-icon-s-promotion"></i> 上传</div>
-        <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="el-icon-s-operation"></i> 操作</div>
+        <div class="btn" :class="{'isUpload': isUpload}" @click="toggleUpload"><i class="upload ico"></i> 上传</div>
+        <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="edit ico"></i> 操作</div>
     </div>
     <div class="right">
         <UploadItem ref="UploadItem" />
