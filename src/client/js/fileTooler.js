@@ -9,7 +9,7 @@ function addItem(obj, path){
         isFile = false;
     }
     else{
-        fname = obj.name;
+        fname = obj.fullPath ? obj.fullPath.substr(1) : obj.name;
         isFile = true;
     }
     var item = {

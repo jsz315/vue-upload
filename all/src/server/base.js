@@ -13,8 +13,23 @@ const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
 const sqlTooler = require('./sqlTooler');
+const fileTooler = require('./fileTooler');
 
+init("0.0.0.0", 8899);
 // init("127.0.0.1", 8899);
+
+function init(host, port) {
+
+	const config = require('../../webpack.dev.js')();
+	const compiler = webpack(config);
+
+	app.use(devMiddleware(compiler, {
+		noInfo: true,
+		watchOptions: {
+			ignored: /node_modules/,
+		},
+		publicPath: config.output.publicPath
+	}));
 
 function init(host, port, isDev) {
 	// app.use(hotMiddleware(compiler, {
@@ -128,7 +143,20 @@ function init(host, port, isDev) {
         let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFile success" : "copyFile fail";
-    })
+	})
+	
+	router.get("/html", async (ctx, next) => {
+		let str = fileTooler.readHtml();
+		ctx.body = str;
+	})
+
+	router.post("/html", async (ctx, next) => {
+		let params = ctx.request.body.params;
+		console.log(params);
+		fileTooler.saveHtml(params.content);
+		ctx.body = "save success";
+	})
+
 
 	app.listen(port, host)
 

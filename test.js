@@ -6,44 +6,32 @@ const bodyparser = require('koa-bodyparser')
 const path = require('path')
 const app = new Koa()
 const router = new Router()
+const sqlTooler = require('./src/server/sqlTooler');
+const fs = require("fs")
 
-init(getIPAddress(), 8899);
+// saveHtml("ssf");
+console.log(readHtml());
 
-function init(host, port) {
-
-	app.use(static(
-		path.join(__dirname, '../static')
-	))
-
-	app.use(cors({
-		origin: function (ctx) {
-			return "*";
-		},
-		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
-		maxAge: 5
-    }))
-    
-    app.use(bodyparser());
-
-	app.use(router.routes(), router.allowedMethods())
-	
-	router.get("/abc", async (ctx, next) => {
-		ctx.body = "abc";
-	})
-
-	app.listen(port, host)
-
-	let url = `http://${getIPAddress()}:${port}`;
-	console.log(url);
+function saveHtml(str){
+	var fd = fs.openSync('./static/html/index.html', 'w');
+	fs.writeFileSync(fd, str);
+	fs.closeSync(fd);
 }
 
+function readHtml(){
+	if(fs.existsSync('./static/html/indexd.html')){
+		var fd = fs.openSync('./static/html/indexd.html', 'r');
+		var str = fs.readFileSync(fd, 'utf-8');
+		fs.closeSync(fd);
+		return str;
+	}
+	else{
+		return "none";
+	}
+}
 
-// app.use(express.static('../../static'));
-// app.use(express.static('../../dist'));
-
-//使用mock数据
-// app.use('/mock', express.static('./mock'));
-// mock(app);
+// init(getIPAddress(), 8899);
+// sqlTooler.test();
 
 function getIPAddress() {
 	const interfaces = require('os').networkInterfaces(); // 在开发环境中获取局域网中的本机iP地址
@@ -57,5 +45,6 @@ function getIPAddress() {
 			}
 		}
 	}
-	return IPAddress;
+	// return IPAddress;
+	return '0.0.0.0';
 }
