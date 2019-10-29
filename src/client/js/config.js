@@ -6,16 +6,9 @@ const FILE_TYPE = {
     HTML: 4
 }
 
-const HOST = "http://py325bkfy.bkt.clouddn.com";
+const HOST = window.CFG.HOST;
+const LINK = window.CFG.LINK;
+const STAGE = window.CFG.STAGE;
+const bucket = window.CFG.bucket;
 
-const LINK = {
-    UNKNOW: "/asset/img/file.png",
-    IMAGE: "/asset/img/pic.png",
-    MODEL: "/asset/img/3d.png",
-    FOLDER: "/asset/img/folder.png",
-    FRESH: "/asset/img/fresh.png"
-}
-
-const bucket = 'three-js-model';
-
-export default {FILE_TYPE, HOST, LINK, bucket};
+export default {FILE_TYPE, HOST, LINK, STAGE, bucket};

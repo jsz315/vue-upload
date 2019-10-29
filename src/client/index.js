@@ -6,6 +6,10 @@ import './index.less';
 // import Element from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(Element)
+import toastRegistry from '@/client/components/ToastView/index.js'
+
+// 这里也可以直接执行 toastRegistry()
+Vue.use(toastRegistry);
 
 import store from './store/index'
 // import { Message, Breadcrumb, BreadcrumbItem } from 'element-ui';

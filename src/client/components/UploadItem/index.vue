@@ -102,8 +102,7 @@ export default {
                 window.open(url);
             }
             else if(fileType == config.FILE_TYPE.MODEL){
-                var host = window.CFG.host;
-                url = `${host}?url=${config.HOST}${this.path}${name}`;
+                url = `${config.STAGE}?url=${config.HOST}${this.path}${name}`;
                 window.open(url);
             }
             else if(fileType == config.FILE_TYPE.FOLDER){
