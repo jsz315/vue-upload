@@ -7,6 +7,9 @@ function checkType(url){
     else if(url.match(/\.(gltf|glb|fbx)$/i)){
         return config.FILE_TYPE.MODEL;
     }
+    else if(url.match(/\.html$/i)){
+        return config.FILE_TYPE.HTML;
+    }
     else{
         var name = url.split("/").pop();
         if(name.indexOf(".") == -1){

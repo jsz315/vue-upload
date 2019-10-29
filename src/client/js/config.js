@@ -2,7 +2,8 @@ const FILE_TYPE = {
     UNKNOW: 0,
     IMAGE: 1,
     MODEL: 2,
-    FOLDER: 3
+    FOLDER: 3,
+    HTML: 4
 }
 
 const HOST = "http://py325bkfy.bkt.clouddn.com";

@@ -97,7 +97,7 @@ export default {
             var name = item.name;
             var fileType = typeTooler.checkType(name);
             var url;
-            if(fileType == config.FILE_TYPE.IMAGE){
+            if(fileType == config.FILE_TYPE.IMAGE || fileType == config.FILE_TYPE.HTML){
                 url = `${config.HOST}${this.path}${name}`;
                 window.open(url);
             }
@@ -138,7 +138,7 @@ export default {
             })
         },
         showHelp(){
-            alert("ok");
+            alert("开发中");
         }
     },
 
