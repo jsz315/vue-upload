@@ -1,8 +1,9 @@
 const databaseConfig = {
-    host: "39.98.243.202",
-    // host: "localhost",
+    // host: "39.98.243.202",
+    host: "localhost",
     user: "root",
     password: "Jsz04005301!",
+    // password: "Jsz04005301",
     database: "qiniu"
 }
 

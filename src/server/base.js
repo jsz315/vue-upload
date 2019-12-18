@@ -13,6 +13,9 @@ const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
 const sqlTooler = require('./sqlTooler');
+const {readHtml, saveHtml, readTxt, saveTxt} = require('./fileTooler');
+
+// const formidable = require('formidable')
 
 // init("127.0.0.1", 8899);
 
@@ -129,6 +132,28 @@ function init(host, port, isDev) {
         qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFile success" : "copyFile fail";
     })
+
+    router.get("/html", async (ctx, next) => {
+        let html = readHtml();
+        ctx.body = html;
+    })
+
+    router.post("/html", async (ctx, next) => {
+        let params = ctx.request.body.params;
+        saveHtml(params.content);
+        ctx.body = "success";
+	})
+
+	router.get("/txt", async (ctx, next) => {
+        let html = readTxt();
+        ctx.body = html;
+    })
+
+    router.post("/txt", async (ctx, next) => {
+        let params = ctx.request.body.params;
+        saveTxt(params.content);
+        ctx.body = "success";
+	})	
 
 	app.listen(port, host)
 

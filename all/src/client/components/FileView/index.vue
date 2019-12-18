@@ -1,6 +1,6 @@
 <template>
-    <div class="box" :class="{enter}" ref="box" v-if="$store.state.isUpload">
-        <i class="el-icon-sold-out"></i> 拖拽文件上传
+    <div class="file-view" :class="{enter}" ref="box" v-if="$store.state.isUpload">
+        <i class="el-icon-sold-out tip-ico"></i> 拖拽文件上传
         <input @change="chooseFile" class="file" type="file" ref="file" multiple/>
     </div>
 </template>
@@ -14,6 +14,8 @@ import fileTooler from '@/client/js/fileTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
 import qiniuTooler from '@/client/js/qiniuTooler'
+
+let dropFiles = [];
 
 export default {
     data() {
@@ -41,25 +43,57 @@ export default {
             e.stopPropagation();
             e.preventDefault();
             console.log("松手");
+            console.log(e);
             this.enter = false;
-            this.addFiles(e.dataTransfer.files);
+            dropFiles = [];
+            // this.addFiles(e.dataTransfer.files);
+
+            let items = e.dataTransfer.items;
+            for(let i = 0; i < items.length; i++){
+                let item = items[i].webkitGetAsEntry();
+                if(item){
+                    this.scanFiles(item);
+                }
+            }
+            // this.addFiles(dropFiles);
+        },
+        async scanFiles(item){
+            console.log("path: " + item.fullPath);
+          
+            if(item.isDirectory){
+                let dirReader = item.createReader();
+                dirReader.readEntries((entries)=>{
+                    entries.forEach((entry)=>{
+                        this.scanFiles(entry);
+                    })
+                })
+            }
+            else{
+                item.file(file=>{
+                    // dropFiles.push(file);
+                    file.fullPath = item.fullPath;
+                    this.addFiles([file]);
+                })
+            }
         },
         chooseFile(e){
-            console.log(e);
             var files = e.target.files;
             this.addFiles(files);
         },
         addFiles(files){
+            console.log(files);
             for (let i = 0; i < files.length; i++) {
                 var file = files[i];
                 var item = fileTooler.addItem(file);
                 this.$store.commit('addFile', item);
+                console.log("item");
+                console.log(item);
                 qiniuTooler.startUpload(item, this.$store.state.path, this.$store.state.token);
             }
         }
     },
 
-    mounted() {
+    async mounted() {
         var box = this.$refs.box;
         box.addEventListener("dragenter", this.onDrag, false);
         box.addEventListener("dragover", this.onDrag, false);

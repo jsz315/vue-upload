@@ -14,6 +14,7 @@ import fileTooler from '@/client/js/fileTooler'
 import config from '@/client/js/config'
 import typeTooler from '@/client/js/typeTooler'
 import qiniuTooler from '@/client/js/qiniuTooler'
+import yunTooler from '@/client/js/yunTooler'
 
 let dropFiles = [];
 
@@ -83,12 +84,15 @@ export default {
         addFiles(files){
             console.log(files);
             for (let i = 0; i < files.length; i++) {
+                
                 var file = files[i];
                 var item = fileTooler.addItem(file);
                 this.$store.commit('addFile', item);
                 console.log("item");
                 console.log(item);
                 qiniuTooler.startUpload(item, this.$store.state.path, this.$store.state.token);
+                
+                // yunTooler.startUpload(files[i]);
             }
         }
     },

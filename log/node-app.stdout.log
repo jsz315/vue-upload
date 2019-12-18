@@ -636,3 +636,430 @@
 2019-09-28 21:11 +08:00:         apiHost: 'api-z2.qiniu.com' },
 2019-09-28 21:11 +08:00:      zoneExpire: -1 } }
 2019-09-28 21:11 +08:00: http://0.0.0.0:80
+2019-09-30 05:21 +08:00: bucketManager------------
+2019-09-30 05:21 +08:00: bucketManager------------
+2019-09-30 05:21 +08:00: bucketManager------------
+2019-09-30 05:21 +08:00: BucketManager {
+2019-09-30 05:21 +08:00:   mac:
+2019-09-30 05:21 +08:00:    Mac {
+2019-09-30 05:21 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-30 05:21 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-30 05:21 +08:00:   config:
+2019-09-30 05:21 +08:00:    Config {
+2019-09-30 05:21 +08:00:      useHttpsDomain: false,
+2019-09-30 05:21 +08:00:      useCdnDomain: false,
+2019-09-30 05:21 +08:00:      zone:
+2019-09-30 05:21 +08:00:       { srcUpHosts: [Array],
+2019-09-30 05:21 +08:00:         cdnUpHosts: [Array],
+2019-09-30 05:21 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-30 05:21 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-30 05:21 +08:00:      zoneExpire: -1 } }
+2019-09-30 05:21 +08:00: BucketManager {
+2019-09-30 05:21 +08:00:   mac:
+2019-09-30 05:21 +08:00:    Mac {
+2019-09-30 05:21 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-30 05:21 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-30 05:21 +08:00:   config:
+2019-09-30 05:21 +08:00:    Config {
+2019-09-30 05:21 +08:00:      useHttpsDomain: false,
+2019-09-30 05:21 +08:00:      useCdnDomain: false,
+2019-09-30 05:21 +08:00:      zone:
+2019-09-30 05:21 +08:00:       { srcUpHosts: [Array],
+2019-09-30 05:21 +08:00:         cdnUpHosts: [Array],
+2019-09-30 05:21 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-30 05:21 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-30 05:21 +08:00:      zoneExpire: -1 } }
+2019-09-30 05:21 +08:00: BucketManager {
+2019-09-30 05:21 +08:00:   mac:
+2019-09-30 05:21 +08:00:    Mac {
+2019-09-30 05:21 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-09-30 05:21 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-09-30 05:21 +08:00:   config:
+2019-09-30 05:21 +08:00:    Config {
+2019-09-30 05:21 +08:00:      useHttpsDomain: false,
+2019-09-30 05:21 +08:00:      useCdnDomain: false,
+2019-09-30 05:21 +08:00:      zone:
+2019-09-30 05:21 +08:00:       { srcUpHosts: [Array],
+2019-09-30 05:21 +08:00:         cdnUpHosts: [Array],
+2019-09-30 05:21 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-09-30 05:21 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-09-30 05:21 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-09-30 05:21 +08:00:      zoneExpire: -1 } }
+2019-09-30 05:21 +08:00: http://0.0.0.0:80
+2019-09-30 05:21 +08:00: http://0.0.0.0:80
+2019-09-30 05:21 +08:00: http://0.0.0.0:80
+2019-11-10 20:48 +08:00: bucketManager------------
+2019-11-10 20:48 +08:00: bucketManager------------
+2019-11-10 20:48 +08:00: BucketManager {
+2019-11-10 20:48 +08:00:   mac:
+2019-11-10 20:48 +08:00:    Mac {
+2019-11-10 20:48 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-11-10 20:48 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-11-10 20:48 +08:00:   config:
+2019-11-10 20:48 +08:00:    Config {
+2019-11-10 20:48 +08:00:      useHttpsDomain: false,
+2019-11-10 20:48 +08:00:      useCdnDomain: false,
+2019-11-10 20:48 +08:00:      zone:
+2019-11-10 20:48 +08:00:       { srcUpHosts: [Array],
+2019-11-10 20:48 +08:00:         cdnUpHosts: [Array],
+2019-11-10 20:48 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-11-10 20:48 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-11-10 20:48 +08:00:      zoneExpire: -1 } }
+2019-11-10 20:48 +08:00: BucketManager {
+2019-11-10 20:48 +08:00:   mac:
+2019-11-10 20:48 +08:00:    Mac {
+2019-11-10 20:48 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-11-10 20:48 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-11-10 20:48 +08:00:   config:
+2019-11-10 20:48 +08:00:    Config {
+2019-11-10 20:48 +08:00:      useHttpsDomain: false,
+2019-11-10 20:48 +08:00:      useCdnDomain: false,
+2019-11-10 20:48 +08:00:      zone:
+2019-11-10 20:48 +08:00:       { srcUpHosts: [Array],
+2019-11-10 20:48 +08:00:         cdnUpHosts: [Array],
+2019-11-10 20:48 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-11-10 20:48 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-11-10 20:48 +08:00:      zoneExpire: -1 } }
+2019-11-10 20:48 +08:00: bucketManager------------
+2019-11-10 20:48 +08:00: BucketManager {
+2019-11-10 20:48 +08:00:   mac:
+2019-11-10 20:48 +08:00:    Mac {
+2019-11-10 20:48 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-11-10 20:48 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-11-10 20:48 +08:00:   config:
+2019-11-10 20:48 +08:00:    Config {
+2019-11-10 20:48 +08:00:      useHttpsDomain: false,
+2019-11-10 20:48 +08:00:      useCdnDomain: false,
+2019-11-10 20:48 +08:00:      zone:
+2019-11-10 20:48 +08:00:       { srcUpHosts: [Array],
+2019-11-10 20:48 +08:00:         cdnUpHosts: [Array],
+2019-11-10 20:48 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-11-10 20:48 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-11-10 20:48 +08:00:      zoneExpire: -1 } }
+2019-11-10 20:48 +08:00: http://0.0.0.0:80
+2019-11-10 20:48 +08:00: http://0.0.0.0:80
+2019-11-10 20:48 +08:00: http://0.0.0.0:80
+2019-11-10 20:48 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-11-10 20:48 +08:00:     at Handshake.Sequence._packetToError (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+2019-11-10 20:48 +08:00:     at Handshake.ErrorPacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+2019-11-10 20:48 +08:00:     at Protocol._parsePacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+2019-11-10 20:48 +08:00:     at Parser._parsePacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Parser.js:433:10)
+2019-11-10 20:48 +08:00:     at Parser.write (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Parser.js:43:10)
+2019-11-10 20:48 +08:00:     at Protocol.write (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+2019-11-10 20:48 +08:00:     at Socket.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:91:28)
+2019-11-10 20:48 +08:00:     at Socket.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:525:10)
+2019-11-10 20:48 +08:00:     at Socket.emit (events.js:198:13)
+2019-11-10 20:48 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-11-10 20:48 +08:00:     --------------------
+2019-11-10 20:48 +08:00:     at Protocol._enqueue (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2019-11-10 20:48 +08:00:     at Protocol.handshake (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2019-11-10 20:48 +08:00:     at Connection.connect (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:119:18)
+2019-11-10 20:48 +08:00:     at resetConnect (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/src/server/sqlTooler.js:12:16)
+2019-11-10 20:48 +08:00:     at Object.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/src/server/sqlTooler.js:6:1)
+2019-11-10 20:48 +08:00:     at Module._compile (internal/modules/cjs/loader.js:776:30)
+2019-11-10 20:48 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2019-11-10 20:48 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-11-10 20:48 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-11-10 20:48 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-11-10 20:48 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-11-10 20:48 +08:00:   errno: 1045,
+2019-11-10 20:48 +08:00:   sqlMessage:
+2019-11-10 20:48 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-11-10 20:48 +08:00:   sqlState: '28000',
+2019-11-10 20:48 +08:00:   fatal: true }
+2019-11-10 20:48 +08:00: bucketManager------------
+2019-11-10 20:48 +08:00: BucketManager {
+2019-11-10 20:48 +08:00:   mac:
+2019-11-10 20:48 +08:00:    Mac {
+2019-11-10 20:48 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-11-10 20:48 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-11-10 20:48 +08:00:   config:
+2019-11-10 20:48 +08:00:    Config {
+2019-11-10 20:48 +08:00:      useHttpsDomain: false,
+2019-11-10 20:48 +08:00:      useCdnDomain: false,
+2019-11-10 20:48 +08:00:      zone:
+2019-11-10 20:48 +08:00:       { srcUpHosts: [Array],
+2019-11-10 20:48 +08:00:         cdnUpHosts: [Array],
+2019-11-10 20:48 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-11-10 20:48 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-11-10 20:48 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-11-10 20:48 +08:00:      zoneExpire: -1 } }
+2019-11-10 20:48 +08:00: http://0.0.0.0:80
+2019-11-10 20:48 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-11-10 20:48 +08:00:     at Handshake.Sequence._packetToError (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+2019-11-10 20:48 +08:00:     at Handshake.ErrorPacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+2019-11-10 20:48 +08:00:     at Protocol._parsePacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+2019-11-10 20:48 +08:00:     at Parser._parsePacket (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Parser.js:433:10)
+2019-11-10 20:48 +08:00:     at Parser.write (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Parser.js:43:10)
+2019-11-10 20:48 +08:00:     at Protocol.write (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+2019-11-10 20:48 +08:00:     at Socket.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:91:28)
+2019-11-10 20:48 +08:00:     at Socket.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:525:10)
+2019-11-10 20:48 +08:00:     at Socket.emit (events.js:198:13)
+2019-11-10 20:48 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-11-10 20:48 +08:00:     --------------------
+2019-11-10 20:48 +08:00:     at Protocol._enqueue (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2019-11-10 20:48 +08:00:     at Protocol.handshake (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2019-11-10 20:48 +08:00:     at Connection.connect (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/node_modules/mysql/lib/Connection.js:119:18)
+2019-11-10 20:48 +08:00:     at resetConnect (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/src/server/sqlTooler.js:12:16)
+2019-11-10 20:48 +08:00:     at Object.<anonymous> (/Users/sizhijiang/Desktop/proj/node/vue/vue-upload/src/server/sqlTooler.js:6:1)
+2019-11-10 20:48 +08:00:     at Module._compile (internal/modules/cjs/loader.js:776:30)
+2019-11-10 20:48 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2019-11-10 20:48 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-11-10 20:48 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-11-10 20:48 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-11-10 20:48 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-11-10 20:48 +08:00:   errno: 1045,
+2019-11-10 20:48 +08:00:   sqlMessage:
+2019-11-10 20:48 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-11-10 20:48 +08:00:   sqlState: '28000',
+2019-11-10 20:48 +08:00:   fatal: true }
+2019-12-10 10:52 +08:00: bucketManager------------
+2019-12-10 10:52 +08:00: bucketManager------------
+2019-12-10 10:52 +08:00: bucketManager------------
+2019-12-10 10:52 +08:00: BucketManager {
+2019-12-10 10:52 +08:00:   mac:
+2019-12-10 10:52 +08:00:    Mac {
+2019-12-10 10:52 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:52 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:52 +08:00:   config:
+2019-12-10 10:52 +08:00:    Config {
+2019-12-10 10:52 +08:00:      useHttpsDomain: false,
+2019-12-10 10:52 +08:00:      useCdnDomain: false,
+2019-12-10 10:52 +08:00:      zone:
+2019-12-10 10:52 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:52 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:52 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:52 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:52 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:52 +08:00: BucketManager {
+2019-12-10 10:52 +08:00:   mac:
+2019-12-10 10:52 +08:00:    Mac {
+2019-12-10 10:52 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:52 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:52 +08:00:   config:
+2019-12-10 10:52 +08:00:    Config {
+2019-12-10 10:52 +08:00:      useHttpsDomain: false,
+2019-12-10 10:52 +08:00:      useCdnDomain: false,
+2019-12-10 10:52 +08:00:      zone:
+2019-12-10 10:52 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:52 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:52 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:52 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:52 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:52 +08:00: BucketManager {
+2019-12-10 10:52 +08:00:   mac:
+2019-12-10 10:52 +08:00:    Mac {
+2019-12-10 10:52 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:52 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:52 +08:00:   config:
+2019-12-10 10:52 +08:00:    Config {
+2019-12-10 10:52 +08:00:      useHttpsDomain: false,
+2019-12-10 10:52 +08:00:      useCdnDomain: false,
+2019-12-10 10:52 +08:00:      zone:
+2019-12-10 10:52 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:52 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:52 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:52 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:52 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:52 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:52 +08:00: http://0.0.0.0:80
+2019-12-10 10:52 +08:00: http://0.0.0.0:80
+2019-12-10 10:52 +08:00: http://0.0.0.0:80
+2019-12-10 10:52 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-12-10 10:52 +08:00:     at Handshake.Sequence._packetToError (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+2019-12-10 10:52 +08:00:     at Handshake.ErrorPacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+2019-12-10 10:52 +08:00:     at Protocol._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+2019-12-10 10:52 +08:00:     at Parser._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:433:10)
+2019-12-10 10:52 +08:00:     at Parser.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:43:10)
+2019-12-10 10:52 +08:00:     at Protocol.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+2019-12-10 10:52 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:91:28)
+2019-12-10 10:52 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:525:10)
+2019-12-10 10:52 +08:00:     at Socket.emit (events.js:198:13)
+2019-12-10 10:52 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-12-10 10:52 +08:00:     --------------------
+2019-12-10 10:52 +08:00:     at Protocol._enqueue (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-12-10 10:52 +08:00:     at Protocol.handshake (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-12-10 10:52 +08:00:     at Connection.connect (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:119:18)
+2019-12-10 10:52 +08:00:     at resetConnect (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:12:16)
+2019-12-10 10:52 +08:00:     at Object.<anonymous> (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:6:1)
+2019-12-10 10:52 +08:00:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+2019-12-10 10:52 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+2019-12-10 10:52 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-12-10 10:52 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-12-10 10:52 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-12-10 10:52 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-12-10 10:52 +08:00:   errno: 1045,
+2019-12-10 10:52 +08:00:   sqlMessage:
+2019-12-10 10:52 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-12-10 10:52 +08:00:   sqlState: '28000',
+2019-12-10 10:52 +08:00:   fatal: true }
+2019-12-10 10:53 +08:00: bucketManager------------
+2019-12-10 10:53 +08:00: BucketManager {
+2019-12-10 10:53 +08:00:   mac:
+2019-12-10 10:53 +08:00:    Mac {
+2019-12-10 10:53 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:53 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:53 +08:00:   config:
+2019-12-10 10:53 +08:00:    Config {
+2019-12-10 10:53 +08:00:      useHttpsDomain: false,
+2019-12-10 10:53 +08:00:      useCdnDomain: false,
+2019-12-10 10:53 +08:00:      zone:
+2019-12-10 10:53 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:53 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:53 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:53 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:53 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:53 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:53 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:53 +08:00: http://0.0.0.0:80
+2019-12-10 10:53 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-12-10 10:53 +08:00:     at Handshake.Sequence._packetToError (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+2019-12-10 10:53 +08:00:     at Handshake.ErrorPacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+2019-12-10 10:53 +08:00:     at Protocol._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+2019-12-10 10:53 +08:00:     at Parser._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:433:10)
+2019-12-10 10:53 +08:00:     at Parser.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:43:10)
+2019-12-10 10:53 +08:00:     at Protocol.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+2019-12-10 10:53 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:91:28)
+2019-12-10 10:53 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:525:10)
+2019-12-10 10:53 +08:00:     at Socket.emit (events.js:198:13)
+2019-12-10 10:53 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-12-10 10:53 +08:00:     --------------------
+2019-12-10 10:53 +08:00:     at Protocol._enqueue (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-12-10 10:53 +08:00:     at Protocol.handshake (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-12-10 10:53 +08:00:     at Connection.connect (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:119:18)
+2019-12-10 10:53 +08:00:     at resetConnect (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:12:16)
+2019-12-10 10:53 +08:00:     at Object.<anonymous> (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:6:1)
+2019-12-10 10:53 +08:00:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+2019-12-10 10:53 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+2019-12-10 10:53 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-12-10 10:53 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-12-10 10:53 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-12-10 10:53 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-12-10 10:53 +08:00:   errno: 1045,
+2019-12-10 10:53 +08:00:   sqlMessage:
+2019-12-10 10:53 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-12-10 10:53 +08:00:   sqlState: '28000',
+2019-12-10 10:53 +08:00:   fatal: true }
+2019-12-10 10:53 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-12-10 10:53 +08:00: Cannot enqueue Query after fatal error.
+2019-12-10 10:53 +08:00: [Object: null prototype] {}
+2019-12-10 10:53 +08:00: 获取token：
+2019-12-10 10:53 +08:00: MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w:XtMdFSE0nNTx4fT2mu3Hesu7yj0=:eyJzY29wZSI6InRocmVlLWpzLW1vZGVsIiwiZGVhZGxpbmUiOjE1NzU5NTAwMzB9
+2019-12-10 10:53 +08:00: bucketManager------------
+2019-12-10 10:53 +08:00: BucketManager {
+2019-12-10 10:53 +08:00:   mac:
+2019-12-10 10:53 +08:00:    Mac {
+2019-12-10 10:53 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:53 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:53 +08:00:   config:
+2019-12-10 10:53 +08:00:    Config {
+2019-12-10 10:53 +08:00:      useHttpsDomain: false,
+2019-12-10 10:53 +08:00:      useCdnDomain: false,
+2019-12-10 10:53 +08:00:      zone:
+2019-12-10 10:53 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:53 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:53 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:53 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:53 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:53 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:53 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:53 +08:00: http://0.0.0.0:80
+2019-12-10 10:53 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-12-10 10:53 +08:00:     at Handshake.Sequence._packetToError (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+2019-12-10 10:53 +08:00:     at Handshake.ErrorPacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+2019-12-10 10:53 +08:00:     at Protocol._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+2019-12-10 10:53 +08:00:     at Parser._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:433:10)
+2019-12-10 10:53 +08:00:     at Parser.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:43:10)
+2019-12-10 10:53 +08:00:     at Protocol.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+2019-12-10 10:53 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:91:28)
+2019-12-10 10:53 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:525:10)
+2019-12-10 10:53 +08:00:     at Socket.emit (events.js:198:13)
+2019-12-10 10:53 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-12-10 10:53 +08:00:     --------------------
+2019-12-10 10:53 +08:00:     at Protocol._enqueue (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-12-10 10:53 +08:00:     at Protocol.handshake (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-12-10 10:53 +08:00:     at Connection.connect (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:119:18)
+2019-12-10 10:53 +08:00:     at resetConnect (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:12:16)
+2019-12-10 10:53 +08:00:     at Object.<anonymous> (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:6:1)
+2019-12-10 10:53 +08:00:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+2019-12-10 10:53 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+2019-12-10 10:53 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-12-10 10:53 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-12-10 10:53 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-12-10 10:53 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-12-10 10:53 +08:00:   errno: 1045,
+2019-12-10 10:53 +08:00:   sqlMessage:
+2019-12-10 10:53 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-12-10 10:53 +08:00:   sqlState: '28000',
+2019-12-10 10:53 +08:00:   fatal: true }
+2019-12-10 10:53 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-12-10 10:53 +08:00: Cannot enqueue Query after fatal error.
+2019-12-10 10:53 +08:00: http://py325bkfy.bkt.clouddn.com/
+2019-12-10 10:53 +08:00: Cannot enqueue Query after fatal error.
+2019-12-10 10:53 +08:00: [Object: null prototype] {}
+2019-12-10 10:53 +08:00: 获取token：
+2019-12-10 10:53 +08:00: MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w:NFJn2qrokDzqa-b2YZ2CD4FjuOc=:eyJzY29wZSI6InRocmVlLWpzLW1vZGVsIiwiZGVhZGxpbmUiOjE1NzU5NTAwMzV9
+2019-12-10 10:54 +08:00: bucketManager------------
+2019-12-10 10:54 +08:00: BucketManager {
+2019-12-10 10:54 +08:00:   mac:
+2019-12-10 10:54 +08:00:    Mac {
+2019-12-10 10:54 +08:00:      accessKey: 'MDNdTeEsk_7k4LrKpMwSO_ZtrbOoWPwbMRk4pA8w',
+2019-12-10 10:54 +08:00:      secretKey: 'vNlCEQ2elBBnxT-h-16kVS-yDzil7qjybSw9K9QK' },
+2019-12-10 10:54 +08:00:   config:
+2019-12-10 10:54 +08:00:    Config {
+2019-12-10 10:54 +08:00:      useHttpsDomain: false,
+2019-12-10 10:54 +08:00:      useCdnDomain: false,
+2019-12-10 10:54 +08:00:      zone:
+2019-12-10 10:54 +08:00:       { srcUpHosts: [Array],
+2019-12-10 10:54 +08:00:         cdnUpHosts: [Array],
+2019-12-10 10:54 +08:00:         ioHost: 'iovip-z2.qbox.me',
+2019-12-10 10:54 +08:00:         rsHost: 'rs-z2.qiniu.com',
+2019-12-10 10:54 +08:00:         rsfHost: 'rsf-z2.qiniu.com',
+2019-12-10 10:54 +08:00:         apiHost: 'api-z2.qiniu.com' },
+2019-12-10 10:54 +08:00:      zoneExpire: -1 } }
+2019-12-10 10:54 +08:00: http://0.0.0.0:80
+2019-12-10 10:54 +08:00: { Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2019-12-10 10:54 +08:00:     at Handshake.Sequence._packetToError (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+2019-12-10 10:54 +08:00:     at Handshake.ErrorPacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+2019-12-10 10:54 +08:00:     at Protocol._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+2019-12-10 10:54 +08:00:     at Parser._parsePacket (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:433:10)
+2019-12-10 10:54 +08:00:     at Parser.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Parser.js:43:10)
+2019-12-10 10:54 +08:00:     at Protocol.write (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+2019-12-10 10:54 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:91:28)
+2019-12-10 10:54 +08:00:     at Socket.<anonymous> (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:525:10)
+2019-12-10 10:54 +08:00:     at Socket.emit (events.js:198:13)
+2019-12-10 10:54 +08:00:     at addChunk (_stream_readable.js:288:12)
+2019-12-10 10:54 +08:00:     --------------------
+2019-12-10 10:54 +08:00:     at Protocol._enqueue (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-12-10 10:54 +08:00:     at Protocol.handshake (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-12-10 10:54 +08:00:     at Connection.connect (E:\work\vue-proj\vue-upload\node_modules\mysql\lib\Connection.js:119:18)
+2019-12-10 10:54 +08:00:     at resetConnect (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:12:16)
+2019-12-10 10:54 +08:00:     at Object.<anonymous> (E:\work\vue-proj\vue-upload\src\server\sqlTooler.js:6:1)
+2019-12-10 10:54 +08:00:     at Module._compile (internal/modules/cjs/loader.js:778:30)
+2019-12-10 10:54 +08:00:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+2019-12-10 10:54 +08:00:     at Module.load (internal/modules/cjs/loader.js:653:32)
+2019-12-10 10:54 +08:00:     at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+2019-12-10 10:54 +08:00:     at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2019-12-10 10:54 +08:00:   code: 'ER_ACCESS_DENIED_ERROR',
+2019-12-10 10:54 +08:00:   errno: 1045,
+2019-12-10 10:54 +08:00:   sqlMessage:
+2019-12-10 10:54 +08:00:    'Access denied for user \'root\'@\'localhost\' (using password: YES)',
+2019-12-10 10:54 +08:00:   sqlState: '28000',
+2019-12-10 10:54 +08:00:   fatal: true }

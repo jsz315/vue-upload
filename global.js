@@ -63,13 +63,19 @@ const getHtml = function(apps){
 }
 
 const getCopy = function(apps){
-    return apps.map(item => {
+    let list = apps.map(item => {
         return {
             from: path.resolve(__dirname, item + "/asset"),
             to: path.resolve(__dirname, 'dist/asset'),
             ignore: ['.*']
         }
     })
+
+    list.push({
+        from: path.resolve(__dirname, 'dist'),
+        to: path.resolve(__dirname, 'static/dist')
+    })
+    return list;
 }
 
 const apps = getApps(process.argv[process.argv.length - 1])

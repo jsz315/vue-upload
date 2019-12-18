@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
+const {delDir, copyDir} = require('./files');
 const exec = require('child_process').exec;
 // const utils = require('./utils');
 // const jsDir = path.resolve("src");
@@ -24,38 +26,39 @@ const exec = require('child_process').exec;
 
 // init()
 
-pack();
+
+
+init();
 
 function init(){
     let list = process.argv;
-    if(list.length != 4){
+    if(list.length != 3){
         console.log("缺少打包目录");
         return;
     }
-   
-    console.log("list=");
-    console.log(list);
+    
     // let app = list.pop();
     // let env = list.pop();
     // console.log(`打包环境：${env}`);
     // console.log(`打包目录：${app}`);
   
     
-    let env = list[2];
-    let app = list[3];
-    if(env == "dev"){
-        pack(true);
-    }
-    else if(env == "prod"){
-        pack(false);
-    }
+    // let env = list[2];
+    let app = list[2];
+
+    delDir(path.resolve(__dirname, 'static/dist'))
+    delDir(path.resolve(__dirname, 'dist/js'))
+    delDir(path.resolve(__dirname, 'dist/css'))
+    fs.unlinkSync(path.resolve(__dirname, `dist/${app}.html`));
+
+    pack();
 
     // glob(`**/${app}/html/*.html`, function(err, files){
     //     console.log(files);
     // })
 }
 
-function pack(isDev){
+function pack(){
     const webpackConfig = require('./webpack.build.js')();    
     webpack(webpackConfig, function (err, stats) {
         if (err) throw err;
@@ -69,6 +72,10 @@ function pack(isDev){
 
         console.log('build complete.\n');
         // utils.upload();
+
+        let on = path.resolve(__dirname, 'dist')
+        let nn = path.resolve(__dirname, 'static/dist')
+        copyDir(on, nn);
 
     });
 }

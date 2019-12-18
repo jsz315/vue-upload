@@ -52,10 +52,7 @@ export default {
             })
             this.$store.commit('changeCopyFiles', list);
             this.$store.commit('changeIsCut', isCut);
-            this.$message({
-                message: isCut ? '已剪切' : '已复制',
-                type: 'success'
-            });
+            this.$toast(isCut ? '已剪切' : '已复制');
         },
         pasteItem(){
             var isCut = this.$store.state.isCut;
@@ -65,18 +62,12 @@ export default {
             console.log(copyDir + "==>" + toDir);
             if(copyDir == toDir){
                 console.log("相同目录");
-                this.$message({
-                    message: '与源目录相同',
-                    type: 'warning'
-                });
+                this.$toast('与源目录相同');
                 return;
             }
             if(toDir.indexOf(copyDir) == 0){
                 console.log("复制到子目录");
-                this.$message({
-                    message: '不能把文字复制到其子目录',
-                    type: 'warning'
-                });
+                this.$toast('不能把文字复制到其子目录');
                 return;
             }
             var files = [];
