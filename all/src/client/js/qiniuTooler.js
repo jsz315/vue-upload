@@ -44,7 +44,7 @@ function upload(file, item, path, token){
 //上传参数为全路径
 async function startUpload(item, path, token){
     var suc = await upload(item.file, item, path, token);
-    if(suc){
+    if(true || suc){
         axios.get("/insert", {
             params: {url: `${config.HOST}${path}${item.name}`}
         }).then(res => {

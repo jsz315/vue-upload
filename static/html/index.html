@@ -5,11 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    .txt{
+        display: block;
+        box-sizing: border-box;
+        padding: 4px;
+        width: 100%;
+        height: 300px;
+    }
+    .btns{
+        text-align: center;
+        margin: 20px auto;
+    }
+    .btn{
+        display: inline-block;
+        margin: 0 10px;
+        width: 40%;
+        height: 32px;
+        line-height: 32px;
+    }
+    </style>
 </head>
 <body>
-    <h3>你好</h3>
+    <textarea class="txt" id="input"></textarea>
+
+    <div class="btns">
+        <button class="btn" id="clear">清除</button>
+        <button class="btn" id="sure">确定</button>
+    </div>
+ 
+    <textarea class="txt" id="output"></textarea>
     <script>
-    alert("哈哈!")
+    function $(id){
+        return document.getElementById(id);
+    }
+    function trim(str){
+        return str.replace(/^\s*|\s*$/g, "");
+    }
+    $("sure").onclick = function(){
+        var list = $("input").value.split("\n");
+        var aim = list.map(item=>{return trim(item)});
+        $("output").value = aim.join("");
+
+    }
+    $("clear").onclick = function(){
+        $("input").value = "";
+    }
+    
     </script>
 </body>
 </html>

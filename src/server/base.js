@@ -13,6 +13,7 @@ const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
 const sqlTooler = require('./sqlTooler');
+const {readHtml, saveHtml} = require('./fileTooler');
 
 // init("127.0.0.1", 8899);
 
@@ -70,8 +71,8 @@ function init(host, port, isDev) {
 		}
 	})
 
-	router.get("/abc", async (ctx, next) => {
-		ctx.body = "abc";
+	router.get("/api/file/abc", async (ctx, next) => {
+		ctx.body = "hello nginx";
 	})
 
 	router.get("/token", async (ctx, next) => {
@@ -128,6 +129,17 @@ function init(host, port, isDev) {
         let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
         ctx.body = res ? "copyFile success" : "copyFile fail";
+    })
+
+    router.get("/api/file/html", async (ctx, next) => {
+        let html = readHtml();
+        ctx.body = html;
+    })
+
+    router.post("/html", async (ctx, next) => {
+        let params = ctx.request.body.params;
+        saveHtml(params.content);
+        ctx.body = "success";
     })
 
 	app.listen(port, host)

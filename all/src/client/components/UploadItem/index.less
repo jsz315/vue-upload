@@ -4,31 +4,25 @@
         font-size: 24px;
         color: brown;
         margin-bottom: 20px;
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
         .help-btn{
             vertical-align: middle;
             margin-left: 20px;
             font-size: 20px;
             color: #858585;
             cursor: pointer;
-            text-align: left;
-            display: inline-block;
-            background: url("/asset/img/help.png") no-repeat;
-            background-position: center left;
-            background-size: contain;
-            padding-left: 24px;
-            height: 20px;
-            line-height: 20px;
-
+            display: flex;
+            align-items: center;
         }
     }
 }
 
 .list{
-    display: flex;
     padding: 24px 0;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     .item{
         width: 180px;
         margin: 0 24px 40px 0;
@@ -37,6 +31,9 @@
             .img-box{
                 border: solid 1px #13bcff;
             }
+        }
+        &.end{
+            margin-right: 0;
         }
         .img-box{
             display: flex;
@@ -93,4 +90,9 @@
         }
     }
     
+}
+
+.el-icon-question{
+    background-image: url("/asset/img/help.png");
+    margin-right: 8px;
 }

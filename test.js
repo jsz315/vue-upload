@@ -10,7 +10,7 @@ const sqlTooler = require('./src/server/sqlTooler');
 const fs = require("fs")
 
 // saveHtml("ssf");
-console.log(readHtml());
+// console.log(readHtml());
 
 function saveHtml(str){
 	var fd = fs.openSync('./static/html/index.html', 'w');
@@ -31,7 +31,7 @@ function readHtml(){
 }
 
 // init(getIPAddress(), 8899);
-// sqlTooler.test();
+sqlTooler.test();
 
 function getIPAddress() {
 	const interfaces = require('os').networkInterfaces(); // 在开发环境中获取局域网中的本机iP地址

@@ -2,7 +2,7 @@
     "apps": [
         {
             "name": "mywork",
-            "cwd": "/projects/node/vue/vue-upload",
+            "cwd": "/Users/sizhijiang/Desktop/proj/node/vue/vue-upload",
             "script": "src/server/prod.js",
             "log_date_format": "YYYY-MM-DD HH:mm Z",
             "error_file": "log/node-app/node-app.stderr.log",
