@@ -12,7 +12,7 @@ const opn = require('opn');
 const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
-// const sqlTooler = require('./sqlTooler');
+const sqlTooler = require('./sqlTooler');
 const {readHtml, saveHtml, readTxt, saveTxt, mkdirsSync, getDirFiles, deleteFolder, deleteFile} = require('./fileTooler');
 const fs = require('fs')
 // const formidable = require('koa-formidable');
@@ -88,8 +88,8 @@ function init(host, port, isDev) {
 	router.post('/yun/upload', async (ctx, next) => {
 		const file = ctx.request.files.file;
 		let filename = file.name;
-		console.log("ctx.request.body");
-		console.log(ctx.request.body);
+		// console.log("ctx.request.body");
+		// console.log(ctx.request.body);
 		// console.log("ctx.request.files");
 		// console.log(ctx.request.files);
 		let dir = path.join(__dirname, '../../static/upload/' + ctx.request.body.path);
@@ -149,38 +149,38 @@ function init(host, port, isDev) {
 
 	router.get("/yun/dir", async (ctx, next) => {
 		console.log(ctx.request.query.path);
-		let dir = path.join(__dirname, '../../static/upload' + ctx.request.query.path);
+		let dir = path.join(__dirname, '../../static/upload/' + ctx.request.query.path);
 		ctx.body = getDirFiles(dir)
 	})
 	
     //上传参数为全路径
     router.get("/dir", async (ctx, next) => {
         console.log(ctx.request.query.path);
-        // let res = await sqlTooler.selectPath(ctx.request.query.path)
-        ctx.body = JSON.stringify(0);
+        let res = await sqlTooler.selectPath(ctx.request.query.path)
+        ctx.body = JSON.stringify(res);
     })
 
 	//上传参数为全路径
     router.get("/insert", async (ctx, next) => {
         console.log(ctx.request.query.url);
-        // let res = await sqlTooler.insert(ctx.request.query.url);
-        ctx.body = 0 ? "insert success" : "insert fail";
+        let res = await sqlTooler.insert(ctx.request.query.url);
+        ctx.body = res ? "insert success" : "insert fail";
 	})
 	
 	//上传参数为/key
     router.get("/deleteFolder", async (ctx, next) => {
         let key = ctx.request.query.url;
-        // let res = await sqlTooler.deleteFolder(key);
-        // qiniuTooler.deleteFolder(key);
-        ctx.body = 0 ? "deleteFolder success" : "deleteFolder fail";
+        let res = await sqlTooler.deleteFolder(key);
+        qiniuTooler.deleteFolder(key);
+        ctx.body = res ? "deleteFolder success" : "deleteFolder fail";
     })
 
 	//上传参数为/key
     router.get("/deleteFile", async (ctx, next) => {
         let key = ctx.request.query.url;
-        // let res = await sqlTooler.deleteFile(key);
-        // qiniuTooler.deleteFile(key);
-        ctx.body = 0 ? "deleteFile success" : "deleteFile fail";
+        let res = await sqlTooler.deleteFile(key);
+        qiniuTooler.deleteFile(key);
+        ctx.body = res ? "deleteFile success" : "deleteFile fail";
 	})
 	
 	//上传参数为/key
@@ -204,18 +204,18 @@ function init(host, port, isDev) {
     router.post("/copyFolder", async (ctx, next) => {
         let params = ctx.request.body.params;
 		console.log(params);
-        // let res = await sqlTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
-        // qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
-        ctx.body = 0 ? "copyFolder success" : "copyFolder fail";
+        let res = await sqlTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
+        qiniuTooler.copyFolder(params.names, params.srcPath, params.destPath, params.isCut);
+        ctx.body = res ? "copyFolder success" : "copyFolder fail";
     })
 
 	//上传参数为文件名和/路径/
     router.post("/copyFile", async (ctx, next) => {
 		let params = ctx.request.body.params;
 		console.log(params);
-        // let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
-        // qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
-        ctx.body = 0 ? "copyFile success" : "copyFile fail";
+        let res = await sqlTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
+        qiniuTooler.copyFile(params.names, params.srcPath, params.destPath, params.isCut);
+        ctx.body = res ? "copyFile success" : "copyFile fail";
     })
 
     router.get("/html", async (ctx, next) => {

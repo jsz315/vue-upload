@@ -53,9 +53,8 @@ export default {
             this.path = path;
             this.$store.commit('changeFiles', []);
             this.links = pathTooler.getPath(`${path}`);
-            var fpath = path.replace(/\/$/, "");
             axios.get("/yun/dir", {
-                params: {path: `${fpath}`}
+                params: {path: `${path}`}
             }).then(res => {
                 console.log(res.data);
                 var list = res.data;

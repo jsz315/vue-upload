@@ -1,19 +1,10 @@
 const axios = require('axios');
 
 
-function getFolder(path, fullPath){
-    var p = path.replace(/\/$/, "");
-    var list = fullPath.split("/");
-    list.pop();
-    return p + list.join("/");
-}
-
-function startUpload(file, item, path) {
-    var t = getFolder(path, file.fullPath);
+function startUpload(file, item) {
     let data = new FormData();
     data.append('fileName', file.name);
     data.append('file', file);
-    data.append('path', t);
 
     // axios({
     //     method: 'post',
@@ -39,7 +30,7 @@ function startUpload(file, item, path) {
         }
     }
 
-    axios.post(`/yun/upload`, data, config).then((res) => {
+    axios.post(`/upload`, data, config).then((res) => {
         console.log(res.data);
     })
 }
