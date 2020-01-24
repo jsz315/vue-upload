@@ -1,14 +1,15 @@
 const fs = require("fs")
 const path = require("path")
-const link = path.resolve(__dirname, '../../static/html/index.html');
+const htmlLink = path.resolve(__dirname, '../../static/html/index.html');
+const txtLink = path.resolve(__dirname, '../../static/data/temp.txt');
 
-function saveHtml(str){
-	var fd = fs.openSync(link, 'w');
+function save(str, link){
+    var fd = fs.openSync(link, 'w');
 	fs.writeFileSync(fd, str);
 	fs.closeSync(fd);
 }
 
-function readHtml(){
+function read(link){
     if(fs.existsSync(link)){
         var fd = fs.openSync(link, 'r');
         var str = fs.readFileSync(fd, 'utf-8');
@@ -18,7 +19,25 @@ function readHtml(){
 	return "";
 }
 
+function saveHtml(str){
+    save(str, htmlLink);
+}
+
+function readHtml(){
+    return read(htmlLink);
+}
+
+function saveTxt(str){
+    save(str, txtLink);
+}
+
+function readTxt(){
+    return read(txtLink);
+}
+
 module.exports = {
     saveHtml,
-    readHtml
+    readHtml,
+    saveTxt,
+    readTxt
 }
