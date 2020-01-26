@@ -98,8 +98,9 @@ export default {
             var fileType = typeTooler.checkType(name);
             var url;
             if(fileType == config.FILE_TYPE.IMAGE || fileType == config.FILE_TYPE.HTML){
-                url = `${config.HOST}${this.path}${name}`;
+                url = `${this.path}${name}`;
                 window.open(url);
+                console.log(`url=${url}`);
             }
             else if(fileType == config.FILE_TYPE.MODEL){
                 url = `${config.STAGE}?url=${config.HOST}${this.path}${name}`;

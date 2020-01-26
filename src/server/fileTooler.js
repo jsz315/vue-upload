@@ -3,6 +3,8 @@ const path = require("path")
 const htmlLink = path.resolve(__dirname, '../../static/html/index.html');
 const txtLink = path.resolve(__dirname, '../../static/data/temp.txt');
 
+const global = require('../../global');
+
 function save(str, link){
     var fd = fs.openSync(link, 'w');
 	fs.writeFileSync(fd, str);
@@ -93,6 +95,18 @@ function delDir(path) {
     console.log("删除目录" + path);
 }
 
+function getStaticPath(name){
+    // let dir = path.join('/usr/local/var/www', name || "./");
+    // let dir = path.join('/usr/local/var/www', name || "");
+    console.log(`name=[${name}]`);
+    let dir = global.static;
+    if(name){
+        dir = dir + "/" + name;
+    }
+    console.log(`dir=[${dir}]`);
+    return dir;
+}
+
 module.exports = {
     saveHtml,
     readHtml,
@@ -101,5 +115,6 @@ module.exports = {
     mkdirsSync,
     getDirFiles,
     deleteFolder,
-    deleteFile
+    deleteFile,
+    getStaticPath
 }

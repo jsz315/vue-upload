@@ -20,6 +20,7 @@ const walk = function(dir) {
 }
 
 const getApps = function(app){
+    return ['./src/client'];
     const list = walk(path.join(__dirname, 'src'))
     
     const r = new RegExp("src(\\\\|/).*" + app)
@@ -83,7 +84,8 @@ const apps = getApps(process.argv[process.argv.length - 1])
 const global = {
     entry: getEntry(apps),
     html: getHtml(apps),
-    copy: getCopy(apps)
+    copy: getCopy(apps),
+    static: '/usr/local/var/www',
 }
 
 module.exports = global

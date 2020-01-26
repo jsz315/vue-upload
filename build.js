@@ -3,6 +3,11 @@ const webpack = require('webpack');
 const fs = require('fs');
 const {delDir, copyDir} = require('./files');
 const exec = require('child_process').exec;
+const global = require('./global');
+
+const website = global.static;
+// const website = "/root/www";
+
 // const utils = require('./utils');
 // const jsDir = path.resolve("src");
 // const glob = require('glob');
@@ -74,8 +79,8 @@ function pack(){
         // utils.upload();
 
         let on = path.resolve(__dirname, 'dist')
-        let nn = path.resolve(__dirname, 'static/dist')
-        copyDir(on, nn);
+        // let nn = path.resolve(__dirname, 'static/dist')
+        copyDir(on, website);
 
     });
 }

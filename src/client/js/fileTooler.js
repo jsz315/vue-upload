@@ -34,13 +34,15 @@ function addItem(obj, path){
             };
         }
         else{
-            if(fname.indexOf(config.HOST) == -1){
-                item.src = `${config.HOST}${path}${fname}`;
-            }
-            else{
-                item.src = fname;
-                item.name = fname.split("/").pop();
-            }
+            // if(fname.indexOf(config.HOST) == -1){
+            //     item.src = `${config.HOST}${path}${fname}`;
+            // }
+            // else{
+            //     item.src = fname;
+            //     item.name = fname.split("/").pop();
+            // }
+            item.src = `${path}${fname}`;
+            item.name = fname.split("/").pop();
         }
     }
     else if(fileType == config.FILE_TYPE.MODEL){

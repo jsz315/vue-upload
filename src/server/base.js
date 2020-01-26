@@ -13,7 +13,7 @@ const app = new Koa()
 const router = new Router()
 const qiniuTooler = require('./qiniuTooler');
 // const sqlTooler = require('./sqlTooler');
-const {readHtml, saveHtml, readTxt, saveTxt, mkdirsSync, getDirFiles, deleteFolder, deleteFile} = require('./fileTooler');
+const {readHtml, saveHtml, readTxt, saveTxt, mkdirsSync, getDirFiles, deleteFolder, deleteFile, getStaticPath} = require('./fileTooler');
 const fs = require('fs')
 // const formidable = require('koa-formidable');
 const koaBody = require('koa-body');
@@ -27,8 +27,6 @@ app.use(koaBody({
 
 
 // const formidable = require('formidable')
-
-// init("127.0.0.1", 8899);
 
 function init(host, port, isDev) {
 	// app.use(hotMiddleware(compiler, {
@@ -46,44 +44,44 @@ function init(host, port, isDev) {
             },
             publicPath: config.output.publicPath
         }));
+
+        app.use(static(
+            path.join(__dirname, '../../static')
+        ))
     }
 
-	app.use(static(
-		path.join(__dirname, '../../static')
-	))
-
-	app.use(cors({
-		origin: function (ctx) {
-			return "*";
-		},
-		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
-		maxAge: 5
-    }))
+	// app.use(cors({
+	// 	origin: function (ctx) {
+	// 		return "*";
+	// 	},
+	// 	exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+	// 	maxAge: 5
+    // }))
     
     app.use(bodyparser());
 
 	app.use(router.routes(), router.allowedMethods())
 
-	const storage = multer.diskStorage({
-		destination: function (req, file, cb) {
-			var dir = path.join(__dirname, '../../static/upload');
-			cb(null, dir)
-		},
-		filename: function (req, file, cb) {
-			cb(null, file.originalname);
-		}
-	})
+	// const storage = multer.diskStorage({
+	// 	destination: function (req, file, cb) {
+	// 		var dir = path.join(__dirname, '../../static/upload');
+	// 		cb(null, dir)
+	// 	},
+	// 	filename: function (req, file, cb) {
+	// 		cb(null, file.originalname);
+	// 	}
+	// })
 
-	var upload = multer({
-		storage: storage
-	});
+	// var upload = multer({
+	// 	storage: storage
+	// });
 
-	router.post('/upload', upload.single('file'), async (ctx, next) => {
-		ctx.set('Access-Control-Allow-Origin', '*');
-		ctx.body = {
-			filename: ctx.req.file.filename
-		}
-	})
+	// router.post('/upload', upload.single('file'), async (ctx, next) => {
+	// 	ctx.set('Access-Control-Allow-Origin', '*');
+	// 	ctx.body = {
+	// 		filename: ctx.req.file.filename
+	// 	}
+	// })
 
 	router.post('/yun/upload', async (ctx, next) => {
 		const file = ctx.request.files.file;
@@ -92,7 +90,8 @@ function init(host, port, isDev) {
 		console.log(ctx.request.body);
 		// console.log("ctx.request.files");
 		// console.log(ctx.request.files);
-		let dir = path.join(__dirname, '../../static/upload/' + ctx.request.body.path);
+        // let dir = path.join(__dirname, '../../static/upload/' + ctx.request.body.path);
+        let dir = getStaticPath(ctx.request.body.path);
 		console.log(dir);
 		mkdirsSync(dir);
 		let aim = path.resolve(dir, filename);
@@ -148,9 +147,10 @@ function init(host, port, isDev) {
 	})
 
 	router.get("/yun/dir", async (ctx, next) => {
-		console.log(ctx.request.query.path);
-		let dir = path.join(__dirname, '../../static/upload' + ctx.request.query.path);
-		ctx.body = getDirFiles(dir)
+		console.log("path=" + ctx.request.query.path);
+        // let dir = path.join(__dirname, '../../static/upload' + ctx.request.query.path);
+        let dir = getStaticPath(ctx.request.query.path);
+		ctx.body = getDirFiles(dir);
 	})
 	
     //上传参数为全路径
