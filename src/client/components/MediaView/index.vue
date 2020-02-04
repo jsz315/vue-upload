@@ -135,19 +135,9 @@ export default {
         },
         setMedia(type, media){
           this.type = type;
-          if(type == 1){
-            this.media = "/media/image/" + media;
-          }
-          else if(type == 2){
-            this.media = "/media/audio/" + media;
-          }
-          else if(type == 3){
-            this.media = "/media/video/" + media;
-          }
+          this.media = yunTooler.getTypeFile(type, media);
         }
     },
-
-     
 
     async mounted() {
         var box = this.$refs.box;

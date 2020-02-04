@@ -17,7 +17,7 @@
             <!-- <StarView :level="item.level"></StarView> -->
           </div>
         </div>
-        <div class="img" :class="'type'+item.type"></div>
+        <div class="img" :class="{ico:item.type != 1}" :style="{'backgroundImage': 'url(' + getImage(item.type, item.file) + ')'}"></div>
 
         <!-- <img v-if="type==1" class="media" :src="media"/>
         <audio v-if="type==2" class="media" controls :src="media"></audio>
@@ -66,14 +66,28 @@ export default {
     this.init();
   },
   methods: {
+    getImage(type, file){
+      if(type == 1){
+        return yunTooler.getTypeFile(type, file);
+      }
+      if(type == 0){
+        return '/asset/img/txt.png';
+      }
+      else if(type == 2){
+        return '/asset/img/audio.png';
+      }
+      else if(type == 3){
+        return '/asset/img/video.png';
+      }
+    },
     getTime(n){
       var t = new Date(n);
       var m = t.getMonth() + 1;
       var d = t.getDate();
       var H = t.getHours();
       var M = t.getMinutes();
-      var S = t.getSeconds();
-      return `${addZero(m)}/${addZero(d)} ${addZero(H)}:${addZero(M)}:${addZero(S)}`;
+      // var S = t.getSeconds();
+      return `${addZero(m)}-${addZero(d)} ${addZero(H)}:${addZero(M)}`;
     },
     init(){
       axios.get('/yun/question/all', {

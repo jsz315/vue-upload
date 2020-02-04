@@ -2,6 +2,7 @@
   <div class="container">
     <MediaView ref="mediaView"></MediaView>
     <AlertView ref="alertView" @sure='onSure'></AlertView>
+    <LoadingView ref='loadingView' :progress="progress"></LoadingView>
 
     <div class="type-box">
       <div class="type-tip">题目类型：</div>
@@ -34,6 +35,7 @@
 import axios from 'axios';
 import MediaView from '@/client/components/MediaView/index.vue';
 import AlertView from '@/client/components/AlertView/index.vue';
+import LoadingView from '@/client/components/LoadingView/index.vue';
 import StarView from '@/client/components/StarView/index.vue';
 import yunTooler from '@/client/js/yunTooler'
 
@@ -49,11 +51,12 @@ export default {
           type: 0,
           level: 0,
           list: [],
-          isAdd: true
+          isAdd: true,
+          progress: 0
         };
   },
   components: {
-    MediaView, AlertView, StarView
+    MediaView, AlertView, StarView, LoadingView
   },
   computed:{
     
@@ -92,6 +95,15 @@ export default {
       this.$toast('删除成功');
       history.back();
     },
+    onProgress(n){
+      this.progress = n;
+      if(n == 100){
+        setTimeout(() => {
+          this.$refs.loadingView.hide();
+          history.back();
+        }, 300)
+      }
+    },
     submit(){
       let {file} = this.$refs.mediaView;
 
@@ -120,6 +132,9 @@ export default {
             return;
           }
         }
+
+        this.$refs.loadingView.show("上传中");
+
         yunTooler.addQuestion(file, {
           type: this.type,
           question: question,
@@ -130,9 +145,11 @@ export default {
           right: this.right,
           level: this.level,
           // file: this.file
-        })
+        }, this.onProgress)
       }
       else{
+        this.$refs.loadingView.show("上传中");
+
         yunTooler.updateQuestion(file, {
           type: this.type,
           question: question,
@@ -144,7 +161,7 @@ export default {
           level: this.level,
           file: obj.file,
           id: obj.id
-        })
+        }, this.onProgress)
       }
       
     },

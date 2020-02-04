@@ -1,5 +1,18 @@
 const axios = require('axios');
 
+function getTypeFile(type, file){
+  var str;
+  if(type == 1){
+    str = "/media/image/" + file;
+  }
+  else if(type == 2){
+    str = "/media/audio/" + file;
+  }
+  else if(type == 3){
+    str = "/media/video/" + file;
+  }
+  return str;
+}
 
 function getFolder(path, fullPath){
     var p = path.replace(/\/$/, "");
@@ -8,7 +21,7 @@ function getFolder(path, fullPath){
     return p + list.join("/");
 }
 
-function updateQuestion(file, obj){
+function updateQuestion(file, obj, onProgress){
   let data = new FormData();
   if(file){
     data.append('fileName', file.name);
@@ -21,8 +34,10 @@ function updateQuestion(file, obj){
 
   let config = {
     onUploadProgress: progressEvent => {
-        var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
-        console.log(complete);
+      var n = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+      // var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
+      console.log(n + '%');
+      onProgress(n)
     }
   }
   axios.post(`/yun/question/update`, data, config).then((res) => {
@@ -30,7 +45,7 @@ function updateQuestion(file, obj){
   })
 }
 
-function addQuestion(file, obj){
+function addQuestion(file, obj, onProgress){
   let data = new FormData();
   if(file){
     data.append('fileName', file.name);
@@ -43,8 +58,10 @@ function addQuestion(file, obj){
 
   let config = {
     onUploadProgress: progressEvent => {
-        var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
-        console.log(complete);
+        var n = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+        // var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
+        console.log(n + '%');
+        onProgress(n)
     }
   }
   axios.post(`/yun/question/add`, data, config).then((res) => {
@@ -121,6 +138,7 @@ function deleteFile(item, path){
 
 export default {
     startUpload,
+    getTypeFile,
     addQuestion,
     updateQuestion,
     removeQuestion,
