@@ -80,12 +80,15 @@ const getCopy = function(apps){
 }
 
 const apps = getApps(process.argv[process.argv.length - 1])
+const isMac = /darwin/i.test(process.platform);
+console.log("isMac = " + isMac);
 
 const global = {
     entry: getEntry(apps),
     html: getHtml(apps),
     copy: getCopy(apps),
-    static: '/usr/local/var/www',
+    isMac: isMac,
+    static: isMac ? '/usr/local/var/www' : '/root/www',
 }
 
 module.exports = global

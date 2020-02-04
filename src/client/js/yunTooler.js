@@ -8,6 +8,60 @@ function getFolder(path, fullPath){
     return p + list.join("/");
 }
 
+function updateQuestion(file, obj){
+  let data = new FormData();
+  if(file){
+    data.append('fileName', file.name);
+    data.append('file', file);
+  }
+  
+  for(var i in obj){
+    data.append(i, obj[i]);
+  }
+
+  let config = {
+    onUploadProgress: progressEvent => {
+        var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
+        console.log(complete);
+    }
+  }
+  axios.post(`/yun/question/update`, data, config).then((res) => {
+      console.log(res.data);
+  })
+}
+
+function addQuestion(file, obj){
+  let data = new FormData();
+  if(file){
+    data.append('fileName', file.name);
+    data.append('file', file);
+  }
+  
+  for(var i in obj){
+    data.append(i, obj[i]);
+  }
+
+  let config = {
+    onUploadProgress: progressEvent => {
+        var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%';
+        console.log(complete);
+    }
+  }
+  axios.post(`/yun/question/add`, data, config).then((res) => {
+      console.log(res.data);
+  })
+}
+
+function removeQuestion(obj){
+  axios.post(`/yun/question/remove`, {
+    id: obj.id,
+    type: obj.type,
+    file: obj.file
+  }).then((res) => {
+    console.log(res.data);
+  })
+}
+
 function startUpload(file, item, path) {
     var t = getFolder(path, file.fullPath);
     let data = new FormData();
@@ -67,6 +121,9 @@ function deleteFile(item, path){
 
 export default {
     startUpload,
+    addQuestion,
+    updateQuestion,
+    removeQuestion,
     deleteFolder,
     deleteFile
 }

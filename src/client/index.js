@@ -1,7 +1,22 @@
 import Vue from 'vue'
-import App from "./page/App/index.vue";
+import AppPage from "./page/AppPage/index.vue";
+import EditPage from "./page/EditPage/index.vue";
+import ListPage from "./page/ListPage/index.vue";
+import UploadPage from "./page/UploadPage/index.vue";
 import MessageView from '@/client/components/MessageView/index.vue';
 import './index.less';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter)
+
+const routes = [
+  { path: '/', component: UploadPage },
+  { path: '/list', component: ListPage },
+  { path: '/edit', component: EditPage }
+]
+
+const router = new VueRouter({
+  routes // (缩写) 相当于 routes: routes
+})
 
 // import Element from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -31,5 +46,6 @@ Vue.prototype.$toast = function(word){
 new Vue({
     el: "#app",
     store,
-    render: h => h(App)
+    router,
+    render: h => h(AppPage)
 })

@@ -1,10 +1,16 @@
+const global = require('../../global');
+
+console.log("use isMac = " + global.isMac);
 const databaseConfig = {
-    // host: "39.98.243.202",
+    // host: "122.51.176.36",
+    // user: "root",
+    // password: "Jsz04005301!",
+    // database: "qiniu",
+
     host: "localhost",
     user: "root",
-    password: "Jsz04005301!",
-    // password: "Jsz04005301",
-    database: "qiniu"
+    password: global.isMac ? "Jsz04005301" : "Jsz04005301!",
+    database: "asset"
 }
 
 const bucket = "three-js-model";

@@ -6,7 +6,7 @@ const bodyparser = require('koa-bodyparser')
 const path = require('path')
 const app = new Koa()
 const router = new Router()
-// const sqlTooler = require('./src/server/sqlTooler');
+const sqlTooler = require('./src/server/sqlTooler');
 const fs = require("fs")
 const {delDir, getDirFiles, copyDir} = require('./files');
 
@@ -28,7 +28,7 @@ let nn = path.resolve(__dirname, 'static/dist')
 // delDir(path.resolve(__dirname, 'dist/js'))
 // delDir(path.resolve(__dirname, 'dist/css'))
 
-delDir(path.resolve(__dirname, 'static/dist'))
+// delDir(path.resolve(__dirname, 'static/dist'))
 
 // console.log(getDirFiles(path.resolve(__dirname, 'dist')))
 
@@ -70,6 +70,7 @@ function readHtml(){
 
 // init(getIPAddress(), 8899);
 sqlTooler.test();
+console.log(process.platform);
 
 function getIPAddress() {
 	const interfaces = require('os').networkInterfaces(); // 在开发环境中获取局域网中的本机iP地址

@@ -18,6 +18,11 @@ const fs = require('fs')
 // const formidable = require('koa-formidable');
 const koaBody = require('koa-body');
 
+const questionRouter = require('./api/question');
+const dataRouter = require('./api/data');
+const fileRouter = require('./api/file');
+const qiniuRouter = require('./api/qiniu');
+
 app.use(koaBody({
     multipart: true,
     formidable: {
@@ -60,7 +65,11 @@ function init(host, port, isDev) {
     
     app.use(bodyparser());
 
-	app.use(router.routes(), router.allowedMethods())
+  app.use(router.routes(), router.allowedMethods())
+  app.use(questionRouter.routes(), questionRouter.allowedMethods())
+  app.use(dataRouter.routes(), dataRouter.allowedMethods())
+  app.use(fileRouter.routes(), fileRouter.allowedMethods())
+  app.use(qiniuRouter.routes(), qiniuRouter.allowedMethods())
 
 	// const storage = multer.diskStorage({
 	// 	destination: function (req, file, cb) {
@@ -81,78 +90,13 @@ function init(host, port, isDev) {
 	// 	ctx.body = {
 	// 		filename: ctx.req.file.filename
 	// 	}
-	// })
-
-	router.post('/yun/upload', async (ctx, next) => {
-		const file = ctx.request.files.file;
-		let filename = file.name;
-		console.log("ctx.request.body");
-		console.log(ctx.request.body);
-		// console.log("ctx.request.files");
-		// console.log(ctx.request.files);
-        // let dir = path.join(__dirname, '../../static/upload/' + ctx.request.body.path);
-        let dir = getStaticPath(ctx.request.body.path);
-		console.log(dir);
-		mkdirsSync(dir);
-		let aim = path.resolve(dir, filename);
-		console.log(aim);
-
-		const reader = fs.createReadStream(file.path);
-		const upStream = fs.createWriteStream(path.resolve(dir, filename));
-		reader.pipe(upStream);
-		return ctx.body = '上传成功';
-	
-		/*
-		let form = formidable.parse(ctx.request);
-		function formImage() {
-			return new Promise((resolve, reject) => {
-				form((opt, {fields, files})=> {
-					// let path = fields.path;
-					let filename = files.file.name;
-					let dir = path.join(__dirname, '../../static/upload/' + fields.path);
-					console.log("filename", filename);
-					console.log("dir", dir);
-					console.log("files.file.path", files.file.path);
-					// console.log("files.upload.path", files.upload.path);
-					mkdirsSync(dir);
-					var readStream = fs.createReadStream(files.file.path);
-					var writeStream = fs.createWriteStream(path.resolve(dir, filename));
-					readStream.pipe(writeStream);
-					readStream.on('end',function(){
-						fs.unlinkSync(files.file.path);
-					});
-
-					// fs.renameSync(files.file.path, path.resolve(dir, filename));
-					resolve(path.resolve(dir, filename));
-				})
-			})
-		}
-		let url = await formImage();
-		ctx.body = {
-			filename: url
-		}
-		*/
-	})
+  // })
+  
 
 	router.get("/abc", async (ctx, next) => {
 		ctx.body = "abc";
-	})
-
-	router.get("/token", async (ctx, next) => {
-		console.log(ctx.request.query);
-        var token = qiniuTooler.getToken(ctx.request.query.key);
-        console.log("获取token：");
-		console.log(token);
-		ctx.body = token;
-	})
-
-	router.get("/yun/dir", async (ctx, next) => {
-		console.log("path=" + ctx.request.query.path);
-        // let dir = path.join(__dirname, '../../static/upload' + ctx.request.query.path);
-        let dir = getStaticPath(ctx.request.query.path);
-		ctx.body = getDirFiles(dir);
-	})
-	
+  })
+  
     //上传参数为全路径
     router.get("/dir", async (ctx, next) => {
         console.log(ctx.request.query.path);
@@ -183,21 +127,7 @@ function init(host, port, isDev) {
         ctx.body = 0 ? "deleteFile success" : "deleteFile fail";
 	})
 	
-	//上传参数为/key
-    router.get("/yun/deleteFolder", async (ctx, next) => {
-        let key = ctx.request.query.url;
-        // let res = await sqlTooler.deleteFolder(key);
-        deleteFolder(key);
-        ctx.body = "deleteFolder success";
-    })
-
-	//上传参数为/key
-    router.get("/yun/deleteFile", async (ctx, next) => {
-        let key = ctx.request.query.url;
-        // let res = await sqlTooler.deleteFile(key);
-        deleteFile(key);
-        ctx.body = "deleteFile success";
-    })
+	
 
 
 	//上传参数为文件名和/路径/
@@ -218,27 +148,7 @@ function init(host, port, isDev) {
         ctx.body = 0 ? "copyFile success" : "copyFile fail";
     })
 
-    router.get("/html", async (ctx, next) => {
-        let html = readHtml();
-        ctx.body = html;
-    })
-
-    router.post("/html", async (ctx, next) => {
-        let params = ctx.request.body.params;
-        saveHtml(params.content);
-        ctx.body = "success";
-	})
-
-	router.get("/txt", async (ctx, next) => {
-        let html = readTxt();
-        ctx.body = html;
-    })
-
-    router.post("/txt", async (ctx, next) => {
-        let params = ctx.request.body.params;
-        saveTxt(params.content);
-        ctx.body = "success";
-	})	
+    
 
 	app.listen(port, host)
 

@@ -54,7 +54,7 @@ function init(){
     delDir(path.resolve(__dirname, 'static/dist'))
     delDir(path.resolve(__dirname, 'dist/js'))
     delDir(path.resolve(__dirname, 'dist/css'))
-    fs.unlinkSync(path.resolve(__dirname, `dist/${app}.html`));
+    // fs.unlinkSync(path.resolve(__dirname, `dist/${app}.html`));
 
     pack();
 
@@ -78,9 +78,8 @@ function pack(){
         console.log('build complete.\n');
         // utils.upload();
 
-        let on = path.resolve(__dirname, 'dist')
-        // let nn = path.resolve(__dirname, 'static/dist')
-        copyDir(on, website);
+        copyDir(path.resolve(__dirname, 'dist'), website);
+        copyDir(path.resolve(__dirname, 'static'), website);
 
     });
 }
