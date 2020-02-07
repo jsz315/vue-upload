@@ -6,7 +6,7 @@
         </div>
         <div class="btn" @click="openChoose">选择文件</div>
         <div v-show="false">
-          <input @change="chooseFile" class="file" type="file" ref="file" multiple/>
+          <input @input="chooseFile" class="file" type="file" ref="file" multiple/>
         </div>
         
     </div>
@@ -93,8 +93,10 @@ export default {
             }
         },
         chooseFile(e){
-            var files = e.target.files;
-            this.addFiles(files);
+          console.log(this.$refs.file);
+          console.log(e);
+          var files = e.target.files;
+          this.addFiles(files);
         },
         openChoose(){
           this.$refs.file.click();
@@ -108,18 +110,24 @@ export default {
                 console.log(file);
                 if(/(jpg|jpeg|gif|png)$/i.test(file.name)){
                   this.type = 1;
+                  this.$emit("type", this.type);
                 }
                 else if(/(mp3|wma)$/i.test(file.name)){
                   this.type = 2;
+                  this.$emit("type", this.type);
                 }
                 else if(/(mp4)$/i.test(file.name)){
                   this.type = 3;
+                  this.$emit("type", this.type);
                 }
-                this.media = this.getObjectURL(file);
+                this.media = yunTooler.getObjectURL(file);
+                console.log(this.media);
                 // var item = fileTooler.addItem(file);
                 // this.$store.commit('addFile', item);
                 // yunTooler.startUpload(files[i], item, this.$store.state.path);
             }
+
+            this.$refs.file.value = null;
         },
         getObjectURL(file) {
             var url = null ;
@@ -136,6 +144,14 @@ export default {
         setMedia(type, media){
           this.type = type;
           this.media = yunTooler.getTypeFile(type, media);
+        },
+        clipMedia(media){
+          console.log('clipMedia');
+          this.type = 1;
+          this.media = media;
+          let fname = Date.now() + ".png";
+          this.file = yunTooler.convertBase64UrlToImgFile(media, fname, "image/png");
+          console.log(this.file);
         }
     },
 

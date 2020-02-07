@@ -22,6 +22,7 @@ const questionRouter = require('./api/question');
 const dataRouter = require('./api/data');
 const fileRouter = require('./api/file');
 const qiniuRouter = require('./api/qiniu');
+const ttRouter = require('./api/tt');
 
 app.use(koaBody({
     multipart: true,
@@ -70,6 +71,7 @@ function init(host, port, isDev) {
   app.use(dataRouter.routes(), dataRouter.allowedMethods())
   app.use(fileRouter.routes(), fileRouter.allowedMethods())
   app.use(qiniuRouter.routes(), qiniuRouter.allowedMethods())
+  app.use(ttRouter.routes(), ttRouter.allowedMethods())
 
 	// const storage = multer.diskStorage({
 	// 	destination: function (req, file, cb) {

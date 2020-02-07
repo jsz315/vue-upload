@@ -58,7 +58,8 @@ const add = function(obj){
     // var  sql = 'INSERT INTO `qiniu`.`asset`(`path`, `type`) VALUES(?, ?)';
     var sql = 'INSERT INTO `asset`.`question`(`type`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `right`, `level`, `file`, `time`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, now())';
               
-      console.log(sql);
+    // var sql = `INSERT INTO 'asset'.'question'('type', 'question', 'answer1', 'answer2', 'answer3', 'answer4', 'right', 'level', 'file', 'time') VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, now())`;
+    console.log(sql);
     var  param = [
       obj.type,
       obj.question,
@@ -155,7 +156,9 @@ const selectTotal = function(){
 }
 
 const selectAll = function(){
-    var  sql = 'SELECT * FROM `asset`.`question` LIMIT ?,?';
+    // var  sql = 'SELECT * FROM `asset`.`question` LIMIT ?,?';
+    var  sql = `SELECT * FROM asset.question 
+    LIMIT ?,?`;
     var param = [0, 300];
     return new Promise(resolve => {
       connection.query(sql, param, (err, result) => {

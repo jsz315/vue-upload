@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <MediaView ref="mediaView"></MediaView>
+    <MediaView ref="mediaView" @type="changeType"></MediaView>
     <AlertView ref="alertView" @sure='onSure'></AlertView>
     <LoadingView ref='loadingView' :progress="progress"></LoadingView>
 
+    <div class="clip-btn" @click="clip">裁剪</div>
     <div class="type-box">
       <div class="type-tip">题目类型：</div>
       <div class="type" @click="chooseType(0)" :class="{'choose': type==0}">文字</div>
@@ -39,6 +40,8 @@ import LoadingView from '@/client/components/LoadingView/index.vue';
 import StarView from '@/client/components/StarView/index.vue';
 import yunTooler from '@/client/js/yunTooler'
 
+let obj;
+
 function isNull(str){
   return /^\s*$/.test(str);
 }
@@ -61,26 +64,48 @@ export default {
   computed:{
     
   },
+  // watch: {
+  //   $route (to, from) {
+  //     console.log('from ' + from);
+  //     console.log('to ' + to);
+  //   }
+  // },
+  beforeRouteEnter (to, from, next) {
+    console.log('from');
+    console.log(from);
+    console.log('to');
+    console.log(to);
+    next(vm => {
+      if(from.path == "/clip"){
+        console.log("vm");
+        console.log(vm);
+        if(vm.$store.state.clipFile){
+          vm.$refs.mediaView.clipMedia(vm.$store.state.clipFile);
+        }
+      }
+      else if(from.path == "/list"){
+        vm.reset();
+      }
+    });
+  },
   mounted() {
-    // axios.get(this.url, {
-    //     params: {v: Math.random()}
-    // }).then(res => {
-    //     console.log(res.data);
-    // });
-    console.log("query");
-    console.log(this.$route.query);
-    var obj = this.$route.query.item || {};
-    this.question = obj.question;
-    this.list = [obj.answer1, obj.answer2, obj.answer3, obj.answer4];
-    this.right = obj.right || 1;
-    this.level = obj.level || 1;
-    this.type = obj.type || 0;
-    this.$refs.mediaView.setMedia(obj.type, obj.file);
-    console.log(this.$route);
-    console.log(this.$route.query.type);
-    this.isAdd = this.$route.query.type == "add";
+  //  this.reset();
   },
   methods: {
+    reset(){
+      console.log("query");
+      console.log(this.$route.query);
+      obj = this.$route.query.item || {};
+      this.question = obj.question;
+      this.list = [obj.answer1, obj.answer2, obj.answer3, obj.answer4];
+      this.right = obj.right || 1;
+      this.level = obj.level || 1;
+      this.type = obj.type || 0;
+      this.$refs.mediaView.setMedia(obj.type, obj.file);
+      console.log(this.$route);
+      console.log(this.$route.query.type);
+      this.isAdd = this.$route.query.type == "add";
+    },
     jump(n){
       console.log(n);
     },
@@ -88,6 +113,14 @@ export default {
       this.$refs.alertView.show("你确定要删除改题目吗？删除操作不可恢复");
       // var obj = this.$route.query;
       // yunTooler.removeQuestion(obj.id);
+    },
+    clip(){
+      this.$router.push({
+        path: '/clip',
+        query: {
+          src: this.$refs.mediaView.media
+        },
+      });
     },
     onSure(){
       var obj = this.$route.query.item.item;
@@ -104,6 +137,10 @@ export default {
         }, 300)
       }
     },
+    changeType(n){
+      this.type = n;
+      this.$toast("类型已自动切换");
+    },
     submit(){
       let {file} = this.$refs.mediaView;
 
@@ -115,7 +152,7 @@ export default {
         return;
       }
 
-      var obj = this.$route.query.item;
+      // var obj = this.$route.query.item;
       var txts = this.$refs.txt;
 
       for(var i = 0; i < txts.length; i++){

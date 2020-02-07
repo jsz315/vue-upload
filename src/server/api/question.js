@@ -1,6 +1,6 @@
 const Router = require('koa-router')
 const router = new Router()
-const sqlTooler = require('../sqlTooler');
+const {question} = require('../sql/index');
 const {readHtml, saveHtml, readTxt, saveTxt, mkdirsSync, getDirFiles, deleteFolder, deleteFile, getStaticPath} = require('../fileTooler');
 const fs = require('fs')
 const path = require('path')
@@ -38,12 +38,12 @@ function addMedia(file, type){
 }
 
 router.get('/yun/question/size', async (ctx, next) => {
-  let res = await sqlTooler.selectTotal();
+  let res = await question.selectTotal();
   ctx.body = JSON.stringify(res);
 });
 
 router.get('/yun/question/all', async (ctx, next) => {
-  let res = await sqlTooler.selectAll();
+  let res = await question.selectAll();
   ctx.body = JSON.stringify(res);
 });
 
@@ -51,7 +51,7 @@ router.post('/yun/question/remove', async (ctx, next) => {
   let {id, type, file} = ctx.request.body;
   console.log("ctx.request.body");
   console.log(ctx.request.body);
-  let res = await sqlTooler.remove(id);
+  let res = await question.remove(id);
   let dir = getDir(type);
   if(dir){
     fs.unlinkSync(dir + "/" + file);
@@ -68,7 +68,7 @@ router.post('/yun/question/update', async (ctx, next) => {
   if(filename){
     obj.file = filename;
   }
-  let res = await sqlTooler.update(obj);
+  let res = await question.update(obj);
   ctx.body = JSON.stringify(res);
 });
 
@@ -80,7 +80,7 @@ router.post('/yun/question/add', async (ctx, next) => {
   if(filename){
     obj.file = filename;
   }
-  let res = sqlTooler.add(obj);
+  let res = question.add(obj);
   return ctx.body = res;
 })
 

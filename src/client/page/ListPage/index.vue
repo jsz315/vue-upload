@@ -25,6 +25,8 @@
       </div>
     </div>
 
+    <div class="fresh" @click="fresh"></div>
+
     <div class="footer" v-show="isEdit">
       <div class="all" @click="choose">
         <div class="check" :class="{selected: isAll}"></div>
@@ -88,6 +90,9 @@ export default {
       var M = t.getMinutes();
       // var S = t.getSeconds();
       return `${addZero(m)}-${addZero(d)} ${addZero(H)}:${addZero(M)}`;
+    },
+    fresh(){
+      this.init();
     },
     init(){
       axios.get('/yun/question/all', {

@@ -14,6 +14,43 @@ function getTypeFile(type, file){
   return str;
 }
 
+function convertBase64UrlToImgFile(urlData, fileName, fileType) {
+  // var bytes = window.atob(urlData); //转换为byte
+  // console.log(bytes);
+  // //处理异常,将ascii码小于0的转换为大于0
+  // var ab = new ArrayBuffer(bytes.length);
+  // var ia = new Int8Array(ab);
+  // var i;
+  // for (i = 0; i < bytes.length; i++) {
+  //     ia[i] = bytes.charCodeAt(i);
+  // }
+  // //转换成文件，添加文件的type，name，lastModifiedDate属性
+  // var blob = new Blob([ab], {type:fileType});
+  // blob.lastModifiedDate = new Date();
+  // blob.name = fileName;
+  // return blob;
+
+  var arr = urlData.split(','), mime = arr[0].match(/:(.*?);/)[1],
+  bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  while(n--){
+      u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], fileName, {type:mime});
+}
+
+function getObjectURL(file) {
+  var url = null ;
+  if (window.createObjectURL != undefined) { // basic
+      url = window.createObjectURL(file) ;
+  } else if (window.URL != undefined) { // mozilla(firefox)
+      url = window.URL.createObjectURL(file) ;
+  } else if (window.webkitURL != undefined) { // webkit or chrome
+      url = window.webkitURL.createObjectURL(file) ;
+  }
+  console.log(url);
+  return url ;
+}
+
 function getFolder(path, fullPath){
     var p = path.replace(/\/$/, "");
     var list = fullPath.split("/");
@@ -25,7 +62,7 @@ function updateQuestion(file, obj, onProgress){
   let data = new FormData();
   if(file){
     data.append('fileName', file.name);
-    data.append('file', file);
+    data.append('file', file, file.name);
   }
   
   for(var i in obj){
@@ -143,5 +180,7 @@ export default {
     updateQuestion,
     removeQuestion,
     deleteFolder,
-    deleteFile
+    deleteFile,
+    convertBase64UrlToImgFile,
+    getObjectURL
 }

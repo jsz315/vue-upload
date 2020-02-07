@@ -11,10 +11,14 @@ const state = {
     token: "",
     copyDir: "",
     copyFiles: [],
-    isCut: false
+    isCut: false,
+    clipFile: null
 }
 
 const mutations = {
+  changeClipFile(state, clipFile){
+    state.clipFile = clipFile;
+  },
     changeIsEdit(state, isEdit) {
         state.isEdit = isEdit;
     },
