@@ -47,6 +47,21 @@ router.get('/yun/question/all', async (ctx, next) => {
   ctx.body = JSON.stringify(res);
 });
 
+router.get('/yun/question/level', async (ctx, next) => {
+  let {level} = ctx.request.query;
+  console.log('/yun/question/level')
+  console.log(ctx.request.query)
+  let res = await question.selectLevel(level);
+  ctx.body = JSON.stringify(res);
+});
+
+router.get('/yun/question/type', async (ctx, next) => {
+  let {type} = ctx.request.body;
+  let res = await question.selectType(type);
+  ctx.body = JSON.stringify(res);
+});
+
+
 router.post('/yun/question/remove', async (ctx, next) => {
   let {id, type, file} = ctx.request.body;
   console.log("ctx.request.body");

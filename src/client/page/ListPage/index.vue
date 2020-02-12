@@ -5,6 +5,14 @@
       题库
       <div class="add" @click='add'>添加</div>
     </div>
+    <div class="find">
+      <div class='right-box' @click="togglerLevel()">
+        <div class='right' :class="{'choose': selectLevel}"></div>
+      </div>
+      等级：
+      <StarView :level="level" @change="chooseLevel"></StarView>
+      总数：{{list.length}}
+    </div>
     <div class='list'>
       <div class="item" v-for="(item, index) in list" @click='jump(index)'>
         <div class="check" :class="{selected: item.selected}" v-show="isEdit"></div>
@@ -12,16 +20,10 @@
           <div class="word">{{index + 1}}. {{item.question}}</div>
           <div class="state">
             <span>难度：{{item.level}}</span>
-            <span>{{getTime(item.time)}}</span>
-            
-            <!-- <StarView :level="item.level"></StarView> -->
+            <span>{{getRight(item)}}</span>
           </div>
         </div>
         <div class="img" :class="{ico:item.type != 1}" :style="{'backgroundImage': 'url(' + getImage(item.type, item.file) + ')'}"></div>
-
-        <!-- <img v-if="type==1" class="media" :src="media"/>
-        <audio v-if="type==2" class="media" controls :src="media"></audio>
-        <video v-if="type==3" class="media" controls :src="media"></video> -->
       </div>
     </div>
 
@@ -55,7 +57,9 @@ export default {
         return {
             list: [],
             isEdit: false,
-            isAll: false
+            isAll: false,
+            level: 1,
+            selectLevel: false
         };
   },
   components: {
@@ -68,6 +72,14 @@ export default {
     this.init();
   },
   methods: {
+    togglerLevel(){
+      this.selectLevel = !this.selectLevel;
+      this.init();
+    },
+    chooseLevel(n){
+      this.level = n;
+      this.init();
+    },
     getImage(type, file){
       if(type == 1){
         return yunTooler.getTypeFile(type, file);
@@ -91,20 +103,30 @@ export default {
       // var S = t.getSeconds();
       return `${addZero(m)}-${addZero(d)} ${addZero(H)}:${addZero(M)}`;
     },
+    getRight(item){
+      return item['answer' + item.right];
+    },
     fresh(){
       this.init();
     },
-    init(){
-      axios.get('/yun/question/all', {
-          params: {v: Math.random()}
-      }).then(res => {
-          console.log(res.data);
-          let list = res.data;
-          list.forEach(item => {
-            item.selected = false;
-          });
-          this.list = list;
+    async init(){
+      let res;
+      if(!this.selectLevel){
+        res = await axios.get('/yun/question/all', {
+            params: {v: Math.random()}
+        })
+      }
+      else{
+        res = await axios.get('/yun/question/level', {
+            params: {level: this.level}
+        })
+      }
+      console.log(res.data);
+      let list = res.data;
+      list.forEach(item => {
+        item.selected = false;
       });
+      this.list = list;
     },
     jump(n){
       console.log(n);
@@ -148,7 +170,7 @@ export default {
       this.isEdit = false;
       setTimeout(() => {
         this.init();
-      }, 300);
+      }, 90);
     }
     
   },

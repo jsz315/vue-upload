@@ -5,6 +5,7 @@
         <div class="btn" :class="{'isEdit': isEdit}" @click="toggleEdit"><i class="el-icon-s-operation tip-ico"></i> 操作</div>
         <div class="btn" @click="editPage"><i class="el-icon-s-operation tip-ico"></i> 编辑</div>
         <div class="btn" @click="listPage"><i class="el-icon-s-operation tip-ico"></i> 题库</div>
+        <div class="btn" @click="rankPage"><i class="el-icon-s-operation tip-ico"></i> 榜单</div>
     </div>
     <div class="right">
         <UploadItem ref="UploadItem" />
@@ -90,6 +91,9 @@ export default {
     },
     listPage(){
       this.$router.push('/list')
+    },
+    rankPage(){
+      this.$router.push('/rank')
     }
   },
 

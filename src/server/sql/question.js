@@ -58,7 +58,7 @@ const add = function(obj){
 }
 
 const remove = function(id){
-  var sql = 'DELETE FROM `asset`.`question` WHERE id=?';
+  var sql = 'DELETE FROM `asset`.`question` WHERE `id` = ?';
   var param = [id];
   return new Promise(resolve => {
     connection.query(sql, param, (err, result) => {
@@ -99,7 +99,7 @@ const update = function(obj){
 }
 
 const selectOne = function(id){
-  var  sql = 'SELECT * FROM `asset`.`question` WHERE id = ?';
+  var  sql = 'SELECT * FROM `asset`.`question` WHERE `id` = ?';
     var param = [id];
     return new Promise(resolve => {
       connection.query(sql, param, (err, result) => {
@@ -114,7 +114,7 @@ const selectOne = function(id){
 }
 
 const selectTotal = function(){
-  sql = 'SELECT COUNT(id) AS total FROM `asset`.`question`';
+  sql = 'SELECT COUNT(`id`) AS total FROM `asset`.`question`';
   return new Promise(resolve => {
     connection.query(sql, (err, result) => {
       if(err){
@@ -143,6 +143,36 @@ const selectAll = function(){
     });
 }
 
+const selectLevel = function(level){
+  var  sql = 'SELECT * FROM `asset`.`question` WHERE `level` = ? LIMIT ?,?';
+    var param = [level, 0, 300];
+    return new Promise(resolve => {
+      connection.query(sql, param, (err, result) => {
+          if(err){
+              console.log(err.message);
+              return;
+          }
+          // console.log('INSERT ID: ', result);     
+          resolve(result);
+      });
+    });
+}
+
+const selectType = function(type){
+  var  sql = 'SELECT * FROM `asset`.`question` WHERE `type` = ? LIMIT ?,?';
+    var param = [level, 0, 300];
+    return new Promise(resolve => {
+      connection.query(sql, param, (err, result) => {
+          if(err){
+              console.log(err.message);
+              return;
+          }
+          // console.log('INSERT ID: ', result);     
+          resolve(result);
+      });
+    });
+}
+
 const init = function(c){
   connection = c;
 }
@@ -154,6 +184,8 @@ module.exports = {
     selectAll,
     selectOne,
     selectTotal,
+    selectLevel,
+    selectType,
     update,
     remove,
     init
