@@ -2,6 +2,7 @@ const fs = require("fs")
 const path = require("path")
 const htmlLink = path.resolve(__dirname, '../../static/html/index.html');
 const txtLink = path.resolve(__dirname, '../../static/data/temp.txt');
+const jsonLink = path.resolve(__dirname, '../../static/data/json.txt');
 
 const global = require('../../global');
 
@@ -35,6 +36,14 @@ function saveTxt(str){
 
 function readTxt(){
     return read(txtLink);
+}
+
+function saveJson(str){
+  save(str, jsonLink);
+}
+
+function readJson(){
+  return read(jsonLink);
 }
 
 function mkdirsSync(dirname) {
@@ -116,5 +125,7 @@ module.exports = {
     getDirFiles,
     deleteFolder,
     deleteFile,
-    getStaticPath
+    getStaticPath,
+    saveJson,
+    readJson
 }

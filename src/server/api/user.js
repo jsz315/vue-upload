@@ -9,9 +9,31 @@ router.get('/yun/user/size', async (ctx, next) => {
 });
 
 router.get('/yun/user/info', async (ctx, next) => {
-  let obj = {...ctx.request.body};
-  let res = await user.selectOne(obj.openid);
+  let {openid} = ctx.request.query;
+  let res = await user.selectOne(openid);
   ctx.body = JSON.stringify(res);
+});
+
+router.post('/yun/user/remove', async (ctx, next) => {
+  let obj = {...ctx.request.body};
+  if(obj.password == 'jsz315'){
+    let res = await user.remove(obj.openid);
+    ctx.body = JSON.stringify(res);
+  }
+  else{
+    ctx.body = '删除失败';
+  }
+});
+
+router.post('/yun/user/removeAll', async (ctx, next) => {
+  let obj = {...ctx.request.body};
+  if(obj.password == 'jsz315'){
+    let res = await user.removeAll();
+    ctx.body = JSON.stringify(res);
+  }
+  else{
+    ctx.body = '删除失败';
+  }
 });
 
 router.post('/yun/user/add', async (ctx, next) => {

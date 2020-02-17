@@ -205,12 +205,20 @@ export default {
       context.clearRect(left, top, imgWidth - left - right, imgHeight - top - bottom);
 
       let canvas = document.createElement('canvas');
-      canvas.width = w;
-      canvas.height = h;
+      let scale = 750 / w;
+      let cw = w * scale;
+      let ch = h * scale;
+
+      canvas.width = cw;
+      canvas.height = ch;
+
+      console.log("原始：" + w + " X " + h);
+      console.log("裁剪：" + cw + " X " + ch);
+
       let ctx = canvas.getContext('2d');
-      ctx.drawImage(this.$refs.img, left, top, w, h, 0, 0, w, h);
+      ctx.drawImage(this.$refs.img, left, top, w, h, 0, 0, cw, ch);
       // this.src = canvas.toDataURL("image/png");
-      let urlData = canvas.toDataURL("image/png");
+      let urlData = canvas.toDataURL("image/jpeg", 0.8);
       // let fname = Date.now() + ".png";
       // let file = yunTooler.convertBase64UrlToImgFile(urlData, fname, "image/png");
       // console.log(file);

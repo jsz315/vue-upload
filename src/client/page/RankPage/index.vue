@@ -1,6 +1,23 @@
 <template>
   <div class="container">
-    rank
+    <input ref="password" class="txt"/>
+    <div class="btn all" @click='deleteRanks'>删除数据</div>
+    <input ref="openid" class="txt"/>
+    <div class="btn" @click='deleteUser'>删除用户</div>
+
+    <div class="navs">
+      <div class="nav" :class="{choose: type == 0}" @click="choose(0)">微信</div>
+      <div class="nav" :class="{choose: type == 1}" @click="choose(1)">抖音</div>
+    </div>
+    <div class="share">
+      <div class="label">标题</div>
+      <textarea class="word" ref="title"></textarea>
+      <div class="label" >描述</div>
+      <textarea class="word" ref="desc"></textarea>
+      <div class="label">图片地址</div>
+      <textarea class="word" ref="imageUrl"></textarea>
+    </div>
+    <div class="btn" @click='setShare'>设置分享</div>
   </div>
 </template>
 
@@ -9,11 +26,19 @@ import axios from 'axios';
 import yunTooler from '@/client/js/yunTooler'
 import StarView from '@/client/components/StarView/index.vue';
 
+let shareData = {
+              weapp: {
+
+              },
+              tt: {
+
+              }
+            }
 
 export default {
   data() {
         return {
-           
+           type: 0
         };
   },
   components: {
@@ -26,14 +51,76 @@ export default {
     this.init();
   },
   methods: {
-    init(){
-      axios.post('/yun/user/ranks', {
-          v: Math.random()
+    choose(n){
+      this.type = n;
+      this.showShare();
+    },
+    setShare(){
+      let param = {
+        title: this.$refs.title.value,
+        desc: this.$refs.desc.value,
+        imageUrl: this.$refs.imageUrl.value,
+      }
+      console.log(param);
+      if(this.type == 0){
+        shareData['weapp'] = param;
+      }
+      else if(this.type == 1){
+        shareData['tt'] = param;
+      }
+      axios.post('/yun/data/share', {
+        content: JSON.stringify(shareData)
+      }).then(res => {
+        console.log(res.data);
+      });
+    },
+    deleteRanks(){
+      axios.post('/yun/user/removeAll', {
+          password: this.$refs.password.value
       }).then(res => {
           console.log(res.data);
       });
-    
-      axios.post('/yun/user/myRank', {
+    },
+    deleteUser(){
+      axios.post('/yun/user/remove', {
+          password: this.$refs.password.value,
+          openid: this.$refs.openid.value
+      }).then(res => {
+          console.log(res.data);
+      });
+    },
+    showShare(){
+      let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
+      this.$refs.title.value = obj.title;
+      this.$refs.desc.value = obj.desc;
+      this.$refs.imageUrl.value = obj.imageUrl;
+    },
+    init(){
+      axios.get('/yun/data/share', {
+        params: {
+          v: Math.random()
+        }
+      }).then(res => {
+          console.log(res.data);
+          if(res.data && res.data.weapp){
+            shareData = res.data;
+            let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
+            this.$refs.title.value = obj.title;
+            this.$refs.desc.value = obj.desc;
+            this.$refs.imageUrl.value = obj.imageUrl;
+          }
+          this.showShare();
+      });
+
+      axios.get('/yun/mini/share', {
+        params: {
+          v: Math.random()
+        }
+      }).then(res => {
+          console.log(res.data);
+      });
+
+      axios.post('/yun/user/ranks', {
           openid: "jgjhkjjlkl"
       }).then(res => {
           console.log(res.data);
@@ -44,6 +131,7 @@ export default {
             console.log('no your rank');
           }
       });
+      
       axios.post('/yun/user/myRank', {
           openid: "jgjhkjjkl"
       }).then(res => {

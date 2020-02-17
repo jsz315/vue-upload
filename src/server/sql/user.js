@@ -6,7 +6,7 @@ const test = async function(){
 
 const add = function(obj){
   
-  var sql = "INSERT INTO `asset`.`user` (`openid`, `avatarUrl`, `nickName`, `gender`, `city`, `province`) VALUES (?, ?, ?, ?, ?, ?);";
+  var sql = "INSERT INTO `asset`.`user` (`openid`, `avatarUrl`, `nickName`, `gender`, `city`, `province`, `platform`) VALUES (?, ?, ?, ?, ?, ?, ?);";
   // var sql = 'INSERT INTO asset`.`question`(`type`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `right`, `level`, `file`, `time`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, now())';
               
       console.log(sql);
@@ -16,7 +16,8 @@ const add = function(obj){
       obj.nickName,
       obj.gender,
       obj.city,
-      obj.province
+      obj.province,
+      obj.platform
     ]
     return new Promise(resolve => {
         connection.query(sql, param, (err, result) => {
@@ -26,16 +27,30 @@ const add = function(obj){
                 return;
             }
             console.log('INSERT ID: ', result); 
-            resolve(true);    
+            resolve(result);    
         });
     });
 }
 
-const remove = function(id){
-  var sql = 'DELETE FROM `asset`.`user` WHERE `id` = ?';
-  var param = [id];
+const remove = function(openid){
+  var sql = 'DELETE FROM `asset`.`user` WHERE `openid` = ?';
+  var param = [openid];
   return new Promise(resolve => {
     connection.query(sql, param, (err, result) => {
+        if(err){
+            console.log(err.message);
+            return;
+        }
+        console.log('INSERT ID: ', result);     
+        resolve(true);
+    });
+  });
+}
+
+const removeAll = function(id){
+  var sql = 'TRUNCATE TABLE `asset`.`user`';
+  return new Promise(resolve => {
+    connection.query(sql, (err, result) => {
         if(err){
             console.log(err.message);
             return;
@@ -85,13 +100,14 @@ const updateInfo = function(obj){
             return;
         }
         console.log('INSERT ID: ', result);     
-        resolve(true);
+        resolve(result);
     });
   });
 }
 
 const selectOne = function(id){
   var  sql = 'SELECT * FROM `asset`.`user` WHERE `openid` = ?';
+  console.log(sql);
     var param = [id];
     return new Promise(resolve => {
       connection.query(sql, param, (err, result) => {
@@ -181,5 +197,6 @@ module.exports = {
     remove,
     ranks,
     myRank,
-    init
+    init,
+    removeAll
 }
