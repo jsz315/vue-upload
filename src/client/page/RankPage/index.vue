@@ -6,8 +6,7 @@
     <div class="btn" @click='deleteUser'>删除用户</div>
 
     <div class="navs">
-      <div class="nav" :class="{choose: type == 0}" @click="choose(0)">微信</div>
-      <div class="nav" :class="{choose: type == 1}" @click="choose(1)">抖音</div>
+      <div class="nav" v-for="(item, index) in types" :class="{choose: type == index}" @click="choose(index)">{{names[index]}}</div>
     </div>
     <div class="share">
       <div class="label">标题</div>
@@ -32,13 +31,18 @@ let shareData = {
               },
               tt: {
 
+              },
+              qq: {
+
               }
             }
 
 export default {
   data() {
         return {
-           type: 0
+          type: 0,
+          types: ['weapp', 'tt', 'qq'],
+          names: ['微信', '抖音', 'QQ']
         };
   },
   components: {
@@ -62,12 +66,9 @@ export default {
         imageUrl: this.$refs.imageUrl.value,
       }
       console.log(param);
-      if(this.type == 0){
-        shareData['weapp'] = param;
-      }
-      else if(this.type == 1){
-        shareData['tt'] = param;
-      }
+      let type = this.types[this.type];
+      shareData[type] = param;
+
       axios.post('/yun/data/share', {
         content: JSON.stringify(shareData)
       }).then(res => {
@@ -90,7 +91,8 @@ export default {
       });
     },
     showShare(){
-      let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
+      let type = this.types[this.type];
+      let obj = shareData[type];
       this.$refs.title.value = obj.title;
       this.$refs.desc.value = obj.desc;
       this.$refs.imageUrl.value = obj.imageUrl;
@@ -104,10 +106,10 @@ export default {
           console.log(res.data);
           if(res.data && res.data.weapp){
             shareData = res.data;
-            let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
-            this.$refs.title.value = obj.title;
-            this.$refs.desc.value = obj.desc;
-            this.$refs.imageUrl.value = obj.imageUrl;
+            // let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
+            // this.$refs.title.value = obj.title;
+            // this.$refs.desc.value = obj.desc;
+            // this.$refs.imageUrl.value = obj.imageUrl;
           }
           this.showShare();
       });
