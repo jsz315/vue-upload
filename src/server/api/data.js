@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 const router = new Router()
 const sqlTooler = require('../sqlTooler');
-const {readHtml, saveHtml, readTxt, saveTxt, readJson, saveJson} = require('../fileTooler');
+const {readHtml, saveHtml, readTxt, saveTxt, readShare, saveShare, readFilter, saveFilter} = require('../fileTooler');
 const fs = require('fs')
 const core = require('../comm/core')
 
@@ -29,19 +29,36 @@ router.post("/txt", async (ctx, next) => {
 })	
 
 router.get("/yun/data/share", async (ctx, next) => {
-  let html = readJson();
+  let html = readShare();
   ctx.body = html;
 })	
 
 router.post("/yun/data/share", async (ctx, next) => {
   let params = ctx.request.body;
-  saveJson(params.content);
+  saveShare(params.content);
   core.shareData = params.content;
+  ctx.body = "success";
+})	
+
+router.get("/yun/data/filter", async (ctx, next) => {
+  let html = readFilter();
+  ctx.body = html;
+})	
+
+router.post("/yun/data/filter", async (ctx, next) => {
+  let params = ctx.request.body;
+  saveFilter(params.content);
+  core.filterData = params.content;
   ctx.body = "success";
 })	
 
 router.get("/yun/mini/share", async (ctx, next) => {
   let html = core.shareData;
+  ctx.body = html;
+})	
+
+router.get("/yun/mini/filter", async (ctx, next) => {
+  let html = core.filterData;
   ctx.body = html;
 })	
 

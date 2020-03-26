@@ -16,7 +16,14 @@
       <div class="label">图片地址</div>
       <textarea class="word" ref="imageUrl"></textarea>
     </div>
-    <div class="btn" @click='setShare'>设置分享</div>
+    <div class="filter">
+      <div class='check-box' @click="togglerFilter()">
+        <div class='check' :class="{'choose': selectFilter}"></div>
+      </div>
+      过滤音频
+    </div>
+    
+    <div class="btn" @click='saveData'>保持设置</div>
   </div>
 </template>
 
@@ -26,23 +33,29 @@ import yunTooler from '@/client/js/yunTooler'
 import StarView from '@/client/components/StarView/index.vue';
 
 let shareData = {
-              weapp: {
+    weapp: {
 
-              },
-              tt: {
+    },
+    tt: {
 
-              },
-              qq: {
+    },
+    qq: {
 
-              }
-            }
+    }
+  }
+let filterData = {
+  weapp: false,
+  tt: false,
+  qq: false
+}
 
 export default {
   data() {
         return {
           type: 0,
           types: ['weapp', 'tt', 'qq'],
-          names: ['微信', '抖音', 'QQ']
+          names: ['微信', '抖音', 'QQ'],
+          selectFilter: false
         };
   },
   components: {
@@ -58,8 +71,12 @@ export default {
     choose(n){
       this.type = n;
       this.showShare();
+      this.showFilter();
     },
-    setShare(){
+    togglerFilter(){
+      this.selectFilter = !this.selectFilter;
+    },
+    saveData(){
       let param = {
         title: this.$refs.title.value,
         desc: this.$refs.desc.value,
@@ -71,6 +88,16 @@ export default {
 
       axios.post('/yun/data/share', {
         content: JSON.stringify(shareData)
+      }).then(res => {
+        console.log(res.data);
+      });
+
+      filterData[type] = this.selectFilter;
+      console.log("修改");
+      console.log(filterData);
+
+      axios.post('/yun/data/filter', {
+        content: JSON.stringify(filterData)
       }).then(res => {
         console.log(res.data);
       });
@@ -97,6 +124,12 @@ export default {
       this.$refs.desc.value = obj.desc;
       this.$refs.imageUrl.value = obj.imageUrl;
     },
+    showFilter(){
+      let type = this.types[this.type];
+      this.selectFilter = filterData[type];
+      console.log('showFilter ' + this.type + ' == ' + type)
+      console.log(filterData)
+    },
     init(){
       axios.get('/yun/data/share', {
         params: {
@@ -106,15 +139,32 @@ export default {
           console.log(res.data);
           if(res.data && res.data.weapp){
             shareData = res.data;
-            // let obj = this.type == 0 ? shareData['weapp'] : shareData['tt']
-            // this.$refs.title.value = obj.title;
-            // this.$refs.desc.value = obj.desc;
-            // this.$refs.imageUrl.value = obj.imageUrl;
           }
           this.showShare();
       });
 
       axios.get('/yun/mini/share', {
+        params: {
+          v: Math.random()
+        }
+      }).then(res => {
+          console.log(res.data);
+      });
+
+      axios.get('/yun/data/filter', {
+        params: {
+          v: Math.random()
+        }
+      }).then(res => {
+          console.log(res.data);
+          if(res.data){
+            console.log("修改filter data");
+            filterData = res.data;
+          }
+          this.showFilter();
+      });
+
+      axios.get('/yun/mini/filter', {
         params: {
           v: Math.random()
         }

@@ -1,7 +1,8 @@
-const {readHtml, saveHtml, readTxt, saveTxt, readJson, saveJson} = require('../fileTooler');
+const {readHtml, saveHtml, readTxt, saveTxt, readShare, readFilter} = require('../fileTooler');
 
 const core = {
-  shareData: readJson()
+  shareData: readShare(),
+  filterData: readFilter()
 }
 
 module.exports = core
