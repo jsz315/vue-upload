@@ -25,6 +25,40 @@ const qiniuRouter = require('./api/qiniu');
 const miniRouter = require('./api/mini');
 const userRouter = require('./api/user')
 
+// const server = require('http').createServer(app.callback())
+const io = require('socket.io').listen(app);
+
+io.origins((origin, callback) => {
+  // if (origin !== 'https://foo.example.com') {
+  //   return callback('origin not allowed', false);
+  // }
+  callback(null, true);
+});
+
+io.on('connection', socket=>{
+  console.log("a client connection")
+
+  socket.on('msg', msg=>{
+      console.log(msg);
+      io.emit('msg', socket.nickName + ': ' + msg);
+      // socket.emit('serve', 'to you ' + msg);
+  });
+
+  socket.on('login', name=>{
+      socket.nickName = name;
+      io.emit('msg', socket.nickName + '进入房间');
+  })
+
+  socket.on('disconnect', ()=>{
+      console.log('connect disconnect');
+  });
+
+  // 与客户端对应的接收指定的消息
+  socket.on('client message', (data)=>{
+      console.log(data);// hi server
+  });
+})
+
 app.use(koaBody({
     multipart: true,
     formidable: {
@@ -57,13 +91,18 @@ function init(host, port, isDev) {
         ))
     }
 
-	// app.use(cors({
-	// 	origin: function (ctx) {
-	// 		return "*";
-	// 	},
-	// 	exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
-	// 	maxAge: 5
-    // }))
+
+
+	app.use(cors({
+		origin: function (ctx) {
+			return "*";
+		},
+		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+    }))
     
     app.use(bodyparser());
 
